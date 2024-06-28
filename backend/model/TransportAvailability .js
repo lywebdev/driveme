@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 const TransportAvailabilitySchema = new Schema ({
 
     //TODO create TransportSchema to be referenced
-    transport_id: {
+    transportId: {
         type: Number
     },
 
