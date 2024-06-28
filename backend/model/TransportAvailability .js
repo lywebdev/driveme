@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const TransportAvailabilitySchema = new Schema({
-  //TODO create TransportSchema to be referenced
+// TODO create TransportSchema to be referenced
   transportId: {
     type: Number,
   },
@@ -11,7 +11,7 @@ const TransportAvailabilitySchema = new Schema({
     type: Date,
     required: true,
   },
-  //TODO create slotsSchema to be referenced
+// TODO create slotsSchema to be referenced
   slots: [
     {
       start: { type: Number, required: true },
