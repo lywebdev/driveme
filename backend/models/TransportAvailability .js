@@ -1,17 +1,17 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
 
 const TransportAvailabilitySchema = new Schema({
-// TODO create TransportSchema to be referenced
+  // TODO create TransportSchema to be referenced
   transportId: {
     type: Number,
   },
-
   date: {
     type: Date,
     required: true,
   },
-// TODO create slotsSchema to be referenced
+  // TODO create slotsSchema to be referenced
   slots: [
     {
       start: { type: Number, required: true },
@@ -25,4 +25,5 @@ const TransportAvailability = mongoose.model(
   "TransportAvailability",
   TransportAvailabilitySchema
 );
-module.exports = TransportAvailability;
+
+export default TransportAvailability;

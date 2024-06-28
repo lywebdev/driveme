@@ -1,13 +1,14 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const dotenv = require("dotenv");
-const morgan = require("morgan");
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
+import morgan from "morgan";
 
-require("dotenv").config();
+dotenv.config();
 
-require("./config/db/mongoose.js");
-const app = express()
+import "./config/db/mongoose.js";
+
+const app = express();
 
 app.use(morgan("dev"));
 
-app.listen(3000, () => console.log("Server is running on port 3000"))
+app.listen(3000, () => console.log("Server is running on port 3000"));
