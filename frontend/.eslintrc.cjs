@@ -9,8 +9,9 @@ module.exports = {
   ],
   ignorePatterns: ['dist', '.eslintrc.cjs'],
   parserOptions: { ecmaVersion: 'latest', sourceType: 'module' },
-  settings: { react: { version: '18.2' } },
+  settings: { react: { version: 'detect' } },
   plugins: [
+      'react',
       'react-refresh',
   ],
   rules: {
@@ -22,5 +23,7 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'indent': ['error', 2],
+    'semi': ['error', 'always'],
   },
 }
