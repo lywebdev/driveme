@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import eslintPlugin from 'vite-plugin-eslint';
+import legacy from '@vitejs/plugin-legacy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -10,6 +11,9 @@ export default defineConfig({
       cache: false,
       include: ['src/**/*.js', 'src/**/*.jsx'],
       exclude: ['node_modules', '.git', 'dist'],
+    }),
+    legacy({
+      targets: ['defaults', 'not IE 11'],
     }),
   ],
 });

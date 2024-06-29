@@ -1,8 +1,10 @@
-import './App.scss';
+import './../sass/main.scss';
 
 function App() {
   return (
-    <div id="app">DriveMe Application</div>
+    <div id="app">
+      <h1>DriveMe Application</h1>
+    </div>
   );
 }
 
