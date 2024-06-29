@@ -1,0 +1,13 @@
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+
+
+
+#app {
+  font-family: $ff-os;
+}
+
+h1 {
+  font-size: $fs-page-title;
+}
