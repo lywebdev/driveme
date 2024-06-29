@@ -1,10 +1,12 @@
-import mongoose from "mongoose"
-import dotenv from "dotenv"
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 
 const dbURI = process.env.MONGODB_URI;
 mongoose
   .connect(dbURI)
-  .then(() => {console.log("DB is connected")})
-  .catch(err => console.log(err))
+  .then(() => {
+    console.log("DB is connected");
+  })
+  .catch((err) => console.log(err));
