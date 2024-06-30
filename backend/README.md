@@ -12,7 +12,7 @@ The `TransportTypeSchema` defines the structure for transport types in the datab
 
 The `TransportAvailabilitySchema` defines the structure for transport availability in the database. This schema includes the following fields:
 
-- **transportId**: A reference to the transport type. This field is a number.
+- **transportId**: A reference to the transport type.
 - **date**: The date for which the availability is being recorded. This field is a date and is required.
 - **slots**: An array of time slots, each containing:
 
