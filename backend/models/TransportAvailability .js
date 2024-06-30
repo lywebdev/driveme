@@ -14,9 +14,9 @@ const TransportAvailabilitySchema = new Schema({
   // TODO create slotsSchema to be referenced
   slots: [
     {
-      start: { type: Number, required: true },
-      end: { type: Number, required: true },
-      available: { type: Boolean, required: true },
+      type: Schema.Types.ObjectId,
+      ref: "Slot",
+      required: true,
     },
   ],
 });
