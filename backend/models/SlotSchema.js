@@ -17,17 +17,16 @@ const SlotSchema = new Schema({
   },
 });
 
-
-SlotSchema.pre("save", function(next) {
-    if(this.start >= this.end) {
-        next(new Error("Start time must be before end time"));
-    } else if(this.end - this.start < 60) {
-        next(new Error("Slot must be at least one hour long"));
-    } else {
-        next()
-    }
-})
+SlotSchema.pre("save", function (next) {
+  if (this.start >= this.end) {
+    next(new Error("Start time must be before end time"));
+  } else if (this.end - this.start < 60) {
+    next(new Error("Slot must be at least one hour long"));
+  } else {
+    next();
+  }
+});
 
 const Slot = mongoose.model("Slot", SlotSchema);
 
-export default Slot
+export default Slot;
