@@ -32,3 +32,17 @@ The `TransportSchema` defines the structure for transport details in the databas
 - **description**: A description of the transport. This field is a string and is trimmed.
 - **hasDelivery**: A boolean indicating whether the transport has delivery options.
 - **photos**: An array of strings representing URLs of photos of the transport.
+
+## SlotSchema
+
+The `SlotSchema` defines the structure for time slots in the database. This schema includes the following fields:
+
+- **start**: The start time of the slot.
+- **end**: The end time of the slot.
+- **available**: A boolean indicating whether the slot is available.
+
+### Validation
+
+The schema includes a pre-save hook to ensure the following validations:
+- The start time must be before the end time.
+- The slot must be at least one hour long.
