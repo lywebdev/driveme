@@ -1,5 +1,6 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+import mongoose from "mongoose";
+
+const { Schema } = mongoose;
 
 const TransportTypeSchema = new Schema({
   id: {
@@ -7,7 +8,6 @@ const TransportTypeSchema = new Schema({
     required: true,
     unique: true,
   },
-
   name: {
     type: String,
     required: true,
@@ -19,4 +19,5 @@ const TransportTypeSchema = new Schema({
 });
 
 const TransportType = mongoose.model("TransportType", TransportTypeSchema);
-module.exports = TransportType;
+
+export default TransportType;
