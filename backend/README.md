@@ -14,11 +14,7 @@ The `TransportAvailabilitySchema` defines the structure for transport availabili
 
 - **transportId**: A reference to the transport type. This field is a number.
 - **date**: The date for which the availability is being recorded. This field is a date and is required.
-- **slots**: An array of time slots, each containing:
-
-  - **start**: The start time of the slot. This field is a number and is required.
-  - **end**: The end time of the slot. This field is a number and is required.
-  - **available**: A boolean indicating whether the slot is available. This field is required.
+- **slots**: An array of time slots, referencing SlotSchema.
 
   ## TransportSchema
 
