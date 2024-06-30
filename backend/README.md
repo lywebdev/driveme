@@ -12,13 +12,9 @@ The `TransportTypeSchema` defines the structure for transport types in the datab
 
 The `TransportAvailabilitySchema` defines the structure for transport availability in the database. This schema includes the following fields:
 
-- **transportId**: A reference to the transport type.
+- **transportId**: A reference to the transport type. This field is a number.
 - **date**: The date for which the availability is being recorded. This field is a date and is required.
-- **slots**: An array of time slots, each containing:
-
-  - **start**: The start time of the slot. This field is a number and is required.
-  - **end**: The end time of the slot. This field is a number and is required.
-  - **available**: A boolean indicating whether the slot is available. This field is required.
+- **slots**: An array of time slots, referencing SlotSchema.
 
   ## TransportSchema
 
@@ -32,3 +28,17 @@ The `TransportSchema` defines the structure for transport details in the databas
 - **description**: A description of the transport. This field is a string and is trimmed.
 - **hasDelivery**: A boolean indicating whether the transport has delivery options.
 - **photos**: An array of strings representing URLs of photos of the transport.
+
+## SlotSchema
+
+The `SlotSchema` defines the structure for time slots in the database. This schema includes the following fields:
+
+- **start**: The start time of the slot.
+- **end**: The end time of the slot.
+- **available**: A boolean indicating whether the slot is available.
+
+### Validation
+
+The schema includes a pre-save hook to ensure the following validations:
+- The start time must be before the end time.
+- The slot must be at least one hour long.
