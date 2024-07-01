@@ -40,6 +40,7 @@ The `SlotSchema` defines the structure for time slots in the database. This sche
 ### Validation
 
 The schema includes a pre-save hook to ensure the following validations:
+
 - The start time must be before the end time.
 - The slot must be at least one hour long.
 
