@@ -62,3 +62,12 @@ The schema includes a pre-save hook to ensure the following validations:
 ### Existing roles
 - `user` - a regular user
 - `admin` - has the ability to manage content
+## TransportLocationDataSchema
+
+The `TransportLocationDataSchema` defines the structure for transport location data in the database. This schema includes the following fields:
+
+- **address**: The address of the transport location.
+- **city**: The city of the transport location.
+- **postalCode**: The postal code of the transport location.
+- **transport**: A reference to the transport associated with this location.
+
