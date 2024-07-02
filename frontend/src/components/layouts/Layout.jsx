@@ -5,7 +5,9 @@ import {Outlet} from "react-router-dom";
 const Layout = () => (
     <>
         <Header />
-        <Outlet />
+        <div id="body">
+            <Outlet />
+        </div>
         <Footer />
     </>
 );
