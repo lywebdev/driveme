@@ -42,3 +42,22 @@ The `SlotSchema` defines the structure for time slots in the database. This sche
 The schema includes a pre-save hook to ensure the following validations:
 - The start time must be before the end time.
 - The slot must be at least one hour long.
+
+## UserSchema
+
+The `UserSchema` defines the structure for user details in the database. This schema includes the following fields:
+
+- **name**: The name of the user.
+- **email**: The email address of the user.
+- **password**: The password for the user's account.
+- **role**: The role of the user within the system.
+- **createdAt**: The date and time when the user was created.
+
+### Validation
+
+The schema includes a pre-save hook to ensure the following validations:
+- Email is checked using a regular expression (string length, presence of @, absence of spaces are checked)
+
+### Existing roles
+- `user` - a regular user
+- `admin` - has the ability to manage content
