@@ -17,6 +17,33 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 # Regulations
 
+## Frontend stack
+The following key technical tools are used: React, react router dom, Zustand.
+- Zustand is a user-friendly, intuitive application state manager
+
+## Frontend architecture
+The architecture in the project is custom, but you need to try to adhere to certain rules.
+- `app` - directory can be said to be the entry point to the application, global settings, and so on.
+No files from this **directory** can be included in other project **directories**
+- `components` - this directory is for storing the key building blocks of the application. There are usage rules for each subdirectory
+- - `layouts` - This is the application directory, which contains the layers of the application framework. The 
+rules are such that Layout can include the rest of the files from this folder, and other files cannot include any files from the layouts folder 
+- - `features` - This is a directory of some application components assembled from other smaller components. The 
+difference is that these are already solid blocks that can contain states/business logic
+- - `UI` - UI - this directory contains components for creating a stateless user interface. There may be logic inside 
+such components (and it will be in almost every component, but there is no direct interaction with entities inside 
+the component, etc.). Also, you can create subdirectories inside this directory, and it will not be superfluous when 
+there are more than 2 components similar in logic and name (and it is not possible to combine them into one component)
+- `config` - various config files are located in this directory
+- `data` - it contains files with test data for components
+- `pages` - contains files of individual pages (which may include features/components)
+- `store` - contains files related to state management
+
+## Frontend project settings
+- **.eslint.cjs** - setting up the linter
+- **jsconfig.json** - settings for development environments (VS Code, PHPStorm etc.)
+- **vite.config.js** - configuring the app builder
+
 ## CSS regulations
 ### General understanding
 The project has a sas directory, which contains files for preset styles of the entire application.
