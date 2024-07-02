@@ -5,7 +5,9 @@ import {router} from './router.jsx';
 
 const App = () => {
     return (
-        <div id="app"><RouterProvider router={router} /></div>
+        <>
+            <RouterProvider router={router} />
+        </>
     );
 };
 

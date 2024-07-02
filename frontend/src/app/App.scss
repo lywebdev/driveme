@@ -1,5 +1,51 @@
 @import '../app/styles/reset';
 
-#app {
+#root {
   font-family: $ff-os;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#body {
+  flex-grow: 1;
+}
+
+
+
+#footer {
+  border-top: 1px solid $color-gray--lighter_hover;
+  background: $color-gray--lighter;
+  height: 100px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+}
+
+.footer__copyright {
+  color: $color-gray;
+  font-weight: bold;
+}
+
+.footer-links {
+  a {
+    color: $color-black--light;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+
+.container {
+  width: $container-width;
+  max-width: $container-width;
+  margin-left: auto;
+  margin-right: auto;
 }
