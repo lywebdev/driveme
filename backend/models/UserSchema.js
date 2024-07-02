@@ -6,12 +6,10 @@ const { Schema } = mongoose;
 
 const UserSchema = new Schema(
     {
-        username: {
+        name: {
             type: String,
             required: true,
             unique: true,
-            min: 3,
-            max: 20,
         },
         email: {
             type: String,
@@ -40,6 +38,16 @@ const UserSchema = new Schema(
         },
     },
 );
+
+UserSchema.pre('save', function(next) {
+    const user = this;
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!emailRegex.test(user.email)) {
+        const err = new Error('Invalid email format');
+        next(err);
+    }
+});
 
 const User = mongoose.model("User", UserSchema);
 
