@@ -4,49 +4,44 @@ import UserConstants from "./constants/UserConstants.js";
 
 const { Schema } = mongoose;
 
-const UserSchema = new Schema(
-    {
-        name: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        email: {
-            type: String,
-            required: true,
-            unique: true,
-        },
-        password: {
-            type: String,
-            required: true,
-            minlength: 6,
-        },
-        role: {
-            type: String,
-            enum: [
-                UserConstants.ROLE_ADMIN,
-                UserConstants.ROLE_USER,
-            ],
-            default: UserConstants.ROLE_USER,
-        },
-        createdAt: {
-            type: Date,
-            default: Date.now,
-            get: function (created_at) {
-                return moment(created_at).format("YYYY-MM-DD HH:mm:ss");
-            },
-        },
+const UserSchema = new Schema({
+  name: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 6,
+  },
+  role: {
+    type: String,
+    enum: [UserConstants.ROLE_ADMIN, UserConstants.ROLE_USER],
+    default: UserConstants.ROLE_USER,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: function (created_at) {
+      return moment(created_at).format("YYYY-MM-DD HH:mm:ss");
     },
-);
+  },
+});
 
-UserSchema.pre('save', function(next) {
-    const user = this;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+UserSchema.pre("save", function (next) {
+  const user = this;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(user.email)) {
-        const err = new Error('Invalid email format');
-        next(err);
-    }
+  if (!emailRegex.test(user.email)) {
+    const err = new Error("Invalid email format");
+    next(err);
+  }
 });
 
 const User = mongoose.model("User", UserSchema);
