@@ -1,5 +1,6 @@
 import User from "../models/UserSchema.js";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
@@ -60,4 +61,33 @@ const store = async (req, res) => {
   }
 };
 
-export default { findAll, store };
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    let existUser = await User.findOne({ email });
+    if (!existUser) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+    const isMatch = await bcrypt.compare(password, existUser.password);
+    if (!isMatch) {
+      return res.status(401).json({ message: "Invalid email or password" });
+    }
+    let userToken = jwt.sign({ user: existUser._id }, process.env.JWT_TOKEN, {
+      expiresIn: "1h",
+    });
+    res.cookie("userToken", userToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+    res.json({ message: "login success", data: existUser });
+  } catch (err) {
+    res.status(500).json({ message: "Internal server error", error: err });
+  }
+};
+
+const logout = (req, res) => {
+  res.clearCookie("userToken");
+  res.json({ message: "logout successful" });
+};
+
+export default { findAll, store, login, logout };
