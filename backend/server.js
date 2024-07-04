@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import morgan from "morgan";
 import routes from "./config/routes/index.js";
 import bodyParser from "body-parser";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -11,6 +12,7 @@ import "./config/db/mongoose.js";
 const app = express();
 
 app.use(morgan("dev"));
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use("/", routes);
