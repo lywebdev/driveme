@@ -1,5 +1,4 @@
 import express from "express";
-import mongoose from "mongoose";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import routes from "./config/routes/index.js";
