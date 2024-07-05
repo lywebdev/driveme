@@ -5,7 +5,7 @@ import auth from "../middlewares/auth.js";
 const router = express.Router();
 
 // Public routes
-router.post("/login", usersController.login);
+router.post("/login", auth.isUserLoggedOut, usersController.login);
 
 // Routes that require the user to be logged in
 router.use(auth.isUserLoggedIn);

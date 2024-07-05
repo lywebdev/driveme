@@ -64,14 +64,17 @@ const store = async (req, res) => {
 const login = async (req, res) => {
   try {
     const { email, password } = req.body;
+
     let existUser = await User.findOne({ email });
     if (!existUser) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
+
     const isMatch = await bcrypt.compare(password, existUser.password);
     if (!isMatch) {
       return res.status(401).json({ message: "Invalid email or password" });
     }
+
     let userToken = jwt.sign({ user: existUser._id }, process.env.JWT_TOKEN, {
       expiresIn: "1h",
     });
@@ -79,7 +82,8 @@ const login = async (req, res) => {
       httpOnly: true,
       secure: process.env.NODE_ENV === "production",
     });
-    res.json({ message: "login success", data: existUser });
+
+    res.json({ message: "Login success", data: existUser });
   } catch (err) {
     res.status(500).json({ message: "Internal server error", error: err });
   }
