@@ -57,11 +57,14 @@ The `UserSchema` defines the structure for user details in the database. This sc
 ### Validation
 
 The schema includes a pre-save hook to ensure the following validations:
+
 - Email is checked using a regular expression (string length, presence of @, absence of spaces are checked)
 
 ### Existing roles
+
 - `user` - a regular user
 - `admin` - has the ability to manage content
+
 ## TransportLocationDataSchema
 
 The `TransportLocationDataSchema` defines the structure for transport location data in the database. This schema includes the following fields:
@@ -71,3 +74,46 @@ The `TransportLocationDataSchema` defines the structure for transport location d
 - **postalCode**: The postal code of the transport location.
 - **transport**: A reference to the transport associated with this location.
 
+## Authentication Middleware
+
+This middleware handles user authentication by verifying JSON Web Tokens (JWT) stored in cookies. It includes two main functions: `isUserLoggedIn` and `isUserLoggedOut`.
+
+### Functions
+
+- **unauthorizedResponse**: Sends a 401 Unauthorized response with a message.
+- **isUserLoggedIn**: Checks if the user is logged in by verifying the JWT in the cookies.
+  - If the token is missing or invalid, it sends an unauthorized response.
+  - If the token is valid, it attaches the user information to the request object and calls the next middleware.
+- **isUserLoggedOut**: Checks if the user is logged out by verifying the absence of a valid JWT in the cookies.
+
+  - If the token is present and valid, it sends an unauthorized response.
+  - If the token is missing or invalid, it calls the next middleware.
+
+  ## User Routes
+
+This file defines the routes for user-related operations. It uses Express to create a router and includes middleware for authentication.
+
+### Routes
+
+- **Public Routes**:
+
+  - `POST /login`: Allows users to log in. This route is accessible only if the user is logged out. Uses `auth.isUserLoggedOut` middleware.
+
+- **Protected Routes**:
+  - All routes below require the user to be logged in. Uses `auth.isUserLoggedIn` middleware.
+  - `GET /`: Retrieves all users. Uses `usersController.findAll`.
+  - `POST /`: Creates a new user. Uses `usersController.store`.
+  - `GET /logout`: Logs out the user. Uses `usersController.logout`.
+
+  ## Index.js
+
+This file sets up the main router for the application and includes the user routes.
+
+### Imports
+
+- **express**: The Express framework.
+- **usersRoutes**: The routes for user-related operations.
+
+### Router Setup
+
+- **router.use("/users", usersRoutes)**: Mounts the user routes at the `/users` path.
