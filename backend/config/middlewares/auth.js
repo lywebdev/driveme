@@ -1,12 +1,12 @@
 import jwt from "jsonwebtoken";
 
-const unauthorizedResponse = (res) => {
-  return res.status(401).json({ message: "Unauthorized" });
+const unauthorizedResponse = (res, message) => {
+  return res.status(401).json({ message: message });
 };
 
 const isUserLoggedIn = (req, res, next) => {
   if (!req.cookies || !req.cookies.userToken) {
-    return unauthorizedResponse(res);
+    return unauthorizedResponse(res, "Unauthorized. User is not logged in");
   }
   try {
     const user = jwt.verify(req.cookies.userToken, process.env.JWT_TOKEN);
@@ -21,7 +21,7 @@ const isUserLoggedOut = (req, res, next) => {
   if (req.cookies && req.cookies.userToken) {
     try {
       jwt.verify(req.cookies.userToken, process.env.JWT_TOKEN);
-      return unauthorizedResponse(res);
+      return unauthorizedResponse(res, "User is already logged in");
     } catch (err) {
       next();
     }
