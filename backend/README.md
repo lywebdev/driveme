@@ -80,7 +80,7 @@ This middleware handles user authentication by verifying JSON Web Tokens (JWT) s
 
 ### Functions
 
-- **unauthorizedResponse**: Sends a 401 Unauthorized response with a message.
+- **authResponse**: Sends a 401 Unauthorized response with a message.
 - **isUserLoggedIn**: Checks if the user is logged in by verifying the JWT in the cookies.
   - If the token is missing or invalid, it sends an unauthorized response.
   - If the token is valid, it attaches the user information to the request object and calls the next middleware.
