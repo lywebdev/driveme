@@ -16,7 +16,7 @@ const Header = () => {
                         <li>
                             <NavLink
                                 to={routes.exampleTransportsPage}
-                                className={({ isActive }) => (isActive ? "active" : "inactive")}
+                                className={({isActive}) => (isActive ? "active" : "inactive")}
                             >
                                 ExampleTransportsPage
                             </NavLink>

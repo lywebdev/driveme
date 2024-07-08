@@ -8,6 +8,9 @@
   background: $color-gray--light;
   color: $color-black;
   cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
 
   &:hover {
     background-color: $color-gray--lighter_hover;
