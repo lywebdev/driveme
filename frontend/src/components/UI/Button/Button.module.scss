@@ -1,0 +1,17 @@
+.btn {
+  font-family: $ff-os;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border-radius: 5px;
+  background: $color-gray--light;
+  color: $color-black;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $color-gray--lighter_hover;
+  }
+
+  transition: background-color 0.3s ease;
+}

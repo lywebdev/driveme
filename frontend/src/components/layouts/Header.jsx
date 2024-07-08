@@ -1,5 +1,8 @@
 import { NavLink } from "react-router-dom";
 import routes from "@config/routes.js";
+import './Header.scss';
+import Button from "@components/UI/Button/Button.jsx";
+import Logo from "@components/shared/Logo/Logo.jsx";
 
 const Header = () => {
     const isAuth = true;
@@ -7,7 +10,7 @@ const Header = () => {
     return (
         <header id="header">
             <div className="container">
-                <div className="logo">DriveMe</div> {/* TODO: MAKE IT A LINK TO HOMEPAGE ONCE WE HAVE IT */}
+                <Logo />
                 <nav>
                     <ul>
                         <li>
@@ -20,7 +23,11 @@ const Header = () => {
                         </li>
                     </ul>
                 </nav>
-                {isAuth ? <button className="auth-button">Logout</button> : <button className="auth-button">Login</button>}
+                {
+                    isAuth
+                        ? <Button>Logout</Button>
+                        : <Button>Login</Button>
+                }
             </div>
         </header>
     );
