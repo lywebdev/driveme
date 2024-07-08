@@ -10,31 +10,42 @@
   }
 
   nav {
+    flex-grow: 1;
+    margin-left: 100px;
+
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
+      column-gap: 25px;
     }
 
-    li {
-      margin-left: 20px;
-    }
-
-    .active {
-      font-weight: bold;
-      color: $color-black--light;
-      text-decoration: none;
-    }
-
-    .inactive {
+    a {
+      color: $color-black;
       font-weight: normal;
       text-decoration: none;
-      color: $color-gray;
+      position: relative;
 
-      &:hover {
+      &:before {
+        content: '';
+        height: 1px;
+        background: $color-black;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        opacity: 0;
+        width: 0;
+        transition-property: opacity, width;
+        transition-duration: 0.4s;
+      }
 
-        color: $color-black;
+      &.active {
+
+        &:before {
+          opacity: 1;
+          width: 100%;
+        }
       }
     }
   }
