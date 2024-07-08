@@ -1,0 +1,41 @@
+#header {
+  border-bottom: 1px solid $color-gray--lighter_hover;
+  height: 70px;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  nav {
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    li {
+      margin-left: 20px;
+    }
+
+    .active {
+      font-weight: bold;
+      color: $color-black--light;
+      text-decoration: none;
+    }
+
+    .inactive {
+      font-weight: normal;
+      text-decoration: none;
+      color: $color-gray;
+
+      &:hover {
+
+        color: $color-black;
+      }
+    }
+  }
+}
