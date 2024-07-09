@@ -8,7 +8,9 @@
       "@errors/*": ["src/components/Errors/*"],
       "@config/*": ["src/config/*"],
       "@store/*": ["src/store/*"],
-      "@data/*": ["src/data/*"]
+      "@data/*": ["src/data/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@images/*": ["src/app/assets/images/*"]
     }
   },
   "include": ["src"]

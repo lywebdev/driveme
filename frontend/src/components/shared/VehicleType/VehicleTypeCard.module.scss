@@ -1,0 +1,28 @@
+.vehicle-type-card {
+
+  a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: $color-gray--middle;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+  }
+}
+
+.image {
+  max-width: 150px;
+  max-height: 150px;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.type {
+  margin-top: 10px;
+}
