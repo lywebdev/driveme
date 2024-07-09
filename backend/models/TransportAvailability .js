@@ -3,9 +3,10 @@ import mongoose from "mongoose";
 const { Schema } = mongoose;
 
 const TransportAvailabilitySchema = new Schema({
-  // TODO create TransportSchema to be referenced
   transportId: {
-    type: Number,
+    type: Schema.Types.ObjectId,
+    ref: "Transport",
+    required: true,
   },
   date: {
     type: Date,

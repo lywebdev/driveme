@@ -13,9 +13,9 @@ const TransportSchema = new Schema(
       type: Number,
       required: true,
     },
-    // TODO: Update to Schema.Types.ObjectId and ref once TransportType schema is defined
     transportTypeId: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "TransportType",
       required: true,
     },
     // TODO: Update to Schema.Types.ObjectId and ref once Owner schema is defined
@@ -23,9 +23,9 @@ const TransportSchema = new Schema(
       type: String,
       required: true,
     },
-    // TODO: Update to Schema.Types.ObjectId and ref once LocationData schema is defined
     locationDataId: {
-      type: String,
+      type: Schema.Types.ObjectId,
+      ref: "TransportLocationData",
       required: true,
     },
     description: {
