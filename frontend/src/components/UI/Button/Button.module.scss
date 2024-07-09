@@ -12,6 +12,14 @@
   justify-content: center;
   align-items: center;
 
+  &.rounded {
+    border-radius: 10px;
+  }
+
+  &.gray--lighter {
+    background: $color-gray--lighter;
+  }
+
   &:hover {
     background-color: $color-gray--lighter_hover;
   }
