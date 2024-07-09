@@ -22,9 +22,9 @@ The `TransportSchema` defines the structure for transport details in the databas
 
 - **name**: The name of the transport.
 - **cost**: The cost of the transport.
-- **transportTypeId**: A reference to the transport type. (TODO: Update to `Schema.Types.ObjectId` and `ref` once `TransportType` schema is defined)
+- **transportTypeId**: A reference to the transport type. 
 - **ownerId**: A reference to the owner of the transport. (TODO: Update to `Schema.Types.ObjectId` and `ref` once `Owner` schema is defined)
-- **locationDataId**: A reference to the location data. (TODO: Update to `Schema.Types.ObjectId` and `ref` once `LocationData` schema is defined)
+- **locationDataId**: A reference to the location data.
 - **description**: A description of the transport. This field is a string and is trimmed.
 - **hasDelivery**: A boolean indicating whether the transport has delivery options.
 - **photos**: An array of strings representing URLs of photos of the transport.
