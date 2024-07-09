@@ -1,0 +1,8 @@
+.container {
+  padding-top: 30px;
+  padding-bottom: 40px;
+
+  &.bg--gray {
+    background: $color-gray--light;
+  }
+}

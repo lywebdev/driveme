@@ -1,0 +1,45 @@
+@mixin vehicle-card__container($paddings) {
+  padding-left: $paddings;
+  padding-right: $paddings;
+  box-sizing: border-box;
+}
+
+.vehicle-card {
+  text-decoration: none;
+  color: $color-black;
+  background: $color-white;
+  border-radius: 10px;
+  padding-top: 5px;
+  padding-bottom: 15px;
+
+  .image {
+    @include vehicle-card__container(5px);
+    width: 100%;
+    height: 200px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+  }
+
+  .name {
+    @include vehicle-card__container(10px);
+    margin-top: 15px;
+  }
+
+  .delimiter {
+    background: $color-gray--light;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0;
+  }
+
+  .price {
+    @include vehicle-card__container(10px);
+    font-weight: bold;
+    font-size: 18px;
+  }
+}

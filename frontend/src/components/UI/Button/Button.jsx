@@ -1,14 +1,20 @@
 import {NavLink} from "react-router-dom";
 import classes from './Button.module.scss';
+import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 
-const Button = ({url, children, className, ...props}) => {
-    const combinedClassName = [classes.btn, className].filter(Boolean).join(' ');
+const types = {
+    grayLighter: 'gray--lighter',
+    rounded: 'rounded',
+};
+
+const Button = ({url, children, className, variants, ...props}) => {
+    const combinedClasses = combineClassNames([classes.btn, ...expandVariants(classes, variants)], className);
 
     if (url) {
         return (
             <NavLink
                 to={url}
-                className={combinedClassName}
+                className={combinedClasses}
                 aria-label={children}
                 {...props}
             >{children}</NavLink>
@@ -17,11 +23,13 @@ const Button = ({url, children, className, ...props}) => {
 
     return (
         <button
-            className={combinedClassName}
+            className={combinedClasses}
             aria-label={children}
             {...props}
         >{children}</button>
     );
 };
+
+Button.types = types;
 
 export default Button;
