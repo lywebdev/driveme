@@ -6,7 +6,7 @@ const router = express.Router();
 
 // Public routes
 router.post("/login", auth.isUserLoggedOut, usersController.login);
-router.post("/", usersController.store);
+router.post("/",auth.isUserLoggedOut, usersController.store);
 
 // Routes that require the user to be logged in
 router.use(auth.isUserLoggedIn);

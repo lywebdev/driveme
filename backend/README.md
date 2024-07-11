@@ -22,7 +22,7 @@ The `TransportSchema` defines the structure for transport details in the databas
 
 - **name**: The name of the transport.
 - **cost**: The cost of the transport.
-- **transportTypeId**: A reference to the transport type. 
+- **transportTypeId**: A reference to the transport type.
 - **ownerId**: A reference to the owner of the transport. (TODO: Update to `Schema.Types.ObjectId` and `ref` once `Owner` schema is defined)
 - **locationDataId**: A reference to the location data.
 - **description**: A description of the transport. This field is a string and is trimmed.
@@ -78,6 +78,10 @@ The `TransportLocationDataSchema` defines the structure for transport location d
 
 This middleware handles user authentication by verifying JSON Web Tokens (JWT) stored in cookies. It includes two main functions: `isUserLoggedIn` and `isUserLoggedOut`.
 
+## Admin Authentication Middleware
+
+This middleware handles admin authentication by verifying JSON Web Tokens (JWT) stored in cookies and checking the user’s role.
+
 ### Functions
 
 - **authResponse**: Sends a 401 Unauthorized response with a message.
@@ -100,10 +104,19 @@ This file defines the routes for user-related operations. It uses Express to cre
   - `POST /login`: Allows users to log in. This route is accessible only if the user is logged out. Uses `auth.isUserLoggedOut` middleware.
 
 - **Protected Routes**:
+
   - All routes below require the user to be logged in. Uses `auth.isUserLoggedIn` middleware.
   - `GET /`: Retrieves all users. Uses `usersController.findAll`.
   - `POST /`: Creates a new user. Uses `usersController.store`.
   - `GET /logout`: Logs out the user. Uses `usersController.logout`.
+
+  **Admin Routes**:
+
+  - All routes below require the user to be an admin. Uses `adminAuth.isAdmin` middleware.
+  - `GET /`: Retrieves all transport types. Uses `transportTypeController.findAll`.
+  - `POST /`: Creates a new transport type. Uses `transportTypeController.store`.
+  - `DELETE /:id`: Deletes a transport type by ID. Uses `transportTypeController.destroy`.
+  - `PUT /:id`: Updates a transport type by ID. Uses `transportTypeController.update`.
 
   ## Index.js
 
@@ -117,3 +130,4 @@ This file sets up the main router for the application and includes the user rout
 ### Router Setup
 
 - **router.use("/users", usersRoutes)**: Mounts the user routes at the `/users` path.
+- **router.use("transporttypes, transportTypeRoutes)**: Mounts the transport type routes at the `/transporttypes` path.
