@@ -1,0 +1,22 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e214a",
+    "name": "Bike",
+    "photo": "bike.jpg"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e214b",
+    "name": "Car",
+    "photo": "car.jpg"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e214c",
+    "name": "Bicycle",
+    "photo": "bicycle.jpg"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e214d",
+    "name": "Scooter",
+    "photo": "scooter.jpg"
+  }
+]

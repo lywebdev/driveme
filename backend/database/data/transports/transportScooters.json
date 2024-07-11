@@ -1,0 +1,67 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e2341",
+    "name": "Vespa Primavera 50",
+    "cost": 110,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2342",
+    "description": "An iconic and stylish scooter",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1581899406831-9395145a6b4b"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2343",
+    "name": "Piaggio Liberty 125",
+    "cost": 150,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2344",
+    "description": "A comfortable and efficient scooter",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1606817422903-8724cc2c76a7"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2345",
+    "name": "Honda PCX 150",
+    "cost": 135,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2346",
+    "description": "A powerful and reliable scooter",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1565016860407-2a284fe7a96b"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2347",
+    "name": "Kymco Agility 50",
+    "cost": 80,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2348",
+    "description": "A nimble and affordable scooter",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1606722261108-4790d5b22a5f"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2349",
+    "name": "SYM Mio 50",
+    "cost": 60,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2350",
+    "description": "A classic and compact scooter",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1607043977861-9a0ea711cb70"
+    ]
+  }
+]
