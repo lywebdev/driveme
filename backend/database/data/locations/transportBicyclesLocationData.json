@@ -1,0 +1,177 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e2316",
+    "address": "Damstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1012 JL",
+    "transport": "64b8f2f8b3c5a7298d6e2250"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2317",
+    "address": "Beethovenstraat 10",
+    "city": "Amsterdam",
+    "postalCode": "1077 JZ",
+    "transport": "64b8f2f8b3c5a7298d6e2252"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2318",
+    "address": "Hogeweg 23",
+    "city": "Amsterdam",
+    "postalCode": "1098 BS",
+    "transport": "64b8f2f8b3c5a7298d6e2253"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2319",
+    "address": "Jan Evertsenstraat 3",
+    "city": "Amsterdam",
+    "postalCode": "1056 EE",
+    "transport": "64b8f2f8b3c5a7298d6e2254"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2320",
+    "address": "Nieuwezijds Voorburgwal 180",
+    "city": "Amsterdam",
+    "postalCode": "1012 SJ",
+    "transport": "64b8f2f8b3c5a7298d6e2255"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2321",
+    "address": "Weteringschans 10",
+    "city": "Amsterdam",
+    "postalCode": "1017 SG",
+    "transport": "64b8f2f8b3c5a7298d6e2250"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2322",
+    "address": "Rijnstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1078 PS",
+    "transport": "64b8f2f8b3c5a7298d6e2252"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2323",
+    "address": "Vechtstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1079 JW",
+    "transport": "64b8f2f8b3c5a7298d6e2253"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2324",
+    "address": "Olympiaplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1076 AK",
+    "transport": "64b8f2f8b3c5a7298d6e2254"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2325",
+    "address": "Sarphatistraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1018 EW",
+    "transport": "64b8f2f8b3c5a7298d6e2255"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2326",
+    "address": "Prinsengracht 1",
+    "city": "Amsterdam",
+    "postalCode": "1015 DK",
+    "transport": "64b8f2f8b3c5a7298d6e2250"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2327",
+    "address": "Herengracht 1",
+    "city": "Amsterdam",
+    "postalCode": "1016 BX",
+    "transport": "64b8f2f8b3c5a7298d6e2252"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2328",
+    "address": "Keizersgracht 1",
+    "city": "Amsterdam",
+    "postalCode": "1015 CJ",
+    "transport": "64b8f2f8b3c5a7298d6e2253"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2329",
+    "address": "Leidsestraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1017 NT",
+    "transport": "64b8f2f8b3c5a7298d6e2254"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2330",
+    "address": "Rembrandtplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1017 CT",
+    "transport": "64b8f2f8b3c5a7298d6e2255"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2331",
+    "address": "Amstelstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1017 DA",
+    "transport": "64b8f2f8b3c5a7298d6e2250"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2332",
+    "address": "Museumplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1071 DJ",
+    "transport": "64b8f2f8b3c5a7298d6e2252"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2333",
+    "address": "Van Baerlestraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1071 AW",
+    "transport": "64b8f2f8b3c5a7298d6e2253"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2334",
+    "address": "Ferdinand Bolstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1072 LJ",
+    "transport": "64b8f2f8b3c5a7298d6e2254"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2335",
+    "address": "Cornelis Troostplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1072 JJ",
+    "transport": "64b8f2f8b3c5a7298d6e2255"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2336",
+    "address": "Stadhouderskade 1",
+    "city": "Amsterdam",
+    "postalCode": "1054 ES",
+    "transport": "64b8f2f8b3c5a7298d6e2250"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2337",
+    "address": "Vondelpark 1",
+    "city": "Amsterdam",
+    "postalCode": "1071 AA",
+    "transport": "64b8f2f8b3c5a7298d6e2252"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2338",
+    "address": "Marnixstraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1015 JW",
+    "transport": "64b8f2f8b3c5a7298d6e2253"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2339",
+    "address": "Haarlemmerplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1013 HS",
+    "transport": "64b8f2f8b3c5a7298d6e2254"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2340",
+    "address": "Westerpark 1",
+    "city": "Amsterdam",
+    "postalCode": "1013 HN",
+    "transport": "64b8f2f8b3c5a7298d6e2255"
+  }
+]

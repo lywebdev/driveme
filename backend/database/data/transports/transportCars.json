@@ -1,0 +1,314 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e2201",
+    "name": "Audi A4",
+    "cost": 120,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2202",
+    "description": "A luxury sedan with advanced features",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1546554477-1bea5c15d3f6"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2203",
+    "name": "BMW 3 Series",
+    "cost": 130,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2204",
+    "description": "A sporty and elegant sedan",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1542056386-0b39e2205f50"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2205",
+    "name": "Mercedes-Benz C-Class",
+    "cost": 140,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2206",
+    "description": "A blend of luxury and performance",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1568369761823-449c2a19c1ac"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2207",
+    "name": "Volvo XC60",
+    "cost": 135,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2208",
+    "description": "A comfortable and safe SUV",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1563448393673-d3b2550b1c42"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2209",
+    "name": "Volkswagen Golf",
+    "cost": 100,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2210",
+    "description": "A popular compact hatchback",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1550076788-bb7ddadb1901"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2211",
+    "name": "Toyota Corolla",
+    "cost": 95,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2212",
+    "description": "A reliable and efficient sedan",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1595946185208-8e31bf0d2695"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2213",
+    "name": "Ford Mustang",
+    "cost": 150,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2214",
+    "description": "An iconic American muscle car",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1516471779272-0087303e777e"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2215",
+    "name": "Honda Civic",
+    "cost": 105,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2216",
+    "description": "A practical and efficient compact car",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1549571898-f61b24fbd05b"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2217",
+    "name": "Mazda CX-5",
+    "cost": 125,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2218",
+    "description": "A versatile and stylish SUV",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1554411838-9ed3e0b3c9d8"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2219",
+    "name": "Hyundai Kona",
+    "cost": 110,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2220",
+    "description": "A compact SUV with modern features",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1561457913-9b3c04d9e23e"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2221",
+    "name": "Kia Niro",
+    "cost": 115,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2222",
+    "description": "A hybrid crossover with excellent fuel economy",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1565906207372-1b6271446e25"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2223",
+    "name": "Nissan Qashqai",
+    "cost": 115,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2224",
+    "description": "A popular compact SUV with modern features",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1564180307889-df38b17dcaf0"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2225",
+    "name": "Tesla Model 3",
+    "cost": 150,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2226",
+    "description": "An electric sedan with impressive range",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1532530573391-2819f2f3c5a5"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2227",
+    "name": "Renault Clio",
+    "cost": 105,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2228",
+    "description": "A compact hatchback with European charm",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1546539783-4c0c6f8c229d"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2229",
+    "name": "Subaru Outback",
+    "cost": 140,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2230",
+    "description": "A rugged and capable crossover",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1587373562891-51ed3e86f8b4"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2231",
+    "name": "Ford Focus",
+    "cost": 110,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2232",
+    "description": "A practical and efficient compact car",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1534494717569-e48f656b71b3"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2233",
+    "name": "Peugeot 3008",
+    "cost": 125,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2234",
+    "description": "A stylish and practical SUV",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1578003401225-b6864e87f10f"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2235",
+    "name": "Mini Cooper",
+    "cost": 115,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2236",
+    "description": "A compact car with a fun driving experience",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1527529482837-9e2b5a422b1b"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2237",
+    "name": "Skoda Octavia",
+    "cost": 120,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2238",
+    "description": "A practical and spacious sedan",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1546539827-0436c40bb1ac"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2239",
+    "name": "Opel Corsa",
+    "cost": 100,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2240",
+    "description": "A compact hatchback with German engineering",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1558769134-22b65f5a1c44"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2241",
+    "name": "Renault Megane",
+    "cost": 110,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2242",
+    "description": "A stylish and comfortable compact car",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1535487891202-85890e07f114"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2243",
+    "name": "Citroen C3",
+    "cost": 95,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2244",
+    "description": "A compact car with French flair",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1534070825553-e8e34934f7f9"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2245",
+    "name": "Peugeot 208",
+    "cost": 105,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2246",
+    "description": "A stylish and efficient small hatchback",
+    "hasDelivery": true,
+    "photos": [
+      "https://images.unsplash.com/photo-1600180121157-1c6760b7f2d5"
+    ]
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2247",
+    "name": "Seat Leon",
+    "cost": 100,
+    "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
+    "ownerId": "64b8f2f8b3c5a7298d6e214e",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2248",
+    "description": "A sporty and practical hatchback",
+    "hasDelivery": false,
+    "photos": [
+      "https://images.unsplash.com/photo-1565018203666-c96a1a6f7e03"
+    ]
+  }
+]

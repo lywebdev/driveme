@@ -1,0 +1,34 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e214e",
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "hashed_password",
+    "role": "user",
+    "createdAt": "2023-01-01 12:00:00"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e214f",
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "hashed_password",
+    "role": "admin",
+    "createdAt": "2023-01-02 12:00:00"
+  },
+  {
+    "id": "63b8f2f8b3c5a7298d6e214a",
+    "name": "Bike Rental Service",
+    "email": "bike-rental@driveme.com",
+    "password": "hashed_password",
+    "role": "user",
+    "createdAt": "2023-01-02 12:00:00"
+  },
+  {
+    "id": "62b8f2f8b3c5a7298d6e214b",
+    "name": "Amsterdam, Netherlands",
+    "email": "amsterdam-netherlands@driveme.com",
+    "password": "hashed_password",
+    "role": "user",
+    "createdAt": "2023-01-02 12:00:00"
+  }
+]

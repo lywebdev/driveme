@@ -1,0 +1,37 @@
+[
+  {
+    "id": "64b8f2f8b3c5a7298d6e2351",
+    "address": "Stadhouderskade 1",
+    "city": "Amsterdam",
+    "postalCode": "1054 ES",
+    "transport": "64b8f2f8b3c5a7298d6e2341"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2352",
+    "address": "Vondelpark 1",
+    "city": "Amsterdam",
+    "postalCode": "1071 AA",
+    "transport": "64b8f2f8b3c5a7298d6e2343"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2353",
+    "address": "Museumplein 1",
+    "city": "Amsterdam",
+    "postalCode": "1071 DJ",
+    "transport": "64b8f2f8b3c5a7298d6e2345"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2354",
+    "address": "Herengracht 1",
+    "city": "Amsterdam",
+    "postalCode": "1016 BX",
+    "transport": "64b8f2f8b3c5a7298d6e2347"
+  },
+  {
+    "id": "64b8f2f8b3c5a7298d6e2355",
+    "address": "Leidsestraat 1",
+    "city": "Amsterdam",
+    "postalCode": "1017 NT",
+    "transport": "64b8f2f8b3c5a7298d6e2349"
+  }
+]
