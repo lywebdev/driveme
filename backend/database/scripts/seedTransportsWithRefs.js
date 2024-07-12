@@ -3,7 +3,7 @@ import data from './../data/mainData.js';
 import transportTypes from './../data/transportTypes.json' with { type: "json" };
 
 import TransportType from "../../models/TransportTypeSchema.js";
-import User from "../../models/UserSchema.js";
+import User, {generateHash} from "../../models/UserSchema.js";
 import TransportLocationDataSchema from "../../models/TransportLocationDataSchema.js";
 import Transport from "../../models/TransportSchema.js";
 
@@ -14,6 +14,10 @@ async function insertIfNotExist(Model, data, queryField = 'id') {
     const itemsForInserting = [];
 
     for (const item of data) {
+        if (Model.modelName === 'User') {
+            item.password = await generateHash(item.password);
+        }
+
         const itemInDb = await Model.findOne({
             _id: item[queryField],
         });
