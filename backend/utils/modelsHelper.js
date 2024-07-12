@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 import {codeStatuses} from "./constants/responseConstants.js";
 
 export function idIsCorrect(id) {
-    return !(!id || !mongoose.isValidObjectId(id));
+    return id && mongoose.isValidObjectId(id);
 }
 
 export function getUpdatableFields(fields) {
