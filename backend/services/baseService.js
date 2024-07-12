@@ -19,12 +19,12 @@ const getStatus = (status) => status || responseStatuses[status] || responseStat
 
 
 
-export function apiResponse({
+export const apiResponse = ({
     message = responseMessages.default,
     data = [],
     status = responseStatuses.default,
     isSuccess = true
-}) {
+}) => {
     status = getStatus(status);
     message = getMessage(status, message);
 
@@ -39,3 +39,9 @@ export function apiResponse({
         }
     };
 }
+
+
+export const handleRequest = async (req, res, serviceFunction, ...args) => {
+    const responseData = await serviceFunction(...args);
+    res.status(responseData.status).json(responseData.content);
+};
