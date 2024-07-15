@@ -19,6 +19,13 @@ export const findAll = async () => {
 }
 
 export const store = async requestBody => {
+    if (await TransportType.findOne({
+        _id: requestBody?.id,
+    })) {
+        return apiResponse({...responseMessages.entity.alreadyExists});
+    }
+
+
     const fields = {
         _id: requestBody?.id,
         name: requestBody.name,
@@ -53,6 +60,13 @@ export const findByIdAndUpdate = async (id, requestBody) => {
         return apiResponse({...responseMessages.validation.id.invalidFormat});
     }
 
+    if (!await TransportType.findOne({
+        _id: id,
+    })) {
+        return apiResponse({...responseMessages.entity.notExists});
+    }
+
+
     const updatableFields = getUpdatableFields({
         name: requestBody.name,
         photo: requestBody.photo,
@@ -71,9 +85,15 @@ export const findByIdAndUpdate = async (id, requestBody) => {
         return apiResponse({...responseMessages.entity.savingFailed});
     }
 
+    if (await TransportType.findOne({
+        _id: requestBody?.id,
+    })) {
+        return apiResponse({...responseMessages.entity.alreadyExists});
+    }
+
 
     return apiResponse({
-        message: 'The transport type has been added successfully',
+        ...responseMessages.entity.updated,
         data: updatedTransportType,
     });
 }
@@ -82,6 +102,13 @@ export const removeById = async id => {
     if (!idIsCorrect(id)) {
         return apiResponse({...responseMessages.validation.id.invalidFormat});
     }
+
+    if (!await TransportType.findOne({
+        _id: id,
+    })) {
+        return apiResponse({...responseMessages.entity.notExists});
+    }
+
 
     try {
         await TransportType.findByIdAndDelete(id);
