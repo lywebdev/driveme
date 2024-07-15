@@ -4,6 +4,7 @@ export const codeStatuses = {
 
     clientError: 400,
     unauthorized: 401,
+    conflict: 409,
 
     serverError: 500,
 };

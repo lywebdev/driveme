@@ -31,6 +31,10 @@ export const responseMessages = {
             message: 'The entry was successfully added',
             status: codeStatuses.successfulAdded,
         },
+        updated: {
+            message: 'The entry was successfully updated',
+            status: codeStatuses.success,
+        },
 
         savingFailed: {
             message: 'Failed to save',
@@ -43,6 +47,14 @@ export const responseMessages = {
         gettingError: {
             message: 'Failed to get records',
             status: codeStatuses.serverError,
-        }
+        },
+        alreadyExists: {
+            message: 'The record already exists in the database',
+            status: codeStatuses.conflict,
+        },
+        notExists: {
+            message: 'The record does not exist in the database',
+            status: codeStatuses.conflict,
+        },
     }
 };
