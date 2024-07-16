@@ -1,0 +1,27 @@
+.vehicle-card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 15px;
+    row-gap: 15px;
+}
+
+.pagination-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.pagination-buttons button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.pagination-buttons button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
