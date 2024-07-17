@@ -8,6 +8,8 @@ import { useState } from 'react';
 import "./ExampleTransportsPage.css";
 import Dropdown from 'react-dropdown';
 import usePagination from "../hooks/usePagination";
+import Pagination from "../components/shared/Pagination/Pagination";
+import DropdownArrows from "../components/shared/DropdownArrows/DropdownArrows";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
@@ -21,10 +23,9 @@ const ExampleTransportsPage = () => {
     
 
 
-    const { totalPages, handlePageClick, currentTransports, setCurrentPage } = usePagination(filteredTransports, 8);
+    const { totalPages, handlePageClick, currentItems, setCurrentPage } = usePagination(filteredTransports, 8);
 
-    const ArrowClosed = () => <span>&#9660;</span>;
-    const ArrowOpen = () => <span>&#9650;</span>;
+    
 
     const vehicleTypeOptions = [
         { value: 0, label: "All" },
@@ -69,7 +70,7 @@ const ExampleTransportsPage = () => {
     return (
         <div>
             <PageTitle className="page-title">
-                <PageTitle.Top className="text-centered top">
+                <PageTitle.Top className="text-left top">
                     Rent a vehicle near you!
                 </PageTitle.Top>
             </PageTitle>
@@ -81,20 +82,20 @@ const ExampleTransportsPage = () => {
                         onChange={handleVehicleTypeChange} 
                         value={vehicleTypeOptions.find(option => option.value === vehicleTypes)} 
                         placeholder="Select Vehicle Type" 
-                        arrowClosed={<ArrowClosed />} 
-                        arrowOpen={<ArrowOpen />} 
+                        arrowClosed={<DropdownArrows.ArrowClosed />}
+                        arrowOpen={<DropdownArrows.ArrowOpen />} 
                     />
                     <Dropdown 
                         options={sortingOptions} 
                         onChange={handleSortingChange} 
                         value={sortingOptions.find(option => option.value === sorting)} 
                         placeholder="Select Sorting Option" 
-                        arrowClosed={<ArrowClosed />} 
-                        arrowOpen={<ArrowOpen />} 
+                        arrowClosed={<DropdownArrows.ArrowClosed />} 
+                        arrowOpen={<DropdownArrows.ArrowOpen />}
                     />
                 </div>
                 <div className="vehicle-card-container">
-                    {currentTransports.map((transport) => (
+                    {currentItems.map((transport) => (
                         <div key={transport.id}>
                             <p>{transport.name}</p>
                             <p>{transport.cost}</p>
@@ -104,16 +105,10 @@ const ExampleTransportsPage = () => {
                     ))}
                 </div>
 
-                <div className="pagination-buttons">
-                    {[...Array(totalPages)].map((_, index) => (
-                        <button
-                            key={index}
-                            onClick={() => handlePageClick(index)}
-                        >
-                            {index + 1}
-                        </button>
-                    ))}
-                </div>
+                <Pagination
+                    totalPages={totalPages}
+                    onPageClick={handlePageClick}
+                />
             </Container>
 
             <NavLink to={routes.home}>Go home</NavLink>
