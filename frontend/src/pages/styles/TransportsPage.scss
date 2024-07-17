@@ -1,9 +1,22 @@
-.vehicle-card-container {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    column-gap: 15px;
-    row-gap: 15px;
+.transports-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
+.dropdown-container {
+    margin-top: 30px;
+}
 
-  
+.vehicle-card-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 15px;
+  row-gap: 15px;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.transports-page {
+    height: 100%;
+}

@@ -1,6 +1,6 @@
 import { useExampleTransportsStore } from "@store/useExampleTransportsStore.js";
-import { NavLink } from "react-router-dom";
-import routes from "@config/routes.js";
+//import { NavLink } from "react-router-dom";
+//import routes from "@config/routes.js";
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import Container from "@components/layouts/shared/Container";
 //import VehicleCard from "@components/shared/Vehicle/VehicleCard";
@@ -10,6 +10,7 @@ import Dropdown from 'react-dropdown';
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
 import DropdownArrows from "../components/shared/DropdownArrows/DropdownArrows";
+import Button from "../components/UI/Button/Button.jsx";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
@@ -40,6 +41,19 @@ const ExampleTransportsPage = () => {
         { value: "Ascending", label: "Ascending" },
     ];
 
+    const locationOptions = [
+        { value: "All", label: "All" },
+        { value: "Amsterdam", label: "Amsterdam" },
+        { value: "Rotterdam", label: "Rotterdam" },
+        { value: "The Hague", label: "The Hague" },
+        { value: "Utrecht", label: "Utrecht" },
+        { value: "Eindhoven", label: "Eindhoven" },
+        { value: "Tilburg", label: "Tilburg" },
+        { value: "Groningen", label: "Groningen" },
+        { value: "Almere", label: "Almere" },
+        { value: "Breda", label: "Breda" },
+        { value: "Nijmegen", label: "Nijmegen" },
+    ];
     const handleVehicleTypeChange = (selectedOption) => {
         console.log(selectedOption);
         setVehicleTypes(selectedOption.value);
@@ -68,14 +82,21 @@ const ExampleTransportsPage = () => {
 
 
     return (
-        <div>
-            <PageTitle className="page-title">
-                <PageTitle.Top className="text-left top">
-                    Rent a vehicle near you!
-                </PageTitle.Top>
-            </PageTitle>
+        <div className="transports-page">
+            <Container className="transports-container" variants={[Container.bgColors.gray]}>
+                <PageTitle className="page-title">
+                    <PageTitle.Top className="text-left top">
+                        Rent a vehicle near you!
+                    </PageTitle.Top>
+                    <div className="dropdown-container">
+                        <Dropdown
+                            options={locationOptions}
+                            placeholder="Select Location..."
+                        />
+                    </div>
+                </PageTitle>
 
-            <Container variants={[Container.bgColors.gray]}>
+
                 <div className="dropdown-container">
                     <Dropdown 
                         options={vehicleTypeOptions} 
@@ -110,9 +131,15 @@ const ExampleTransportsPage = () => {
                     onPageClick={handlePageClick}
                     currentPage={currentPage}
                 />
+                <Button
+                    variants={[Button.types.grayLighter, Button.types.rounded]}
+                    url="/"
+                >
+                    Home
+                </Button>
             </Container>
 
-            <NavLink to={routes.home}>Go home</NavLink>
+            
         </div>
     );
 };
