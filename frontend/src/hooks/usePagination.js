@@ -8,7 +8,7 @@ const usePagination = (items, itemsPerPage) => {
         [items.length, itemsPerPage]
     );
 
-    const currentTransports = useMemo(() => {
+    const currentItems = useMemo(() => {
         const startIndex = (currentPage - 1) * itemsPerPage;
         return items.slice(startIndex, startIndex + itemsPerPage);
     }, [items, currentPage, itemsPerPage]);
@@ -18,7 +18,7 @@ const usePagination = (items, itemsPerPage) => {
     };
 
     return {
-        currentTransports,
+        currentItems,
         currentPage,
         totalPages,
         handlePageClick,
