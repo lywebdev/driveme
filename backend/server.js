@@ -1,20 +1,26 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import routes from "./config/routes/index.js";
-import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";
+import cors from 'cors';
+import routes from "./config/routes/index.js";
 
 dotenv.config();
 
 import "./config/db/mongoose.js";
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
+app.use(express.json());
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-app.use("/", routes);
+app.use(cors({
+    credentials: true,
+    origin: process.env.CLIENT_URL
+}));
 
-app.listen(3000, () => console.log("Server is running on port 3000"));
+app.use("/api", routes);
+
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

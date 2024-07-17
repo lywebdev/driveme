@@ -17,6 +17,11 @@ export function getUpdatableFields(fields) {
 
 
 export const responseMessages = {
+    exception: {
+        message: 'Unexpected error on the server side',
+        status: codeStatuses.serverError,
+    },
+
     validation: {
         id: {
             invalidFormat: {
@@ -56,5 +61,12 @@ export const responseMessages = {
             message: 'The record does not exist in the database',
             status: codeStatuses.conflict,
         },
+    },
+
+    user: {
+        unauthorized: {
+            message: 'You are not logged in',
+            status: codeStatuses.unauthorized,
+        }
     }
 };
