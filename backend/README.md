@@ -95,7 +95,7 @@ This middleware handles admin authentication by verifying JSON Web Tokens (JWT) 
 
   ## User Routes
 
-This file defines the routes for user-related operations. It uses Express to create a router and includes middleware for authentication.
+This file defines the routes for user-related operations. It uses Express to create a index and includes middleware for authentication.
 
 ### Routes
 
@@ -120,7 +120,7 @@ This file defines the routes for user-related operations. It uses Express to cre
 
   ## Index.js
 
-This file sets up the main router for the application and includes the user routes.
+This file sets up the main index for the application and includes the user routes.
 
 ### Imports
 
@@ -129,5 +129,5 @@ This file sets up the main router for the application and includes the user rout
 
 ### Router Setup
 
-- **router.use("/users", usersRoutes)**: Mounts the user routes at the `/users` path.
-- **router.use("transporttypes, transportTypeRoutes)**: Mounts the transport type routes at the `/transporttypes` path.
+- **index.use("/users", usersRoutes)**: Mounts the user routes at the `/users` path.
+- **index.use("transportTypes", transportTypeRoutes)**: Mounts the transport type routes at the `/transportTypes` path.
