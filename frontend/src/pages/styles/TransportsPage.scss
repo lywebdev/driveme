@@ -1,7 +1,5 @@
 .transports-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+    flex-grow: 1;
 }
 
 .dropdown-container {
@@ -18,5 +16,7 @@
 }
 
 .transports-page {
-    height: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
