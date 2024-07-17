@@ -16,7 +16,7 @@ const Header = () => {
                     <ul>
                         <li>
                             <NavLink
-                                to={routes.exampleTransportPage}
+                                to={routes.TransportsPage}
                                 className={({isActive}) => (isActive ? "active" : "inactive")}
                             >
                                 ExampleTransportsPage
@@ -28,6 +28,7 @@ const Header = () => {
                                 className={({isActive}) => (isActive ? "active" : "inactive")}
                             >
                                 Admin
+                                Transports
                             </NavLink>
                         </li>
                     </ul>
