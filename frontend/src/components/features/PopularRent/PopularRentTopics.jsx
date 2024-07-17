@@ -26,12 +26,11 @@ const popularRentTopicsData = [
 
 
 const PopularRentTopics = ({title, className, marginTop}) => {
-    const combinedClasses = combineClassNames(classes['popular-rent-topics'], className, marginTop && classes.marginTop);
+    const combinedClasses = combineClassNames([classes['popular-rent-topics'], marginTop && classes.marginTop, className]);
 
     return <>
         {title}
         <div className={combinedClasses}>
-
             {popularRentTopicsData.map(popularRentTopic => <OfferCard key={popularRentTopic.id} data={popularRentTopic} />)}
         </div>
     </>;

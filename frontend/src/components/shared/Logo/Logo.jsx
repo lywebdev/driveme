@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom";
-import routes from "@config/routes.js";
 import config from "@config/app.js";
 import classes from './Logo.module.scss';
+import {routes} from "@config/routes.js";
 
 const Logo = () => {
     return (

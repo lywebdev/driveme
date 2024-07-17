@@ -1,12 +1,15 @@
 import './App.scss';
 import {RouterProvider} from "react-router-dom";
-import {router} from './router.jsx';
+import {globalRouter} from "../routes/index.jsx";
+import AuthContextProvider from "../auth/auth.context.jsx";
 
 
 const App = () => {
     return (
         <>
-            <RouterProvider router={router} />
+            <AuthContextProvider>
+                <RouterProvider router={globalRouter} />
+            </AuthContextProvider>
         </>
     );
 };

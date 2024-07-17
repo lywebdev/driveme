@@ -18,7 +18,7 @@ This template provides a minimal setup to get React working in Vite with HMR and
 # Regulations
 
 ## Frontend stack
-The following key technical tools are used: React, react router dom, Zustand.
+The following key technical tools are used: React, react index dom, Zustand.
 - Zustand is a user-friendly, intuitive application state manager
 
 ## Frontend architecture
