@@ -23,7 +23,7 @@ const ExampleTransportsPage = () => {
     
 
 
-    const { totalPages, handlePageClick, currentItems, setCurrentPage } = usePagination(filteredTransports, 8);
+    const { totalPages, handlePageClick, currentItems, setCurrentPage, currentPage } = usePagination(filteredTransports, 8);
 
     
 
@@ -108,6 +108,7 @@ const ExampleTransportsPage = () => {
                 <Pagination
                     totalPages={totalPages}
                     onPageClick={handlePageClick}
+                    currentPage={currentPage}
                 />
             </Container>
 
