@@ -79,3 +79,8 @@
 .Dropdown-option:hover {
   background-color: #f7f7f7;
 }
+
+.dropdown-container {
+  display: flex;
+  justify-content: space-between;
+}
