@@ -1,6 +1,8 @@
-const routes = {
+export const routes = {
     home: '/',
-    exampleTransportsPage: '/example-transports',
-};
+    exampleTransportPage: '/example-transports',
 
-export default routes;
+
+    dashboard: '/admin',
+    login: '/login',
+};

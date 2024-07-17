@@ -1,7 +1,7 @@
 import React from "react";
 import {useExampleTransportsStore} from "@store/useExampleTransportsStore.js";
 import {NavLink} from "react-router-dom";
-import routes from "@config/routes.js";
+import {routes} from "@config/routes.js";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore(state => [
