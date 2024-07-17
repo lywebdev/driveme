@@ -5,7 +5,7 @@ import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import Container from "@components/layouts/shared/Container";
 //import VehicleCard from "@components/shared/Vehicle/VehicleCard";
 import { useState } from 'react';
-import "./ExampleTransportsPage.css";
+import "./styles/TransportsPage.css";
 import Dropdown from 'react-dropdown';
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";

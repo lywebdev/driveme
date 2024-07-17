@@ -5,4 +5,5 @@ export const routes = {
 
     dashboard: '/admin',
     login: '/login',
+    TransportsPage: '/transports',
 };
