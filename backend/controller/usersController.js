@@ -6,7 +6,9 @@ const findAll = async (req, res) => {
 };
 
 const store = async (req, res) => {
-  const response = await UserService.registration(...req.body);
+  const { name, email, password, confirmPassword } = req.body;
+
+  const response = await UserService.registration(name, email, password, confirmPassword);
   res.status(response.status).json(response.content);
 };
 
@@ -32,4 +34,18 @@ const logout = async (req, res) => {
   res.status(response.status).json(response.content);
 };
 
-export default { findAll, store, login, logout };
+const refreshTokens = async (req, res) => {
+  const {refreshToken} = req.cookies;
+  const userData = await UserService.refresh(refreshToken);
+
+  res.cookie('refreshToken', userData.refreshToken, {
+    maxAge: 30 * 24 * 60 * 60 * 1000,
+    httpOnly: true
+  });
+
+  res.json(userData);
+}
+
+
+
+export default { findAll, store, login, logout, refreshTokens };
