@@ -1,9 +1,5 @@
 .transports-container {
-    flex-grow: 1;
-}
-
-.dropdown-container {
-    margin-top: 30px;
+  flex-grow: 1;
 }
 
 .vehicle-card-container {
@@ -16,7 +12,66 @@
 }
 
 .transports-page {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
+
+.location-container {
+    display: flex;
+    align-items: center;
+    height: 100px;
+}
+
+.location-placeholder {
+    display: flex;
+    align-items: center;
+}
+
+.placeholder-icon {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+}
+
+
+.location-dropdown .Dropdown-placeholder {
+    color: inherit;
+}
+
+.location-container .Dropdown-control {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    height: 100%;
+}
+
+.location-dropdown .location-control .is-selected {
+    font-weight: bold; 
+    color: #007bff;
+}
+
+.location-dropdown .location-menu {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/*styling options inside the dropdown menu */
+.location-dropdown .Dropdown-option {
+    padding: 8px 12px; 
+}
+
+
+
+.location-dropdown .Dropdown-option.is-selected {
+    background-color: #007bff; 
+    color: white; 
+}
+
+.location-container .Dropdown-placeholder.is-selected{
+    font-weight: bold;
+}
+
+

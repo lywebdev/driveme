@@ -42,4 +42,20 @@
     font-weight: bold;
     font-size: 18px;
   }
+
+  .rating{
+    @include vehicle-card__container(10px);
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .location{
+    @include vehicle-card__container(10px);
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .delivery{
+    @include vehicle-card__container(10px);
+  }
 }
