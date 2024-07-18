@@ -27,7 +27,6 @@ const AuthContextProvider = ({ children }) => {
 
 
     useEffect(() => {
-        console.log('Инициализация состояния авторизации');
         initializeAuthContext()
             .then(() => console.log('initializeAuthContext was successful'))
             .catch((error) => console.log(error));

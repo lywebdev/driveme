@@ -4,7 +4,6 @@ import AdminLayout from "@components/admin/layouts/AdminLayout.jsx";
 import config from "@config/app.js";
 
 const AuthGuard = () => {
-    // const {isAuthenticated, user, isAuthLoading} = useAuth();
     const {isAuthenticated} = useAuth();
 
     if (!isAuthenticated) {
