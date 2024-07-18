@@ -1,9 +1,6 @@
 import { useExampleTransportsStore } from "@store/useExampleTransportsStore.js";
-//import { NavLink } from "react-router-dom";
-//import routes from "@config/routes.js";
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import Container from "@components/layouts/shared/Container";
-import VehicleCard from "@components/shared/Vehicle/VehicleCard";
 import { useState } from 'react';
 import "./styles/TransportsPage.scss";
 import Dropdown from 'react-dropdown';
@@ -12,6 +9,8 @@ import Pagination from "../components/shared/Pagination/Pagination";
 import DropdownArrows from "../components/shared/DropdownArrows/DropdownArrows";
 import Button from "../components/UI/Button/Button.jsx";
 import { resolveAlias } from "@helpers/imageHelper";
+import CategoryTransports from "../components/features/CategoryTransports/CategoryTransports.jsx";
+import useSortTransports from "../hooks/useSortTransports";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
@@ -19,7 +18,9 @@ const ExampleTransportsPage = () => {
     const [sorting, setSorting] = useState("None");
     const [location, setLocation] = useState(null);
 
-    const filteredTransports = transports.filter(transport =>
+    const { transports : sortedTransports, sortTransports } = useSortTransports(transports);
+
+    const filteredTransports = sortedTransports.filter(transport =>
         vehicleTypes === null || vehicleTypes === 0 || transport.transportTypeId === vehicleTypes
     );
 
@@ -35,9 +36,10 @@ const ExampleTransportsPage = () => {
 
     const vehicleTypeOptions = [
         { value: 0, label: "All" },
-        { value: 1, label: "Car" },
-        { value: 2, label: "Scooter" },
-        { value: 3, label: "Bike" },
+        { value: 1, label: "Bike" },
+        { value: 2, label: "Car" },
+        { value: 3, label: "Roller" },
+        { value: 4, label: "Scooter" },
     ];
 
     const sortingOptions = [
@@ -68,19 +70,7 @@ const ExampleTransportsPage = () => {
 
     const handleSortingChange = (selectedOption) => {
         console.log(selectedOption);
-        
-        switch (selectedOption.value) {
-        case "Descending":
-            transports.sort((a, b) => b.cost - a.cost);
-            break;
-        case "Ascending":
-            transports.sort((a, b) => a.cost - b.cost);
-            break;
-        default:
-            transports.sort((a, b) => a.id - b.id);
-            break;
-        }
-        
+        sortTransports(selectedOption.value);
         setSorting(selectedOption.value);
         setCurrentPage(1);
     };
@@ -141,20 +131,10 @@ const ExampleTransportsPage = () => {
                         arrowOpen={<DropdownArrows.ArrowOpen />}
                     />
                 </div>
-                <div className="vehicle-card-container">
-                    {currentItems.map((transport) => (
-                        <VehicleCard
-                            key={transport.id}
-                            name={transport.name}
-                            price={transport.cost}
-                            image={transport.image}
-                            description={transport.description}
-                            rating={transport.rating}
-                            delivery={transport.hasDelivery}
-                            location={transport.city}
-                        />
-                    ))}
-                </div>
+                <CategoryTransports
+                    currentItems={currentItems}
+
+                />
 
                 <Pagination
                     totalPages={totalPages}

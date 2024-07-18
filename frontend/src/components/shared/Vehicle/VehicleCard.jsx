@@ -4,7 +4,7 @@ import classes from './VehicleCard.module.scss';
 const VehicleCard = (props) => {
     return <a href='#' className={classes['vehicle-card']}>
         <div className={classes.image}>
-            <img src={resolveAlias('@images/vehicles/1.jpg')} alt="scooter"/>
+            <img src={resolveAlias('@images/vehicles/bike.jpg')} alt="scooter"/>
         </div>
         <div className={classes.name}>{props.name}</div>
         <div className={classes.delimiter}></div>
