@@ -3,7 +3,7 @@ import { useExampleTransportsStore } from "@store/useExampleTransportsStore.js";
 //import routes from "@config/routes.js";
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import Container from "@components/layouts/shared/Container";
-//import VehicleCard from "@components/shared/Vehicle/VehicleCard";
+import VehicleCard from "@components/shared/Vehicle/VehicleCard";
 import { useState } from 'react';
 import "./styles/TransportsPage.scss";
 import Dropdown from 'react-dropdown';
@@ -11,20 +11,25 @@ import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
 import DropdownArrows from "../components/shared/DropdownArrows/DropdownArrows";
 import Button from "../components/UI/Button/Button.jsx";
+import { resolveAlias } from "@helpers/imageHelper";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
-    const [vehicleTypes, setVehicleTypes] = useState(0);
+    const [vehicleTypes, setVehicleTypes] = useState(null);
     const [sorting, setSorting] = useState("None");
+    const [location, setLocation] = useState(null);
 
-    // Filter transports based on selected vehicle type
     const filteredTransports = transports.filter(transport =>
-        vehicleTypes === 0 || transport.transportTypeId === vehicleTypes
+        vehicleTypes === null || vehicleTypes === 0 || transport.transportTypeId === vehicleTypes
+    );
+
+    const filteredLocation = filteredTransports.filter(transport =>
+        location === null || location === "All" || transport.city === location
     );
     
 
 
-    const { totalPages, handlePageClick, currentItems, setCurrentPage, currentPage } = usePagination(filteredTransports, 8);
+    const { totalPages, handlePageClick, currentItems, setCurrentPage, currentPage } = usePagination(filteredLocation, 8);
 
     
 
@@ -80,6 +85,12 @@ const ExampleTransportsPage = () => {
         setCurrentPage(1);
     };
 
+    const handleLocationChange = (selectedOption) => {
+        console.log(selectedOption);
+        setLocation(selectedOption.value);
+        setCurrentPage(1);
+    };
+
 
     return (
         <div className="transports-page">
@@ -88,11 +99,26 @@ const ExampleTransportsPage = () => {
                     <PageTitle.Top className="text-left top">
                         Rent a vehicle near you!
                     </PageTitle.Top>
-                    <div className="dropdown-container">
-                        <Dropdown
-                            options={locationOptions}
-                            placeholder="Select Location..."
-                        />
+                    <div className="location-container">
+                        <div className="location-wrapper">
+                            <Dropdown
+                                options={locationOptions}
+                                placeholder={
+                                    <div className="location-placeholder">
+                                        <img src={resolveAlias('@images/icons/locationicon.svg')} alt="Location icon" className="placeholder-icon" />
+                                        <span>Select Location...</span>
+                                    </div>
+                                }
+                                className="location-dropdown"
+                                controlClassname="location-control"
+                                menuClassname="location-menu"
+                                arrowClassName="location-arrow"
+                                arrowClosed={<DropdownArrows.ArrowClosed />} 
+                                arrowOpen={<DropdownArrows.ArrowOpen />}
+                                onChange={handleLocationChange}
+                                value={locationOptions.find(option => option.value === location)}
+                            />
+                        </div>
                     </div>
                 </PageTitle>
 
@@ -117,12 +143,16 @@ const ExampleTransportsPage = () => {
                 </div>
                 <div className="vehicle-card-container">
                     {currentItems.map((transport) => (
-                        <div key={transport.id}>
-                            <p>{transport.name}</p>
-                            <p>{transport.cost}</p>
-                            <p>{transport.description}</p>
-                            <p>{transport.transportTypeId}</p>
-                        </div>
+                        <VehicleCard
+                            key={transport.id}
+                            name={transport.name}
+                            price={transport.cost}
+                            image={transport.image}
+                            description={transport.description}
+                            rating={transport.rating}
+                            delivery={transport.hasDelivery}
+                            location={transport.city}
+                        />
                     ))}
                 </div>
 

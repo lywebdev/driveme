@@ -7,6 +7,7 @@ const transportData = [
         description: 'Some description for the vehicle.',
         hasDelivery: false,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Amsterdam'
     },
     {
         id: 2,
@@ -16,6 +17,7 @@ const transportData = [
         description: 'A reliable and efficient vehicle.',
         hasDelivery: true,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Rotterdam'
     },
     {
         id: 3,
@@ -25,6 +27,7 @@ const transportData = [
         description: 'Known for its durability and performance.',
         hasDelivery: false,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'The Hague'
     },
     {
         id: 4,
@@ -34,6 +37,7 @@ const transportData = [
         description: 'Spacious and comfortable for long trips.',
         hasDelivery: true,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Utrecht'
     },
     {
         id: 5,
@@ -43,6 +47,7 @@ const transportData = [
         description: 'A budget-friendly option with good mileage.',
         hasDelivery: false,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Eindhoven'
     },
     {
         id: 6,
@@ -52,6 +57,7 @@ const transportData = [
         description: 'Luxury vehicle with advanced features.',
         hasDelivery: true,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Tilburg'
     },
     {
         id: 7,
@@ -61,6 +67,7 @@ const transportData = [
         description: 'Premium vehicle for a comfortable ride.',
         hasDelivery: true,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Groningen'
     },
     {
         id: 8,
@@ -70,6 +77,7 @@ const transportData = [
         description: 'Electric vehicle with cutting-edge technology.',
         hasDelivery: false,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Almere'
     },
     {
         id: 9,
@@ -79,6 +87,7 @@ const transportData = [
         description: 'Elegant design and powerful performance.',
         hasDelivery: true,
         photos: ['@images/vehicles/1.jpg'],
+        city: 'Breda'
     },
     {
         id: 19,
@@ -88,86 +97,7 @@ const transportData = [
         description: 'Practical and reliable for everyday use.',
         hasDelivery: false,
         photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 18,
-        name: 'Tesla',
-        cost: 250,
-        transportTypeId: 4,
-        description: 'Electric vehicle with cutting-edge technology.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 17,
-        name: 'Audi',
-        cost: 210,
-        transportTypeId: 3,
-        description: 'Elegant design and powerful performance.',
-        hasDelivery: true,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 10,
-        name: 'Volkswagen',
-        cost: 170,
-        transportTypeId: 2,
-        description: 'Practical and reliable for everyday use.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
-    },    {
-        id: 11,
-        name: 'Tesla',
-        cost: 250,
-        transportTypeId: 4,
-        description: 'Electric vehicle with cutting-edge technology.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 12,
-        name: 'Audi',
-        cost: 210,
-        transportTypeId: 3,
-        description: 'Elegant design and powerful performance.',
-        hasDelivery: true,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 13,
-        name: 'Volkswagen',
-        cost: 170,
-        transportTypeId: 2,
-        description: 'Practical and reliable for everyday use.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 14,
-        name: 'Tesla',
-        cost: 250,
-        transportTypeId: 4,
-        description: 'Electric vehicle with cutting-edge technology.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 15,
-        name: 'Audi',
-        cost: 210,
-        transportTypeId: 3,
-        description: 'Elegant design and powerful performance.',
-        hasDelivery: true,
-        photos: ['@images/vehicles/1.jpg'],
-    },
-    {
-        id: 16,
-        name: 'Volkswagen',
-        cost: 170,
-        transportTypeId: 2,
-        description: 'Practical and reliable for everyday use.',
-        hasDelivery: false,
-        photos: ['@images/vehicles/1.jpg'],
+        city: 'Nijmegen'
     },
 ];
 
