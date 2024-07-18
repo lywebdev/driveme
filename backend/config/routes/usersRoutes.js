@@ -5,8 +5,10 @@ import auth from "../../middlewares/loginAuth.js";
 const router = express.Router();
 
 // Public routes
-router.post("/login", auth.isUserLoggedOut, usersController.login);
-router.post("/",auth.isUserLoggedOut, usersController.store);
+router.post("/login", auth.isNotAuthorized, usersController.login);
+router.post("/", auth.isNotAuthorized, usersController.store);
+
+router.get('/refresh-tokens', usersController.refreshTokens);
 
 // Routes that require the user to be logged in
 router.use(auth.isUserLoggedIn);

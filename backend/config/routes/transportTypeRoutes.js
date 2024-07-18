@@ -4,9 +4,10 @@ import adminAuth from "../../middlewares/adminAuth.js";
 
 const router = express.Router();
 
+router.get("/", transportTypeController.all);
+
 router.use(adminAuth.isAdmin);
 
-router.get("/", transportTypeController.all);
 router.post("/", transportTypeController.create);
 router.delete("/:id", transportTypeController.remove);
 router.put("/:id", transportTypeController.update);

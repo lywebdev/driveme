@@ -34,16 +34,11 @@ class baseApiService {
         const success = (status === codeStatuses.success || status === codeStatuses.successfulAdded) ? isSuccess : false;
         const content = {
             isSuccess: success,
-            ...(success ? { data, message } : { errors: [message].concat(data) }),
+            ...(success ? { data, message } : { errors: data.length !== 0 ? data : [message] }),
         }
 
         return new apiResponseDTO(status, content);
     }
-
-    // handleHttpRequest = async (req, res, serviceFunction, ...args) => {
-    //     const responseData = await serviceFunction(...args);
-    //     res.status(responseData.status).json(responseData.content);
-    // }
 }
 
 

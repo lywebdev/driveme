@@ -17,7 +17,7 @@ const isUserLoggedIn = (req, res, next) => {
   }
 };
 
-const isUserLoggedOut = (req, res, next) => {
+const isNotAuthorized = (req, res, next) => {
   if (req.cookies && req.cookies.userToken) {
     try {
       jwt.verify(req.cookies.userToken, process.env.JWT_TOKEN);
@@ -30,4 +30,4 @@ const isUserLoggedOut = (req, res, next) => {
   }
 };
 
-export default { isUserLoggedIn, isUserLoggedOut };
+export default { isUserLoggedIn, isNotAuthorized };
