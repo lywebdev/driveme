@@ -1,24 +1,24 @@
 import TransportTypeService from "../services/transportTypeService.js";
 
-const all = (req, res) => {
-    const response = TransportTypeService.findAll();
+const all = async (req, res) => {
+    const response = await TransportTypeService.findAll();
     res.status(response.status).json(response.content);
 }
 
-const create = (req, res) => {
-    const response = TransportTypeService.store(req.body);
-
-    res.status(response.status).json(response.content);
-}
-
-const remove = (req, res) => {
-    const response = TransportTypeService.removeById(req.params.id);
+const create = async (req, res) => {
+    const response = await TransportTypeService.store(req.body);
 
     res.status(response.status).json(response.content);
 }
 
-const update = (req, res) => {
-    const response = TransportTypeService.findByIdAndUpdate(req.params.id, req.body);
+const remove = async (req, res) => {
+    const response = await TransportTypeService.removeById(req.params.id);
+
+    res.status(response.status).json(response.content);
+}
+
+const update = async (req, res) => {
+    const response = await TransportTypeService.findByIdAndUpdate(req.params.id, req.body);
 
     res.status(response.status).json(response.content);
 }
