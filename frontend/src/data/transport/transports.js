@@ -6,7 +6,7 @@ const transportData = [
         transportTypeId: 2,
         description: 'Some description for the vehicle.',
         hasDelivery: false,
-        photos: ['@images/vehicles/car.jpg'],
+        photos: ['@images/transports/car.jpg'],
         city: 'Amsterdam'
     },
     {
@@ -16,7 +16,7 @@ const transportData = [
         transportTypeId: 4,
         description: 'A stylish and efficient scooter.',
         hasDelivery: true,
-        photos: ['@images/vehicles/scooter.jpg'],
+        photos: ['@images/transports/scooter.jpg'],
         city: 'Rotterdam'
     },
     {
@@ -26,7 +26,7 @@ const transportData = [
         transportTypeId: 3,
         description: 'Smooth and agile rollerblades.',
         hasDelivery: false,
-        photos: ['@images/vehicles/roller.jpg'],
+        photos: ['@images/transports/roller.jpg'],
         city: 'The Hague'
     },
     {
@@ -36,7 +36,7 @@ const transportData = [
         transportTypeId: 1,
         description: 'Durable bike for various terrains.',
         hasDelivery: true,
-        photos: ['@images/vehicles/bike.jpg'],
+        photos: ['@images/transports/bike.jpg'],
         city: 'Utrecht'
     },
     {
@@ -46,7 +46,7 @@ const transportData = [
         transportTypeId: 2,
         description: 'A budget-friendly car with good mileage.',
         hasDelivery: false,
-        photos: ['@images/vehicles/car.jpg'],
+        photos: ['@images/transports/car.jpg'],
         city: 'Eindhoven'
     },
     {
@@ -56,7 +56,7 @@ const transportData = [
         transportTypeId: 4,
         description: 'Classic scooter for urban commuting.',
         hasDelivery: true,
-        photos: ['@images/vehicles/scooter.jpg'],
+        photos: ['@images/transports/scooter.jpg'],
         city: 'Tilburg'
     },
     {
@@ -66,7 +66,7 @@ const transportData = [
         transportTypeId: 3,
         description: 'Electric heel wheels for fun rides.',
         hasDelivery: true,
-        photos: ['@images/vehicles/roller.jpg'],
+        photos: ['@images/transports/roller.jpg'],
         city: 'Groningen'
     },
     {
@@ -76,7 +76,7 @@ const transportData = [
         transportTypeId: 1,
         description: 'High-performance road bike.',
         hasDelivery: false,
-        photos: ['@images/vehicles/bike.jpg'],
+        photos: ['@images/transports/bike.jpg'],
         city: 'Almere'
     },
     {
@@ -86,7 +86,7 @@ const transportData = [
         transportTypeId: 2,
         description: 'Luxury car with advanced features.',
         hasDelivery: true,
-        photos: ['@images/vehicles/car.jpg'],
+        photos: ['@images/transports/car.jpg'],
         city: 'Breda'
     },
     {
@@ -96,7 +96,7 @@ const transportData = [
         transportTypeId: 4,
         description: 'Practical scooter for city life.',
         hasDelivery: false,
-        photos: ['@images/vehicles/scooter.jpg'],
+        photos: ['@images/transports/scooter.jpg'],
         city: 'Nijmegen'
     },
     {
@@ -106,7 +106,7 @@ const transportData = [
         transportTypeId: 3,
         description: 'Inline skates for recreational use.',
         hasDelivery: true,
-        photos: ['@images/vehicles/roller.jpg'],
+        photos: ['@images/transports/roller.jpg'],
         city: 'Maastricht'
     },
     {
@@ -116,7 +116,7 @@ const transportData = [
         transportTypeId: 1,
         description: 'Versatile mountain bike for trails.',
         hasDelivery: false,
-        photos: ['@images/vehicles/bike.jpg'],
+        photos: ['@images/transports/bike.jpg'],
         city: 'Haarlem'
     },
 ];

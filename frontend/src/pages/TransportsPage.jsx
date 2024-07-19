@@ -3,7 +3,7 @@ import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import Container from "@components/layouts/shared/Container";
 import { useState } from 'react';
 import "./styles/TransportsPage.scss";
-import Dropdown from 'react-dropdown';
+import ReactDropdown from 'react-dropdown';
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
 import Button from "../components/UI/Button/Button.jsx";
@@ -12,17 +12,18 @@ import CategoryTransports from "../components/features/CategoryTransports/Catego
 import useSortTransports from "../hooks/useSortTransports";
 import ArrowClosed from "@components/UI/Arrows/ArrowClosed.jsx";
 import ArrowOpened from "@components/UI/Arrows/ArrowOpened.jsx";
+import Dropdown from "@components/UI/Dropdown/Dropdown.jsx";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
-    const [vehicleTypes, setVehicleTypes] = useState(null);
+    const [transportTypes, setTransportTypes] = useState(null);
     const [sorting, setSorting] = useState("None");
     const [location, setLocation] = useState(null);
 
     const { transports : sortedTransports, sortTransports } = useSortTransports(transports);
 
     const filteredTransports = sortedTransports.filter(transport =>
-        vehicleTypes === null || vehicleTypes === 0 || transport.transportTypeId === vehicleTypes
+        transportTypes === null || transportTypes === 0 || transport.transportTypeId === transportTypes
     );
 
     const filteredLocation = filteredTransports.filter(transport =>
@@ -63,7 +64,7 @@ const ExampleTransportsPage = () => {
     ];
     const changeTransportTypeHandler = (selectedOption) => {
         console.log(selectedOption);
-        setVehicleTypes(selectedOption.value);
+        setTransportTypes(selectedOption.value);
         setCurrentPage(1);
         setSorting("None");
     };
@@ -91,7 +92,7 @@ const ExampleTransportsPage = () => {
                     </PageTitle.Top>
                     <div className="location-container">
                         <div className="location-wrapper">
-                            <Dropdown
+                            <ReactDropdown
                                 options={locationOptions}
                                 placeholder={
                                     <div className="location-placeholder">
@@ -114,15 +115,22 @@ const ExampleTransportsPage = () => {
 
 
                 <div className="dropdown-container">
-                    <Dropdown 
+
+
+                    <Dropdown options={transportTypeOptions}
+                        onChange={changeTransportTypeHandler}
+                        value={transportTypeOptions.find(option => option.value === transportTypes)}
+                    />
+
+                    <ReactDropdown
                         options={transportTypeOptions}
                         onChange={changeTransportTypeHandler}
-                        value={transportTypeOptions.find(option => option.value === vehicleTypes)}
+                        value={transportTypeOptions.find(option => option.value === transportTypes)}
                         placeholder="Select Vehicle Type"
                         arrowClosed={<ArrowClosed />}
                         arrowOpen={<ArrowOpened />}
                     />
-                    <Dropdown 
+                    <ReactDropdown
                         options={sortingOptions} 
                         onChange={changeSortingHandler} 
                         value={sortingOptions.find(option => option.value === sorting)} 
