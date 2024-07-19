@@ -1,12 +1,12 @@
 import express from "express";
 import transportTypeController from "../../controller/transportTypeController.js";
-import adminAuth from "../../middlewares/adminAuth.js";
+import auth from "../../middlewares/auth.js";
 
 const router = express.Router();
 
 router.get("/", transportTypeController.all);
 
-router.use(adminAuth.isAdmin);
+router.use(auth.isAdmin);
 
 router.post("/", transportTypeController.create);
 router.delete("/:id", transportTypeController.remove);

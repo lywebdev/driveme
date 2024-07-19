@@ -1,16 +1,16 @@
 import TransportType from "../models/TransportTypeSchema.js";
-import {getUpdatableFields, idIsCorrect, responseMessages} from "../utils/modelsHelper.js";
 import {errorTypes} from "../utils/constants/errorTypeConstants.js";
-import baseApiService from "./baseApiService.js";
+import BaseApiService from "./BaseApiService.js";
+import {getUpdatableFields, idIsCorrect, responseTemplates} from "../utils/constants/responseConstants.js";
 
-class TransportTypeService extends baseApiService {
+class TransportTypeService extends BaseApiService {
     findAll = async () => {
         let transportTypes = null;
 
         try {
             transportTypes = await TransportType.find();
         } catch (err) {
-            return this.apiResponse({...responseMessages.entity.gettingError});
+            return this.apiResponse({...responseTemplates.entity.gettingError});
         }
 
         return this.apiResponse({
@@ -23,7 +23,7 @@ class TransportTypeService extends baseApiService {
         if (await TransportType.findOne({
             _id: requestBody?.id,
         })) {
-            return this.apiResponse({...responseMessages.entity.alreadyExists});
+            return this.apiResponse({...responseTemplates.entity.alreadyExists});
         }
 
 
@@ -42,79 +42,83 @@ class TransportTypeService extends baseApiService {
                 const errors = Object.values(err.errors).map(err => err.message);
 
                 return this.apiResponse({
-                    ...responseMessages.entity.savingFailed,
+                    ...responseTemplates.entity.savingFailed,
                     data: errors,
                 });
             }
 
-            return this.apiResponse({...responseMessages.entity.savingFailed});
+            return this.apiResponse({...responseTemplates.entity.savingFailed});
         }
 
         return this.apiResponse({
-            ...responseMessages.entity.added,
+            ...responseTemplates.entity.added,
             data: savedTransportType,
         });
     }
 
     findByIdAndUpdate = async (id, requestBody) => {
-        if (!idIsCorrect(id)) {
-            return this.apiResponse({...responseMessages.validation.id.invalidFormat});
-        }
-
-        if (!await TransportType.findOne({
-            _id: id,
-        })) {
-            return this.apiResponse({...responseMessages.entity.notExists});
-        }
-
-
-        const updatableFields = getUpdatableFields({
-            name: requestBody.name,
-            photo: requestBody.photo,
-        });
-        let updatedTransportType = null;
-
         try {
-            updatedTransportType = await TransportType.findByIdAndUpdate(
-                id,
-                {
-                    ...updatableFields
-                },
-                { new: true },
-            );
+            if (!idIsCorrect(id)) {
+                return this.apiResponse({...responseTemplates.validation.id.invalidFormat});
+            }
+
+            if (!await TransportType.findOne({
+                _id: id,
+            })) {
+                return this.apiResponse({...responseTemplates.entity.notExists});
+            }
+
+
+            const updatableFields = getUpdatableFields({
+                name: requestBody.name,
+                photo: requestBody.photo,
+            });
+            let updatedTransportType = null;
+
+            try {
+                updatedTransportType = await TransportType.findByIdAndUpdate(
+                    id,
+                    {
+                        ...updatableFields
+                    },
+                    { new: true },
+                );
+            } catch (err) {
+                return this.apiResponse({...responseTemplates.entity.savingFailed});
+            }
+
+            if (await TransportType.findOne({
+                _id: requestBody?.id,
+            })) {
+                return this.apiResponse({...responseTemplates.entity.alreadyExists});
+            }
+
+
+            return this.apiResponse({
+                ...responseTemplates.entity.updated,
+                data: updatedTransportType,
+            });
         } catch (err) {
-            return this.apiResponse({...responseMessages.entity.savingFailed});
+            return this.apiResponse({...responseTemplates.exception});
         }
-
-        if (await TransportType.findOne({
-            _id: requestBody?.id,
-        })) {
-            return this.apiResponse({...responseMessages.entity.alreadyExists});
-        }
-
-
-        return this.apiResponse({
-            ...responseMessages.entity.updated,
-            data: updatedTransportType,
-        });
     }
 
     removeById = async id => {
         if (!idIsCorrect(id)) {
-            return this.apiResponse({...responseMessages.validation.id.invalidFormat});
+            return this.apiResponse({...responseTemplates.validation.id.invalidFormat});
         }
 
         if (!await TransportType.findOne({
             _id: id,
         })) {
-            return this.apiResponse({...responseMessages.entity.notExists});
+            return this.apiResponse({...responseTemplates.entity.notExists});
         }
 
 
         try {
             await TransportType.findByIdAndDelete(id);
         } catch (err) {
-            return this.apiResponse({...responseMessages.entity.deletingFailed});
+            return this.apiResponse({...responseTemplates.entity.deletingFailed});
         }
 
 

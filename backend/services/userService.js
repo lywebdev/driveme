@@ -1,11 +1,13 @@
 import User from "../models/UserSchema.js";
 import bcrypt from "bcrypt";
-import baseApiService from "./baseApiService.js";
-import {responseMessages} from "../utils/modelsHelper.js";
+import BaseApiService from "./BaseApiService.js";
 import TokenService from "./tokenService.js";
 import UserDTO from "../DTOs/userDTO.js";
+import {isJsonWebTokenError} from "../utils/throwables.js";
+import {responseTemplates} from "../utils/constants/responseConstants.js";
+import UserConstants from "../models/constants/UserConstants.js";
 
-class UserService extends baseApiService {
+class UserService extends BaseApiService {
     findAll = async () => {
         try {
             const users = await User.find();
@@ -16,33 +18,30 @@ class UserService extends baseApiService {
                 data: userDTOs,
             });
         } catch (err) {
-            return this.apiResponse({...responseMessages.exception});
+            return this.apiResponse({...responseTemplates.exception});
         }
     }
 
     registration = async (name, email, password, confirmPassword) => {
         try {
             const errors = this.#validateUserData(name, email, password, confirmPassword);
-            if (errors.length !== 0) {
+            if (errors.length) {
                 return this.apiResponse({
-                    ...responseMessages.entity.savingFailed,
+                    ...responseTemplates.entity.savingFailed,
                     data: errors,
                 });
             }
 
-            const candidate = await User.findOne({email});
-            if (candidate) {
-                return this.apiResponse({...responseMessages.entity.alreadyExists});
+            if (await User.findOne({ email })) {
+                return this.apiResponse({ ...responseTemplates.entity.alreadyExists });
             }
 
             const hashedPassword = await bcrypt.hash(password, 10);
-
             const user = await User.create({
                 name: name,
                 email: email,
                 password: hashedPassword,
             });
-
             const userDTO = new UserDTO(user);
             const tokens = TokenService.generateTokens({...userDTO});
 
@@ -50,14 +49,14 @@ class UserService extends baseApiService {
 
 
             return this.apiResponse({
-                ...responseMessages.entity.added,
+                ...responseTemplates.entity.added,
                 data: {
                     ...tokens,
                     user: userDTO,
                 },
             });
         } catch (err) {
-            return this.apiResponse({...responseMessages.exception});
+            return this.apiResponse({...responseTemplates.exception});
         }
     }
 
@@ -66,7 +65,7 @@ class UserService extends baseApiService {
             const user = await User.findOne({email});
 
             if (!user) {
-                return this.apiResponse({...responseMessages.entity.notExists,});
+                return this.apiResponse({...responseTemplates.entity.notExists,});
             }
 
             const isPassEquals = await bcrypt.compare(password, user.password);
@@ -83,7 +82,6 @@ class UserService extends baseApiService {
                 name: userDTO.name,
                 email: userDTO.email,
             };
-
             const tokens = TokenService.generateTokens(publicFields);
 
             await TokenService.saveToken(userDTO.id, tokens.refreshToken);
@@ -96,8 +94,7 @@ class UserService extends baseApiService {
                 },
             });
         } catch (err) {
-            console.log(err);
-            return this.apiResponse({...responseMessages.exception});
+            return this.apiResponse({...responseTemplates.exception});
         }
     }
 
@@ -107,14 +104,14 @@ class UserService extends baseApiService {
 
     refresh = async (refreshToken) => {
         if (!refreshToken) {
-            return this.apiResponse({...responseMessages.user.unauthorized});
+            return this.apiResponse({...responseTemplates.user.unauthorized});
         }
 
         const userData = TokenService.validateRefreshToken(refreshToken);
         const tokenFromDb = await TokenService.findToken(refreshToken);
 
         if (!userData || !tokenFromDb) {
-            return this.apiResponse({...responseMessages.user.unauthorized});
+            return this.apiResponse({...responseTemplates.user.unauthorized});
         }
 
         const user = await User.findById(userData.id);
@@ -129,6 +126,139 @@ class UserService extends baseApiService {
                 user: userDTO,
             },
         });
+    }
+
+
+    #authProcess = async (authorizationHeader, requireAdmin = false, allowUnauthenticated  = false) => {
+        try {
+            if (!authorizationHeader) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const token = authorizationHeader.split(' ')[1];
+            const validatedToken = TokenService.validateAccessToken(token);
+            if (!validatedToken) {
+                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const user = new UserDTO(validatedToken);
+            if (!user) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const userInDb = await User.findById(user.id);
+            if (!userInDb) {
+                return this.apiResponse({...responseTemplates.entity.notExists});
+            }
+
+            if (requireAdmin && userInDb.role !== UserConstants.ROLE_ADMIN) {
+                return this.apiResponse({...responseTemplates.user.forbidden});
+            }
+
+            return user;
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
+            }
+
+            return this.apiResponse({...responseTemplates.exception});
+        }
+    }
+
+    isAdminByAuthHeader = async (authorizationHeader) => {
+        try {
+            if (!authorizationHeader) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const token = authorizationHeader.split(' ')[1];
+            const validatedToken = TokenService.validateAccessToken(token);
+            if (!validatedToken) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const user = new UserDTO(validatedToken);
+
+            if (!user) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const userInDb = await User.findById(user.id);
+
+            if (!userInDb) {
+                return this.apiResponse({...responseTemplates.entity.notExists});
+            }
+
+            if (userInDb.role !== UserConstants.ROLE_ADMIN) {
+                return this.apiResponse({...responseTemplates.user.forbidden});
+            }
+
+
+            return user;
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
+            }
+
+            return this.apiResponse({...responseTemplates.exception});
+        }
+    }
+
+    isNotAuthenticatedByAuthHeader = async (authorizationHeader) => {
+        try {
+            if (!authorizationHeader) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const token = authorizationHeader.split(' ')[1];
+            const validatedToken = TokenService.validateAccessToken(token);
+            if (!validatedToken) {
+                return true;
+            }
+
+            return this.apiResponse({...responseTemplates.user.forbidden});
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
+            }
+
+            return this.apiResponse({...responseTemplates.exception});
+        }
+    }
+
+    isAuthenticatedByAuthHeader = async (authorizationHeader) => {
+        try {
+            if (!authorizationHeader) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const token = authorizationHeader.split(' ')[1];
+            const validatedToken = TokenService.validateAccessToken(token);
+            if (!validatedToken) {
+                return true;
+            }
+
+            const user = new UserDTO(validatedToken);
+
+            if (!user) {
+                return this.apiResponse({...responseTemplates.user.unauthorized});
+            }
+
+            const userInDb = await User.findById(user.id);
+
+            if (!userInDb) {
+                return this.apiResponse({...responseTemplates.entity.notExists});
+            }
+
+
+            return user;
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
+            }
+
+            return this.apiResponse({...responseTemplates.exception});
+        }
     }
 
 

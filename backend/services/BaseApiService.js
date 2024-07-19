@@ -16,7 +16,7 @@ const responseStatuses = {
 };
 
 
-class baseApiService {
+class BaseApiService {
     #getMessage = (status, message) => message || responseMessages[status] || responseMessages.default;
 
     #getStatus = status => status || responseStatuses[status] || responseStatuses.default;
@@ -42,4 +42,4 @@ class baseApiService {
 }
 
 
-export default baseApiService;
+export default BaseApiService;
