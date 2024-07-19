@@ -16,19 +16,16 @@ const Header = () => {
                     <ul>
                         <li>
                             <NavLink
-                                to={routes.TransportsPage}
-                                className={({isActive}) => (isActive ? "active" : "inactive")}
+                                to={routes.transports}
                             >
-                                ExampleTransportsPage
+                                Transports
                             </NavLink>
                         </li>
                         <li>
                             <NavLink
                                 to={routes.dashboard}
-                                className={({isActive}) => (isActive ? "active" : "inactive")}
                             >
                                 Admin
-                                Transports
                             </NavLink>
                         </li>
                     </ul>

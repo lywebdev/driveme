@@ -51,7 +51,6 @@ export const useUserStore = createStore(
             });
         },
         logout: async () => {
-            console.log('logout');
             setSession(null);
 
             set({
@@ -72,8 +71,6 @@ export const useUserStore = createStore(
             } catch (e) {
                 console.log(e);
             }
-            // finally {
-            // }
         }
     })), 'UserStore'
 );

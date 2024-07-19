@@ -1,5 +1,5 @@
 const Input = () => {
-    return <input placeholder={} />;
-}
+    return <input placeholder='test' />;
+};
 
 export default Input;

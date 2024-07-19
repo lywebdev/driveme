@@ -1,9 +1,7 @@
 export const routes = {
     home: '/',
-    exampleTransportPage: '/example-transports',
-
+    transports: '/transports',
 
     dashboard: '/admin',
     login: '/login',
-    TransportsPage: '/transports',
 };
