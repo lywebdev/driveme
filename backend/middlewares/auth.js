@@ -1,12 +1,10 @@
 import apiResponseDTO from "../DTOs/apiResponseDTO.js";
 import UserService from "../services/userService.js";
+import {codeStatuses} from "../utils/constants/responseConstants.js";
 
-const authResponse = (res, message) => {
-  return res.status(401).json({ message: message });
-};
 
 const isUserLoggedIn = async (req, res, next) => {
-  const userOrApiResponse = await UserService.isNotAuthenticatedByAuthHeader(req.headers.authorization);
+  const userOrApiResponse = await UserService.isAuthenticatedByAuthHeader(req.headers.authorization);
 
   if (userOrApiResponse instanceof apiResponseDTO) {
     return res.status(userOrApiResponse.status).json(userOrApiResponse.content);
@@ -19,11 +17,15 @@ const isUserLoggedIn = async (req, res, next) => {
 const isNotAuthorized = async (req, res, next) => {
   const trueOrApiResponse = await UserService.isNotAuthenticatedByAuthHeader(req.headers.authorization);
 
+  if (trueOrApiResponse === true) {
+    return next();
+  }
+
   if (trueOrApiResponse instanceof apiResponseDTO) {
     return res.status(trueOrApiResponse.status).json(trueOrApiResponse.content);
   }
 
-  next();
+  return res.status(codeStatuses.serverError);
 };
 
 const isAdmin = async (req, res, next) => {

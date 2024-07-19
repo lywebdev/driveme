@@ -4,8 +4,9 @@ import BaseApiService from "./BaseApiService.js";
 import TokenService from "./tokenService.js";
 import UserDTO from "../DTOs/userDTO.js";
 import {isJsonWebTokenError} from "../utils/throwables.js";
-import {responseTemplates} from "../utils/constants/responseConstants.js";
+import {codeStatuses, responseTemplates} from "../utils/constants/responseConstants.js";
 import UserConstants from "../models/constants/UserConstants.js";
+import auth from "../middlewares/auth.js";
 
 class UserService extends BaseApiService {
     findAll = async () => {
@@ -128,11 +129,25 @@ class UserService extends BaseApiService {
         });
     }
 
+    isAdminByAuthHeader = async (authorizationHeader) => {
+        return await this.#authProcess.call(this, authorizationHeader, true);
+    }
+
+    isNotAuthenticatedByAuthHeader = async (authorizationHeader) => {
+        const trueOrApiResponse = await this.#authProcess.call(this, authorizationHeader, false, true);
+        return trueOrApiResponse === true ? true : trueOrApiResponse;
+    }
+
+    isAuthenticatedByAuthHeader = async (authorizationHeader) => {
+        return await this.#authProcess.call(this, authorizationHeader);
+    }
+
+
 
     #authProcess = async (authorizationHeader, requireAdmin = false, allowUnauthenticated  = false) => {
         try {
             if (!authorizationHeader) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
+                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
             }
 
             const token = authorizationHeader.split(' ')[1];
@@ -143,13 +158,21 @@ class UserService extends BaseApiService {
 
             const user = new UserDTO(validatedToken);
             if (!user) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
+                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
             }
 
             const userInDb = await User.findById(user.id);
             if (!userInDb) {
-                return this.apiResponse({...responseTemplates.entity.notExists});
+                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.entity.notExists});
             }
+
+            if (allowUnauthenticated) {
+                return this.apiResponse({
+                    status: codeStatuses.forbidden,
+                    message: 'You are already logged in',
+                });
+            }
+
 
             if (requireAdmin && userInDb.role !== UserConstants.ROLE_ADMIN) {
                 return this.apiResponse({...responseTemplates.user.forbidden});
@@ -164,104 +187,6 @@ class UserService extends BaseApiService {
             return this.apiResponse({...responseTemplates.exception});
         }
     }
-
-    isAdminByAuthHeader = async (authorizationHeader) => {
-        try {
-            if (!authorizationHeader) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const token = authorizationHeader.split(' ')[1];
-            const validatedToken = TokenService.validateAccessToken(token);
-            if (!validatedToken) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const user = new UserDTO(validatedToken);
-
-            if (!user) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const userInDb = await User.findById(user.id);
-
-            if (!userInDb) {
-                return this.apiResponse({...responseTemplates.entity.notExists});
-            }
-
-            if (userInDb.role !== UserConstants.ROLE_ADMIN) {
-                return this.apiResponse({...responseTemplates.user.forbidden});
-            }
-
-
-            return user;
-        } catch (err) {
-            if (isJsonWebTokenError(err)) {
-                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
-            }
-
-            return this.apiResponse({...responseTemplates.exception});
-        }
-    }
-
-    isNotAuthenticatedByAuthHeader = async (authorizationHeader) => {
-        try {
-            if (!authorizationHeader) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const token = authorizationHeader.split(' ')[1];
-            const validatedToken = TokenService.validateAccessToken(token);
-            if (!validatedToken) {
-                return true;
-            }
-
-            return this.apiResponse({...responseTemplates.user.forbidden});
-        } catch (err) {
-            if (isJsonWebTokenError(err)) {
-                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
-            }
-
-            return this.apiResponse({...responseTemplates.exception});
-        }
-    }
-
-    isAuthenticatedByAuthHeader = async (authorizationHeader) => {
-        try {
-            if (!authorizationHeader) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const token = authorizationHeader.split(' ')[1];
-            const validatedToken = TokenService.validateAccessToken(token);
-            if (!validatedToken) {
-                return true;
-            }
-
-            const user = new UserDTO(validatedToken);
-
-            if (!user) {
-                return this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const userInDb = await User.findById(user.id);
-
-            if (!userInDb) {
-                return this.apiResponse({...responseTemplates.entity.notExists});
-            }
-
-
-            return user;
-        } catch (err) {
-            if (isJsonWebTokenError(err)) {
-                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
-            }
-
-            return this.apiResponse({...responseTemplates.exception});
-        }
-    }
-
-
 
     #validateUserData(name, email, password, confirmPassword) {
         let errors = [];
