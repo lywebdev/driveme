@@ -1,10 +1,10 @@
-import classes from './VehicleTypeCard.module.scss';
+import classes from './TransportTypeCard.module.scss';
 
-const VehicleTypeCard = ({vehicleType}) => {
-    let {name, photo} = vehicleType;
+const TransportTypeCard = ({transportType}) => {
+    let {name, photo} = transportType;
 
     return (
-        <div className={classes['vehicle-type-card']}>
+        <div className={classes['transport-type-card']}>
             <a href='#'>
                 <div className={classes.image}>
                     <img src={photo} alt={name}/>
@@ -15,4 +15,4 @@ const VehicleTypeCard = ({vehicleType}) => {
     );
 };
 
-export default VehicleTypeCard;
+export default TransportTypeCard;

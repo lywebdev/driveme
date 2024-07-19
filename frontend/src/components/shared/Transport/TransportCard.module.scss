@@ -1,10 +1,10 @@
-@mixin vehicle-card__container($paddings) {
+@mixin transport-card__container($paddings) {
   padding-left: $paddings;
   padding-right: $paddings;
   box-sizing: border-box;
 }
 
-.vehicle-card {
+.transport-card {
   text-decoration: none;
   color: $color-black;
   background: $color-white;
@@ -13,7 +13,7 @@
   padding-bottom: 15px;
 
   .image {
-    @include vehicle-card__container(5px);
+    @include transport-card__container(5px);
     width: 100%;
     height: 200px;
 
@@ -26,7 +26,7 @@
   }
 
   .name {
-    @include vehicle-card__container(10px);
+    @include transport-card__container(10px);
     margin-top: 15px;
   }
 
@@ -38,24 +38,24 @@
   }
 
   .price {
-    @include vehicle-card__container(10px);
+    @include transport-card__container(10px);
     font-weight: bold;
     font-size: 18px;
   }
 
   .rating{
-    @include vehicle-card__container(10px);
+    @include transport-card__container(10px);
     font-weight: bold;
     font-size: 18px;
   }
 
   .location{
-    @include vehicle-card__container(10px);
+    @include transport-card__container(10px);
     font-weight: bold;
     font-size: 18px;
   }
 
   .delivery{
-    @include vehicle-card__container(10px);
+    @include transport-card__container(10px);
   }
 }

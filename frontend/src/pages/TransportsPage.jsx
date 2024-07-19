@@ -10,8 +10,8 @@ import Button from "../components/UI/Button/Button.jsx";
 import { resolveAlias } from "@helpers/imageHelper";
 import CategoryTransports from "../components/features/CategoryTransports/CategoryTransports.jsx";
 import useSortTransports from "../hooks/useSortTransports";
-import ArrowClosed from "@components/shared/DropdownArrows/ArrowClosed.jsx";
-import ArrowOpened from "@components/shared/DropdownArrows/ArrowOpened.jsx";
+import ArrowClosed from "@components/UI/Arrows/ArrowClosed.jsx";
+import ArrowOpened from "@components/UI/Arrows/ArrowOpened.jsx";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
@@ -28,14 +28,13 @@ const ExampleTransportsPage = () => {
     const filteredLocation = filteredTransports.filter(transport =>
         location === null || location === "All" || transport.city === location
     );
-    
 
 
     const { totalPages, handlePageClick, currentItems, setCurrentPage, currentPage } = usePagination(filteredLocation, 8);
 
     
 
-    const vehicleTypeOptions = [
+    const transportTypeOptions = [
         { value: 0, label: "All" },
         { value: 1, label: "Bike" },
         { value: 2, label: "Car" },
@@ -62,21 +61,21 @@ const ExampleTransportsPage = () => {
         { value: "Breda", label: "Breda" },
         { value: "Nijmegen", label: "Nijmegen" },
     ];
-    const handleVehicleTypeChange = (selectedOption) => {
+    const changeTransportTypeHandler = (selectedOption) => {
         console.log(selectedOption);
         setVehicleTypes(selectedOption.value);
         setCurrentPage(1);
         setSorting("None");
     };
 
-    const handleSortingChange = (selectedOption) => {
+    const changeSortingHandler = (selectedOption) => {
         console.log(selectedOption);
         sortTransports(selectedOption.value);
         setSorting(selectedOption.value);
         setCurrentPage(1);
     };
 
-    const handleLocationChange = (selectedOption) => {
+    const changeLocationHandler = (selectedOption) => {
         console.log(selectedOption);
         setLocation(selectedOption.value);
         setCurrentPage(1);
@@ -106,7 +105,7 @@ const ExampleTransportsPage = () => {
                                 arrowClassName="location-arrow"
                                 arrowClosed={<ArrowClosed />}
                                 arrowOpen={<ArrowOpened />}
-                                onChange={handleLocationChange}
+                                onChange={changeLocationHandler}
                                 value={locationOptions.find(option => option.value === location)}
                             />
                         </div>
@@ -116,16 +115,16 @@ const ExampleTransportsPage = () => {
 
                 <div className="dropdown-container">
                     <Dropdown 
-                        options={vehicleTypeOptions} 
-                        onChange={handleVehicleTypeChange} 
-                        value={vehicleTypeOptions.find(option => option.value === vehicleTypes)} 
+                        options={transportTypeOptions}
+                        onChange={changeTransportTypeHandler}
+                        value={transportTypeOptions.find(option => option.value === vehicleTypes)}
                         placeholder="Select Vehicle Type"
                         arrowClosed={<ArrowClosed />}
                         arrowOpen={<ArrowOpened />}
                     />
                     <Dropdown 
                         options={sortingOptions} 
-                        onChange={handleSortingChange} 
+                        onChange={changeSortingHandler} 
                         value={sortingOptions.find(option => option.value === sorting)} 
                         placeholder="Select Sorting Option"
                         arrowClosed={<ArrowClosed />}
@@ -133,8 +132,7 @@ const ExampleTransportsPage = () => {
                     />
                 </div>
                 <CategoryTransports
-                    currentItems={currentItems}
-
+                    transports={currentItems}
                 />
 
                 <Pagination
@@ -149,8 +147,6 @@ const ExampleTransportsPage = () => {
                     Home
                 </Button>
             </Container>
-
-            
         </div>
     );
 };
