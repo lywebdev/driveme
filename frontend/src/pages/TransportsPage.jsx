@@ -6,11 +6,12 @@ import "./styles/TransportsPage.scss";
 import Dropdown from 'react-dropdown';
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
-import DropdownArrows from "../components/shared/DropdownArrows/DropdownArrows";
 import Button from "../components/UI/Button/Button.jsx";
 import { resolveAlias } from "@helpers/imageHelper";
 import CategoryTransports from "../components/features/CategoryTransports/CategoryTransports.jsx";
 import useSortTransports from "../hooks/useSortTransports";
+import ArrowClosed from "@components/shared/DropdownArrows/ArrowClosed.jsx";
+import ArrowOpened from "@components/shared/DropdownArrows/ArrowOpened.jsx";
 
 const ExampleTransportsPage = () => {
     const [transports] = useExampleTransportsStore((state) => [state.transports]);
@@ -103,8 +104,8 @@ const ExampleTransportsPage = () => {
                                 controlClassname="location-control"
                                 menuClassname="location-menu"
                                 arrowClassName="location-arrow"
-                                arrowClosed={<DropdownArrows.ArrowClosed />} 
-                                arrowOpen={<DropdownArrows.ArrowOpen />}
+                                arrowClosed={<ArrowClosed />}
+                                arrowOpen={<ArrowOpened />}
                                 onChange={handleLocationChange}
                                 value={locationOptions.find(option => option.value === location)}
                             />
@@ -118,17 +119,17 @@ const ExampleTransportsPage = () => {
                         options={vehicleTypeOptions} 
                         onChange={handleVehicleTypeChange} 
                         value={vehicleTypeOptions.find(option => option.value === vehicleTypes)} 
-                        placeholder="Select Vehicle Type" 
-                        arrowClosed={<DropdownArrows.ArrowClosed />}
-                        arrowOpen={<DropdownArrows.ArrowOpen />} 
+                        placeholder="Select Vehicle Type"
+                        arrowClosed={<ArrowClosed />}
+                        arrowOpen={<ArrowOpened />}
                     />
                     <Dropdown 
                         options={sortingOptions} 
                         onChange={handleSortingChange} 
                         value={sortingOptions.find(option => option.value === sorting)} 
-                        placeholder="Select Sorting Option" 
-                        arrowClosed={<DropdownArrows.ArrowClosed />} 
-                        arrowOpen={<DropdownArrows.ArrowOpen />}
+                        placeholder="Select Sorting Option"
+                        arrowClosed={<ArrowClosed />}
+                        arrowOpen={<ArrowOpened />}
                     />
                 </div>
                 <CategoryTransports
