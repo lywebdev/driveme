@@ -1,4 +1,5 @@
 import './styles/HomePage.scss';
+import TransportTypeCards from "@components/features/TransportType/TransportTypeCards.jsx";
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import VehicleTypeCards from "@components/features/VehicleType/VehicleTypeCards.jsx";
 import RecentOffers from "@components/features/RecentOffers/RecentOffers.jsx";
@@ -19,7 +20,7 @@ const HomePage = () => {
         </Container>
 
         <Container>
-            <VehicleTypeCards className='vehicle-type-cards' />
+            <TransportTypeCards className='vehicle-type-cards' />
         </Container>
 
         <Container variants={[Container.bgColors.gray]}>

@@ -1,22 +1,16 @@
-import VehicleCard from '@components/shared/Vehicle/VehicleCard';
+import TransportCard from "@components/shared/Transport/TransportCard.jsx";
 
-const VehicleCardContainer = ({ currentItems }) => {
+const CategoryTransports = ({transports}) => {
     return (
-        <div className="vehicle-card-container">
-            {currentItems.map((transport) => (
-                <VehicleCard
+        <div className="transport-card-container">
+            {transports.length && transports.map((transport) => (
+                <TransportCard
                     key={transport.id}
-                    name={transport.name}
-                    price={transport.cost}
-                    image={transport.photos[0]}
-                    description={transport.description}
-                    rating={transport.rating}
-                    delivery={transport.hasDelivery}
-                    location={transport.city}
+                    transport={transport}
                 />
             ))}
         </div>
     );
 };
 
-export default VehicleCardContainer;
+export default CategoryTransports;

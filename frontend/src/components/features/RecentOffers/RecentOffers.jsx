@@ -1,5 +1,5 @@
-import VehicleCard from "@components/shared/Vehicle/VehicleCard.jsx";
 import classes from './RecentOffers.module.scss';
+import TransportCard from "@components/shared/Transport/TransportCard.jsx";
 
 const RecentOffers = ({title, marginTop}) => {
     const combinedClasses = `${classes['recent-offers']} ${marginTop ? classes.marginTop : ''}`.trim();
@@ -7,10 +7,10 @@ const RecentOffers = ({title, marginTop}) => {
     return <>
         {title}
         <div className={combinedClasses}>
-            <VehicleCard />
-            <VehicleCard />
-            <VehicleCard />
-            <VehicleCard />
+            <TransportCard />
+            <TransportCard />
+            <TransportCard />
+            <TransportCard />
         </div>
     </>;
 };
