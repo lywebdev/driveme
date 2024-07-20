@@ -1,70 +1,63 @@
-import {resolveAlias} from "@helpers/imageHelper.js";
-import ArrowClosed from "@components/UI/Arrows/ArrowClosed.jsx";
-import ArrowOpened from "@components/UI/Arrows/ArrowOpened.jsx";
 import ReactDropdown from "react-dropdown";
+import classes from './Dropdown.module.scss';
+import Arrow from "@components/UI/Arrows/Arrow.jsx";
 
-
-const LocationPlaceholder = () => (
-    <div className="location-placeholder">
-        <img src={resolveAlias('@images/icons/locationicon.svg')} alt="Location icon" className="placeholder-icon" />
-        <span>Select Location...</span>
-    </div>
-);
-
-const DefaultPlaceholder = () => (
-    <div className='placeholder'>
-        <span>Select option</span>
-    </div>
-);
 
 const variants = {
     basic: {
         name: 'basic',
-        placeholder: DefaultPlaceholder,
+        placeholder: 'Select option',
     },
     location: {
         name: 'location',
-        placeholder: `${<LocationPlaceholder />}`,
-        className: 'dropdown-location',
-        controlClassname: 'dropdown-location__control',
-        menuClassName: 'dropdown-location__menu',
-        arrowClassName: 'dropdown-location__arrow',
+        placeholder: 'Select location',
+        className: classes['dropdown-location'],
+        placeholderClass: classes['dropdown-location__placeholder'],
+        controlClass: classes['dropdown-location__control'],
+        menuClass: classes['dropdown-location__menu'],
     },
+    ordering: {
+        name: 'ordering',
+        placeholder: 'Sorting',
+        placeholderClass: classes['dropdown-ordering__placeholder'],
+    }
 };
-
-
 
 
 const Dropdown = ({
     options,
     variant = variants.basic.name,
-    className = 'dropdown',
-    controlClassname = 'dropdown__control',
-    menuClassname = 'dropdown__menu',
-    arrowClassName = 'dropdown__arrow',
-    arrowClosed = <ArrowClosed/>,
-    arrowOpened = <ArrowOpened/>,
+    placeholderText,
+    className = classes.dropdown,
+    controlClass = classes.dropdown__control,
+    placeholderClass = classes.dropdown__placeholder,
+    menuClass = classes.dropdown__menu,
+    arrowClosed = <Arrow />,
+    arrowOpened = <Arrow reflectVertical />,
     onChange,
     value
 }) => {
     let placeholder = variants.basic.placeholder;
 
-    if (variant === variants.location) {
+    if (variant === variants.location.name) {
         placeholder = variants.location.placeholder;
-        className = variants.location.className;
-        controlClassname = variants.location.controlClassname;
-        menuClassname = variants.location.menuClassname;
-        arrowClassName = variants.location.arrowClassName;
+        className += ` ${variants.location.className}`;
+        controlClass += ` ${variants.location.controlClass}`;
+        placeholderClass += ` ${variants.location.placeholderClass}`;
+        menuClass += ` ${variants.location.menuClass}`;
+    } else if (variant === variants.ordering.name) {
+        placeholder = variants.ordering.placeholder;
+        placeholderClass += ` ${variants.ordering.placeholderClass}`;
     }
 
 
     return <ReactDropdown
         options={options}
-        placeholder={placeholder()}
+        placeholder={placeholderText ?? placeholder}
         className={className}
-        controlClassname={controlClassname}
-        menuClassname={menuClassname}
-        arrowClassName={arrowClassName}
+        controlClassName={controlClass}
+        menuClassName={menuClass}
+        placeholderClassName={placeholderClass}
         arrowClosed={arrowClosed}
         arrowOpen={arrowOpened}
         onChange={onChange}
@@ -72,6 +65,6 @@ const Dropdown = ({
     />;
 };
 
-Dropdown.types = variants;
+Dropdown.variants = variants;
 
 export default Dropdown;

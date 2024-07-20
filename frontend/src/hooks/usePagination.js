@@ -3,10 +3,14 @@ import { useState, useMemo } from "react";
 const usePagination = (items, itemsPerPage) => {
     const [currentPage, setCurrentPage] = useState(1);
 
+    const totalItems = useMemo(() => {
+        return Array.isArray(items) ? items.length : 0;
+    }, [items]);
+
     const totalPages = useMemo(() => {
         if (!Array.isArray(items) || itemsPerPage <= 0) return 0;
-        return Math.ceil(items.length / itemsPerPage);
-    }, [items, itemsPerPage]);
+        return Math.ceil(totalItems / itemsPerPage);
+    }, [items, itemsPerPage, totalItems]);
 
     const currentItems = useMemo(() => {
         if (!Array.isArray(items) || itemsPerPage <= 0) return [];
@@ -24,6 +28,7 @@ const usePagination = (items, itemsPerPage) => {
         currentItems,
         currentPage,
         totalPages,
+        totalItems,
         handlePageClick,
         setCurrentPage
     };

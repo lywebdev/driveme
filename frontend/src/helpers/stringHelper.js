@@ -1,6 +1,7 @@
 export function combineClassNames(insideClasses, propsClassnames) {
     const insideClassesString = Array.isArray(insideClasses) ? insideClasses.join(' ') : insideClasses;
-    return [insideClassesString, propsClassnames].filter(Boolean).join(' ');
+    const propsClassesString = Array.isArray(propsClassnames) ? propsClassnames.join(' ') : propsClassnames;
+    return [insideClassesString, propsClassesString].filter(Boolean).join(' ');
 }
 
 

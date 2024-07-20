@@ -1,8 +1,6 @@
 import './Footer.scss';
 
 const Footer = () => {
-    console.log('Footer');
-
     return (
         <footer id='footer'>
             <div className='container'>

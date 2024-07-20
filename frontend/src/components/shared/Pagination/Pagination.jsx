@@ -1,8 +1,11 @@
 import classes from './Pagination.module.scss';
+import {combineClassNames} from "@helpers/stringHelper.js";
 
-const Pagination = ({ totalPages, onPageClick, currentPage }) => {
+const Pagination = ({ totalPages, onPageClick, currentPage, className }) => {
+    const combinedClasses = combineClassNames(classes['pagination-buttons'], className);
+
     return (
-        <div className={classes['pagination-buttons']}>
+        <div className={combinedClasses}>
             {[...Array(totalPages)].map((_, index) => (
                 <button
                     key={index}

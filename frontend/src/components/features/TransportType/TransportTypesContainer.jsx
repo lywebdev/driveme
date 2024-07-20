@@ -1,10 +1,10 @@
 import TransportTypeCard from "@components/shared/TransportType/TransportTypeCard.jsx";
-import classes from './TransportTypeCards.module.scss';
+import classes from './TransportTypesContainer.module.scss';
 import {combineClassNames} from "@helpers/stringHelper.js";
 import {useTransportTypeStore} from "@store/useTransportTypeStore.js";
 
 
-const TransportTypeCards = ({className, transportTypes}) => {
+const TransportTypesContainer = ({className, transportTypes}) => {
     const combinedClasses = combineClassNames(classes['transport-type-cards'], className);
     const [isLoading] = useTransportTypeStore(state => [
         state.isLoading,
@@ -22,4 +22,4 @@ const TransportTypeCards = ({className, transportTypes}) => {
 };
 
 
-export default TransportTypeCards;
+export default TransportTypesContainer;
