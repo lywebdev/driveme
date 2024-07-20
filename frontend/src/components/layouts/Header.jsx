@@ -5,7 +5,6 @@ import Logo from "@components/shared/Logo/Logo.jsx";
 import {routes} from "@config/routes.js";
 
 const Header = () => {
-    console.log('Header');
     const isAuth = true;
 
     return (

@@ -1,6 +1,6 @@
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import './styles/HomePage.scss';
-import TransportTypeCards from "@components/features/TransportType/TransportTypeCards.jsx";
+import TransportTypesContainer from "@components/features/TransportType/TransportTypesContainer.jsx";
 import RecentOffers from "@components/features/RecentOffers/RecentOffers.jsx";
 import Container from "@layouts/shared/Container.jsx";
 import SectionTitle from "@components/UI/SectionTitle/SectionTitle.jsx";
@@ -10,7 +10,6 @@ import {useEffect} from "react";
 import TransportTypeService from "../services/TransportTypeService.js";
 
 const HomePage = () => {
-    console.log('HomePage');
     const [transportTypes, setTransportTypes, setIsLoading] = useTransportTypeStore(state => [
         state.transportTypes,
         state.setTransportTypes,
@@ -49,7 +48,7 @@ const HomePage = () => {
         </Container>
 
         <Container>
-            <TransportTypeCards transportTypes={transportTypes} className='transport-type-cards'/>
+            <TransportTypesContainer transportTypes={transportTypes} className='transport-type-cards'/>
         </Container>
 
         <Container variants={[Container.bgColors.gray]}>
