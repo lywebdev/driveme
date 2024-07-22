@@ -10,6 +10,7 @@ const LoginForm = () => {
     const [login] = useUserStore(state => [
         state.login,
     ]);
+    const [errorMesssage, setErrorMessage] = useState('');
 
 
     const onEmailChanged = event => {
@@ -22,21 +23,23 @@ const LoginForm = () => {
 
     const onSubmit = async event => {
         event.preventDefault();
-
+        if(!email || !password){
+            setErrorMessage('Please enter email and password');
+            return;
+        }
+        setErrorMessage('');
         login(email, password);
     };
 
-
-
-
-
     return (
         <div className={classes['login-form']}>
-            <input type="text" placeholder='Email' value={email } onChange={onEmailChanged} />
-            <input type="password" placeholder='Password' value={password} onChange={onPasswordChanged} />
-
-            <button type='submit' onClick={onSubmit}>Continue</button>
-            <p>New User? <Link>Register</Link></p>
+            <form onSubmit={onSubmit}>
+                <input type="email" placeholder='Email' value={email} onChange={onEmailChanged} />
+                <input type="password" placeholder='Password' value={password} onChange={onPasswordChanged} />
+                <button type='submit'>Continue</button>
+            </form>
+            {errorMesssage && <p className={classes['error-message']}>{errorMesssage}</p>}
+            <p>New User? <Link to="/register">Register</Link></p>
         </div>
     );
 };
