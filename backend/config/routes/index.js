@@ -1,17 +1,15 @@
 import express from "express";
-import usersRoutes from "./usersRoutes.js";
-import { publicTransportTypeRoutes, adminTransportTypeRoutes } from "./transportTypeRoutes.js";
-import { publicTransportsRoutes, adminTransportsRoutes } from "./transportsRoutes.js";
+import adminRouter from "./adminRouter.js";
+import guestRouter from "./guestRouter.js";
+import privateRouter from "./privateRouter.js";
+import publicRouter from "./publicRouter.js";
 
 const router = express.Router();
 
-// Public routes
-router.use("/users", usersRoutes);
-router.use("/transport-types", publicTransportTypeRoutes);
-router.use("/transports", publicTransportsRoutes);
+router.use('/admin', adminRouter);
+router.use('/', guestRouter);
+router.use('/', privateRouter);
+router.use('/', publicRouter);
 
-// Admin routes 
-router.use("/admin/transport-types", adminTransportTypeRoutes);
-router.use("/admin/transports", adminTransportsRoutes);
 
 export default router;

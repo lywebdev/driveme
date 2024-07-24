@@ -4,7 +4,7 @@ import {codeStatuses} from "../utils/constants/responseConstants.js";
 
 
 const isUserLoggedIn = async (req, res, next) => {
-  const userOrApiResponse = await UserService.isAuthenticatedByAuthHeader(req.headers.authorization);
+  const userOrApiResponse = await UserService.isAuthenticated(req.headers.authorization);
 
   if (userOrApiResponse instanceof apiResponseDTO) {
     return res.status(userOrApiResponse.status).json(userOrApiResponse.content);
@@ -15,7 +15,7 @@ const isUserLoggedIn = async (req, res, next) => {
 };
 
 const isNotAuthorized = async (req, res, next) => {
-  const trueOrApiResponse = await UserService.isNotAuthenticatedByAuthHeader(req.headers.authorization);
+  const trueOrApiResponse = await UserService.isGuest(req.headers.authorization);
 
   if (trueOrApiResponse === true) {
     return next();
@@ -25,11 +25,11 @@ const isNotAuthorized = async (req, res, next) => {
     return res.status(trueOrApiResponse.status).json(trueOrApiResponse.content);
   }
 
-  return res.status(codeStatuses.serverError);
+  return res.status(codeStatuses.serverError).json('Server Error');
 };
 
 const isAdmin = async (req, res, next) => {
-  const userOrApiResponse = await UserService.isAdminByAuthHeader(req.headers.authorization);
+  const userOrApiResponse = await UserService.isAdmin(req.headers.authorization);
 
   if (userOrApiResponse instanceof apiResponseDTO) {
     return res.status(userOrApiResponse.status).json(userOrApiResponse.content);

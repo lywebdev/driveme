@@ -82,6 +82,10 @@ export const responseTemplates = {
     },
 
     user: {
+        alreadyAuthorized: {
+            message: 'You are already authorized',
+            status: codeStatuses.conflict,
+        },
         unauthorized: {
             message: 'You are not logged in',
             status: codeStatuses.unauthorized,
