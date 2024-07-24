@@ -4,6 +4,7 @@ import {routes} from "@config/routes.js";
 import LoginPage from "@pages/Auth/LoginPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
+import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 import VehiclePage from "@pages/VehiclePage";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 
