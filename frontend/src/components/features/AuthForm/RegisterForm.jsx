@@ -9,14 +9,16 @@ import { v4 as uuidv4 } from 'uuid';
 import {routes} from "@config/routes.js";
 
 
-const LoginForm = ({className}) => {
-    const [login, backendErrors, setBackendErrors] = useUserStore(state => [
-        state.login,
+const RegisterForm = ({className}) => {
+    const [backendErrors, register, setBackendErrors] = useUserStore(state => [
         state.backendErrors,
+        state.register,
         state.setBackendErrors,
     ]);
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [passwordConfirmation, setPasswordConfirmation] = useState('');
     const {validate, errors} = useAuthValidation();
     const combinedClasses = `${classes['auth-form']} ${className}`;
     const [isTriedSubmitted, setIsTriedSubmitted] = useState(false);
@@ -25,25 +27,38 @@ const LoginForm = ({className}) => {
         setBackendErrors([]);
     }, []);
 
+    useEffect(() => {
+        if (isTriedSubmitted) {
+            validateAll();
+        }
+    }, [name, email, password, passwordConfirmation]);
 
-    const validateEmailAndPassword = () => {
-        return validate({email: email, password: password});
+
+    const validateAll = () => {
+        return validate({
+            name: name,
+            email: email,
+            password: password,
+            passwordConfirmation: passwordConfirmation,
+        });
+    };
+
+
+
+    const onNameChanged = (event) => {
+        setName(event.target.value);
     };
 
     const onEmailChanged = (event) => {
         setEmail(event.target.value);
-
-        if (isTriedSubmitted) {
-            validateEmailAndPassword();
-        }
     };
 
     const onPasswordChanged = (event) => {
         setPassword(event.target.value);
+    };
 
-        if (isTriedSubmitted) {
-            validateEmailAndPassword();
-        }
+    const onPasswordConfirmationChanged = (event) => {
+        setPasswordConfirmation(event.target.value);
     };
 
     const error = (text, keyValue) => <p key={keyValue} className={classes.error}>{text}</p>;
@@ -63,11 +78,11 @@ const LoginForm = ({className}) => {
 
         setIsTriedSubmitted(true);
 
-        if (!validateEmailAndPassword()) {
+        if (!validateAll()) {
             return;
         }
 
-        await login(email, password);
+        await register(name, email, password, passwordConfirmation);
     };
 
 
@@ -82,29 +97,46 @@ const LoginForm = ({className}) => {
 
             <div className={classes.inputs}>
                 <Input
+                    value={name}
+                    name='register[name]'
+                    placeholder='Your name'
+                    onChange={onNameChanged}
+                />
+                {errorMessage('name')}
+
+                <Input
                     value={email}
-                    name='email'
+                    name='register[email]'
                     placeholder='Email'
                     onChange={onEmailChanged}
                     isInvalid={emailIsInvalid}
                 />
                 {errorMessage('email')}
+
                 <Input
                     value={password}
-                    name='password'
+                    name='register[password]'
                     type={Input.types.password}
                     placeholder='Password'
                     onChange={onPasswordChanged}
                     isInvalid={passwordIsInvalid}
                 />
                 {errorMessage('password')}
+
+                <Input
+                    value={passwordConfirmation}
+                    name='register[password_confirmation]'
+                    placeholder='Confirm your password'
+                    onChange={onPasswordConfirmationChanged}
+                />
+                {errorMessage('passwordConfirmation')}
             </div>
 
             <Button isSubmit variants={[Button.types.action, Button.types.fullWidth]}>Continue</Button>
 
-            <p className={classes.links}>New User? <Link to={routes.register}>Register</Link></p>
+            <p className={classes.links}>Already have an account? <Link to={routes.login}>Login</Link></p>
         </form>
     );
 };
 
-export default LoginForm;
+export default RegisterForm;

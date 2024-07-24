@@ -6,12 +6,12 @@ export default class AuthService {
         return $api.post('/users/login', {email, password});
     }
 
-    static async registration(email, password) {
-        return $api.post('/registration', {email, password});
+    static async registration(name, email, password, passwordConfirmation) {
+        return $api.post('/users', {name, email, password, passwordConfirmation});
     }
 
     static async logout() {
-        return $api.post('/logout');
+        return $api.get('/users/logout');
     }
 
     static async refresh() {
