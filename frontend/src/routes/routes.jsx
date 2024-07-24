@@ -1,4 +1,3 @@
-import Dashboard from "@pages/admin/Dashboard.jsx";
 import HomePage from "@pages/HomePage.jsx";
 import {routes} from "@config/routes.js";
 import LoginPage from "@pages/Auth/LoginPage.jsx";
@@ -24,7 +23,11 @@ export const guestRoutes = [
 ];
 
 export const privateRoutes = [
+
     {
+        path: '/logout',
+        component: '',
+    }
         path: routes.dashboard,
         element: <Dashboard />,
     },
