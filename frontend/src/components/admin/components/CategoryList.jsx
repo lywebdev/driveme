@@ -1,7 +1,7 @@
 import {useState, useEffect } from 'react';
-import axios from 'axios';
+//import axios from 'axios';
 import CategoryForm from './CategoryForm.jsx';
-import {API_URL} from "@config/http.js";
+//import {API_URL} from "@config/http.js";
 import {resolveAlias} from "@helpers/imageHelper.js";
 import { useTransportTypeStore } from '@store/useTransportTypeStore.js';
 
@@ -12,26 +12,33 @@ const CategoryList = () => {
     const [editingCategory, setEditingCategory] = useState(null);
     const {
         deleteTransportType,
+        fetchTransportTypes
     } = useTransportTypeStore();
 
-    const fetchCategories = async () => {
-        try {
-            const response = await axios.get(`${API_URL}/transport-types`);
-            setCategories(response.data.data);
-        } catch (error) {
-            console.error('Error fetching categories:', error);
-        }
-
-    };
 
     useEffect(() => {
+        const fetchCategories = async () => {
+            try {
+                const fetchedCategories = await fetchTransportTypes();
+                if (Array.isArray(fetchedCategories)) {
+                    setCategories(fetchedCategories);
+                } else {
+                    console.error('Fetched data is not an array:', fetchedCategories);
+                    setCategories([]);
+                }
+            } catch (error) {
+                console.error('Error fetching categories:', error);
+                setCategories([]); 
+            }
+        };
+
         fetchCategories();
-    }, []);
+    }, [fetchTransportTypes]);
 
     const handleDelete = async (categoryId) => {
         try {
             await deleteTransportType(categoryId);
-            fetchCategories();
+            fetchTransportTypes();
         } catch (error) {
             console.error('Error deleting category:', error);
         }
@@ -44,7 +51,7 @@ const CategoryList = () => {
     return (
         <div>
             <CategoryForm
-                fetchCategories={fetchCategories}
+                fetchCategories={fetchTransportTypes}
                 editingCategory={editingCategory}
                 setEditingCategory={setEditingCategory} />
             <h2>Category List</h2>

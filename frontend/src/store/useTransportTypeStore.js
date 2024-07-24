@@ -26,8 +26,10 @@ export const useTransportTypeStore = createStore(
             try {
                 const response = await axios.get(`${API_URL}/transport-types`);
                 set({ transportTypes: response.data.data, isLoading: false });
+                return response.data.data;
             } catch (e) {
                 set({ isLoading: false, backendErrors: e.response.data.errors });
+                return []; 
             }
         },
 
