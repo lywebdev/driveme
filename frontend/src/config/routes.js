@@ -3,5 +3,6 @@ export const routes = {
     transports: '/transports',
 
     dashboard: '/admin',
+    exampleAdmin: '/admin/example',
     login: '/login',
 };

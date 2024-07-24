@@ -22,7 +22,6 @@ const AuthContextProvider = ({ children }) => {
                 logout();
             }
         } catch (error) {
-            console.log('Обработка ошибка при рефреш токенах или логауте', error);
             logout();
         }
     }, [refreshTokens, logout]);

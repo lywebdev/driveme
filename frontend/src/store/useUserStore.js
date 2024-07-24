@@ -32,7 +32,6 @@ export const useUserStore = createStore(
         }),
 
         login: async (email, password) => {
-            console.log('Login');
             try {
                 const response = (await AuthService.login(email, password)).data;
 
@@ -49,13 +48,9 @@ export const useUserStore = createStore(
             }
         },
         refreshTokens: async () => {
-            console.log('Refresh tokens');
             try {
                 const response = await AuthService.refresh();
-                console.log(response);
                 const {accessToken, user} = response.data.content.data;
-
-                console.log('Токены успешно обновлены');
 
                 setSession(accessToken);
 
@@ -64,7 +59,6 @@ export const useUserStore = createStore(
                     user: user,
                 });
             } catch (e) {
-                console.log('Не удалось обновить токены', e);
                 set({
                     isAuthenticated: false,
                     user: undefined,
@@ -72,7 +66,6 @@ export const useUserStore = createStore(
             }
         },
         logout: async () => {
-            console.log('Logout');
             setSession(null);
 
             set({
