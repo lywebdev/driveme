@@ -2,14 +2,21 @@ import express from "express";
 import transportController from "../../controller/transportController.js";
 import auth from "../../middlewares/auth.js";
 
-const router = express.Router();
+//Public routes
+const publicRouter = express.Router();
 
-router.get("/", transportController.all);
+publicRouter.get("/", transportController.all);
 
-router.use(auth.isAdmin);
+//Admin routes
+const adminRouter = express.Router();
 
-router.post("/", transportController.create);
-router.delete("/:id", transportController.remove);
-router.put("/:id", transportController.update);
+adminRouter.use(auth.isAdmin);
 
-export default router;
+adminRouter.post("/", transportController.create);
+adminRouter.delete("/:id", transportController.remove);
+adminRouter.put("/:id", transportController.update);
+
+export {
+  publicRouter as publicTransportsRoutes,
+  adminRouter as adminTransportsRoutes,
+};
