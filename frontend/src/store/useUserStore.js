@@ -30,7 +30,33 @@ export const useUserStore = createStore(
         setUser: user => set({
             user: user,
         }),
+        setBackendErrors: errors => set({
+            backendErrors: errors,
+        }),
 
+        register: async (name, email, password, passwordConfirmation) => {
+            try {
+                const response = await AuthService.registration(name, email, password, passwordConfirmation);
+
+                setSession(response.data.accessToken);
+
+                set({
+                    isAuthenticated: true,
+                    user: response.data.user,
+                    backendErrors: [],
+                });
+            } catch (e) {
+                if (e?.response?.data) {
+                    set({
+                        backendErrors: e.response.data.errors,
+                    });
+                } else {
+                    set({
+                        backendErrors: ['Server error'],
+                    });
+                }
+            }
+        },
         login: async (email, password) => {
             try {
                 const response = (await AuthService.login(email, password)).data;
@@ -40,11 +66,18 @@ export const useUserStore = createStore(
                 set({
                     isAuthenticated: true,
                     user: response.data.user,
+                    backendErrors: [],
                 });
             } catch (e) {
-                set({
-                    backendErrors: e.response.data.errors
-                });
+                if (e?.response?.data) {
+                    set({
+                        backendErrors: e.response.data.errors,
+                    });
+                } else {
+                    set({
+                        backendErrors: ['Server error'],
+                    });
+                }
             }
         },
         refreshTokens: async () => {

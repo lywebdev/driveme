@@ -3,6 +3,16 @@ import {useState} from "react";
 const useAuthValidation = () => {
     const [errors, setErrors] = useState({});
 
+    const validateName = (name) => {
+        const regex = /^[a-zA-Z]+$/;
+
+        if (!regex.test(name)) {
+            return 'Enter a valid name';
+        }
+
+        return true;
+    };
+
     const validateEmail = (email) => {
         const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
         if (!email) {
@@ -24,16 +34,33 @@ const useAuthValidation = () => {
         return true;
     };
 
+    const validatePasswordConfirmation = (password, passwordConfirmation) => {
+        if (password !== passwordConfirmation) {
+            return 'Passwords don\'t match';
+        }
+
+        return true;
+    };
+
 
     const validate = (values) => {
         const newErrors = {
+            name: validateName(values.name),
             email: validateEmail(values.email),
             password: validatePassword(values.password),
+            passwordConfirmation: validatePasswordConfirmation(values.password, values.passwordConfirmation),
         };
 
         setErrors(newErrors);
 
-        return newErrors.email === true && newErrors.password === true;
+        const emailAndPasswordCondition = newErrors.email === true && newErrors.password === true;
+
+
+        if (values['name'] && values['passwordConfirmation']) {
+            return emailAndPasswordCondition && newErrors.name === true && newErrors.passwordConfirmation === true;
+        }
+
+        return emailAndPasswordCondition;
     };
 
 
@@ -41,6 +68,7 @@ const useAuthValidation = () => {
         validate,
         validateEmail,
         validatePassword,
+        validatePasswordConfirmation,
         errors,
     };
 };

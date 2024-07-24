@@ -6,9 +6,9 @@ const findAll = async (req, res) => {
 };
 
 const store = async (req, res) => {
-  const { name, email, password, confirmPassword } = req.body;
+  const { name, email, password, passwordConfirmation } = req.body;
 
-  const response = await UserService.registration(name, email, password, confirmPassword);
+  const response = await UserService.registration(name, email, password, passwordConfirmation);
   res.status(response.status).json(response.content);
 };
 
@@ -17,11 +17,13 @@ const login = async (req, res) => {
   const {email, password} = req.body;
   const response = await UserService.login(email, password);
 
-  res.cookie('refreshToken', response.content.data.refreshToken, {
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-  });
+  if (response.content.isSuccess) {
+    res.cookie('refreshToken', response.content.data.refreshToken, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+    });
+  }
 
   res.status(response.status).json(response.content);
 };
