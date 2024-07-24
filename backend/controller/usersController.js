@@ -14,10 +14,9 @@ const store = async (req, res) => {
 
 const login = async (req, res) => {
   const {email, password} = req.body;
-
   const response = await UserService.login(email, password);
 
-  res.cookie('refreshToken', response.refreshToken, {
+  res.cookie('refreshToken', response.content.data.refreshToken, {
     maxAge: 30 * 24 * 60 * 60 * 1000,
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -36,14 +35,16 @@ const logout = async (req, res) => {
 
 const refreshTokens = async (req, res) => {
   const {refreshToken} = req.cookies;
-  const userData = await UserService.refresh(refreshToken);
+  const response = await UserService.refresh(refreshToken);
 
-  res.cookie('refreshToken', userData.refreshToken, {
-    maxAge: 30 * 24 * 60 * 60 * 1000,
-    httpOnly: true
-  });
+  if (response.content.isSuccess) {
+    res.cookie('refreshToken', response.content.data.refreshToken, {
+      maxAge: 30 * 24 * 60 * 60 * 1000,
+      httpOnly: true,
+    });
+  }
 
-  res.json(userData);
+  res.json(response);
 }
 
 
