@@ -13,6 +13,7 @@ const store = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  console.log('начало логина');
   const {email, password} = req.body;
   const response = await UserService.login(email, password);
 

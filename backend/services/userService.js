@@ -4,9 +4,8 @@ import BaseApiService from "./BaseApiService.js";
 import TokenService from "./tokenService.js";
 import UserDTO from "../DTOs/userDTO.js";
 import {isJsonWebTokenError} from "../utils/throwables.js";
-import {codeStatuses, responseTemplates} from "../utils/constants/responseConstants.js";
+import {responseTemplates} from "../utils/constants/responseConstants.js";
 import UserConstants from "../models/constants/UserConstants.js";
-import auth from "../middlewares/auth.js";
 
 class UserService extends BaseApiService {
     findAll = async () => {
@@ -129,64 +128,105 @@ class UserService extends BaseApiService {
         });
     }
 
-    isAdminByAuthHeader = async (authorizationHeader) => {
-        return await this.#authProcess.call(this, authorizationHeader, true);
-    }
 
-    isNotAuthenticatedByAuthHeader = async (authorizationHeader) => {
-        const trueOrApiResponse = await this.#authProcess.call(this, authorizationHeader, false, true);
-        return trueOrApiResponse === true ? true : trueOrApiResponse;
-    }
+    isAdmin = async (authorizationHeader) => {
+        if (!authorizationHeader) {
+            return this.#unauthorizedResponse();
+        }
 
-    isAuthenticatedByAuthHeader = async (authorizationHeader) => {
-        return await this.#authProcess.call(this, authorizationHeader);
-    }
+        const accessToken = authorizationHeader.split(' ')[1];
+        let validatedAccessToken = false;
 
-
-
-    #authProcess = async (authorizationHeader, requireAdmin = false, allowUnauthenticated  = false) => {
         try {
-            if (!authorizationHeader) {
-                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const token = authorizationHeader.split(' ')[1];
-            const validatedToken = TokenService.validateAccessToken(token);
-            if (!validatedToken) {
-                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const user = new UserDTO(validatedToken);
-            if (!user) {
-                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.user.unauthorized});
-            }
-
-            const userInDb = await User.findById(user.id);
-            if (!userInDb) {
-                return allowUnauthenticated ? true : this.apiResponse({...responseTemplates.entity.notExists});
-            }
-
-            if (allowUnauthenticated) {
-                return this.apiResponse({
-                    status: codeStatuses.forbidden,
-                    message: 'You are already logged in',
-                });
-            }
-
-
-            if (requireAdmin && userInDb.role !== UserConstants.ROLE_ADMIN) {
-                return this.apiResponse({...responseTemplates.user.forbidden});
-            }
-
-            return user;
+            validatedAccessToken = TokenService.validateAccessToken(accessToken);
         } catch (err) {
             if (isJsonWebTokenError(err)) {
                 return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
             }
-
-            return this.apiResponse({...responseTemplates.exception});
         }
+
+        if (!validatedAccessToken) {
+            return this.#unauthorizedResponse();
+        }
+
+        const user = new UserDTO(validatedAccessToken);
+
+        const userInDb = await User.findById(user?.id);
+        if (!user || !userInDb) {
+            return this.apiResponse({...responseTemplates.entity.notExists});
+        }
+
+        if (userInDb.role !== UserConstants.ROLE_ADMIN) {
+            return this.apiResponse({...responseTemplates.user.forbidden});
+        }
+
+
+        return user;
     }
+
+    isGuest = async (authorizationHeader) => {
+        if (!authorizationHeader) {
+            return true;
+        }
+
+        const accessToken = authorizationHeader.split(' ')[1];
+        let validatedAccessToken = false;
+
+        try {
+            validatedAccessToken = TokenService.validateAccessToken(accessToken);
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return true;
+            }
+        }
+
+        if (!validatedAccessToken) {
+            return true;
+        }
+
+        const user = new UserDTO(validatedAccessToken);
+
+        const userInDb = await User.findById(user?.id);
+        if (userInDb) {
+            return this.apiResponse({...responseTemplates.user.alreadyAuthorized});
+        }
+
+        return true;
+    }
+
+    isAuthenticated = async (authorizationHeader) => {
+        if (!authorizationHeader) {
+            return this.#unauthorizedResponse();
+        }
+
+        const accessToken = authorizationHeader.split(' ')[1];
+        let validatedAccessToken = false;
+
+        try {
+            validatedAccessToken = TokenService.validateAccessToken(accessToken);
+        } catch (err) {
+            if (isJsonWebTokenError(err)) {
+                return this.apiResponse({...responseTemplates.validation.accessToken.invalidFormat});
+            }
+        }
+
+        if (!validatedAccessToken) {
+            return this.#unauthorizedResponse();
+        }
+
+        const user = new UserDTO(validatedAccessToken);
+
+        const userInDb = await User.findById(user?.id);
+        if (!user || !userInDb) {
+            return this.apiResponse({...responseTemplates.entity.notExists});
+        }
+
+
+        return user;
+    }
+
+
+    #unauthorizedResponse = () => this.apiResponse({...responseTemplates.user.unauthorized});
 
     #validateUserData(name, email, password, confirmPassword) {
         let errors = [];
