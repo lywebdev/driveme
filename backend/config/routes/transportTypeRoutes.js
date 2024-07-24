@@ -2,14 +2,19 @@ import express from "express";
 import transportTypeController from "../../controller/transportTypeController.js";
 import auth from "../../middlewares/auth.js";
 
-const router = express.Router();
+//Public routes
+const publicRouter = express.Router();
 
-router.get("/", transportTypeController.all);
+publicRouter.get("/", transportTypeController.all);
+//Admin routes
+const adminRouter = express.Router();
+adminRouter.use(auth.isAdmin);
 
-router.use(auth.isAdmin);
+adminRouter.post("/", transportTypeController.create);
+adminRouter.delete("/:id", transportTypeController.remove);
+adminRouter.put("/:id", transportTypeController.update);
 
-router.post("/", transportTypeController.create);
-router.delete("/:id", transportTypeController.remove);
-router.put("/:id", transportTypeController.update);
-
-export default router;
+export {
+  publicRouter as publicTransportTypeRoutes,
+  adminRouter as adminTransportTypeRoutes,
+};
