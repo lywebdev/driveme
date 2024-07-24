@@ -9,12 +9,17 @@ const initialAuthState = {
     isAuthenticated: false,
     isAuthLoading: true,
     user: undefined,
+    backendErrors: [],
 };
 
 
 export const useUserStore = createStore(
     immer((set) => ({
         ...initialAuthState,
+
+        setErrors: errors => set({
+            errors: errors,
+        }),
 
         setIsAuthenticated: isAuthenticated => set({
             isAuthenticated: isAuthenticated,
@@ -27,30 +32,47 @@ export const useUserStore = createStore(
         }),
 
         login: async (email, password) => {
+            console.log('Login');
             try {
-                const response = await AuthService.login(email, password);
-                localStorage.setItem('token', response.data.accessToken);
+                const response = (await AuthService.login(email, password)).data;
 
-                this.setIsAuthenticated(true);
-                this.setUser(response.data.user);
+                setSession(response.data.accessToken);
 
-                console.log('success auth');
+                set({
+                    isAuthenticated: true,
+                    user: response.data.user,
+                });
             } catch (e) {
-                console.log(e);
+                set({
+                    backendErrors: e.response.data.errors
+                });
             }
         },
         refreshTokens: async () => {
-            const response = await AuthService.refresh();
-            const {accessToken, user} = response.content;
+            console.log('Refresh tokens');
+            try {
+                const response = await AuthService.refresh();
+                console.log(response);
+                const {accessToken, user} = response.data.content.data;
 
-            setSession(accessToken);
+                console.log('Токены успешно обновлены');
 
-            set({
-                isAuthenticated: true,
-                user: user,
-            });
+                setSession(accessToken);
+
+                set({
+                    isAuthenticated: true,
+                    user: user,
+                });
+            } catch (e) {
+                console.log('Не удалось обновить токены', e);
+                set({
+                    isAuthenticated: false,
+                    user: undefined,
+                });
+            }
         },
         logout: async () => {
+            console.log('Logout');
             setSession(null);
 
             set({

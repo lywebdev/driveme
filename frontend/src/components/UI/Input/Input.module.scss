@@ -1,3 +1,22 @@
 .input {
+  border: 1px solid $color-gray--middle;
+  padding: 15px;
+  box-sizing: border-box;
+  min-width: 350px;
+  font-family: $ff-os;
+  color: $color-black;
+  outline: none;
+  font-size: 16px;
+  border-radius: 7px;
+  width: 100%;
+  display: inline-block;
+  transition: all 0.4s;
 
+  &::placeholder {
+    color: $color-gray--middle;
+  }
+}
+
+.invalid {
+  border-color: $color-red;
 }

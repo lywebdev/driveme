@@ -15,6 +15,6 @@ export default class AuthService {
     }
 
     static async refresh() {
-        return await axios.get(`${API_URL}/refresh`, {withCredentials: true});
+        return await axios.get(`${API_URL}/users/refresh-tokens`, {withCredentials: true});
     }
 }

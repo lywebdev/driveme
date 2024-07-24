@@ -16,6 +16,7 @@
   text-decoration: none;
   box-sizing: border-box;
   line-height: 25px;
+  transition: background-color 0.3s ease;
 
   &.rounded {
     border-radius: 10px;
@@ -25,9 +26,23 @@
     background: $color-gray--lighter;
   }
 
+  &.action {
+    padding: 13px 35px;
+    background: $color-blue;
+    color: $color-white;
+    letter-spacing: 0.5px;
+
+    &:hover {
+      background: $color-blue_hover;
+    }
+  }
+
+  &.fw {
+    width: 100%;
+  }
+
+
   &:hover {
     background-color: $color-gray--lighter_hover;
   }
-
-  transition: background-color 0.3s ease;
 }

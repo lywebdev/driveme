@@ -15,8 +15,8 @@ const Top = ({children, className, ...props}) => {
     return <h1 className={combinedClasses} {...props}>{children}</h1>;
 };
 
-const Text = ({children, className, ...props}) => {
-    const combinedClasses = combineClassNames(classes.text, className);
+const Text = ({children, className, marginTop, ...props}) => {
+    const combinedClasses = combineClassNames(classes.text, [className, marginTop ? classes['margin-top'] : null]);
 
     return <p className={combinedClasses} {...props}>{children}</p>;
 };
