@@ -3,12 +3,16 @@ import axios from 'axios';
 import CategoryForm from './CategoryForm.jsx';
 import {API_URL} from "@config/http.js";
 import {resolveAlias} from "@helpers/imageHelper.js";
+import { useTransportTypeStore } from '@store/useTransportTypeStore.js';
 
 
 const CategoryList = () => {
 
     const [categories, setCategories] = useState([]);
     const [editingCategory, setEditingCategory] = useState(null);
+    const {
+        deleteTransportType,
+    } = useTransportTypeStore();
 
     const fetchCategories = async () => {
         try {
@@ -26,7 +30,7 @@ const CategoryList = () => {
 
     const handleDelete = async (categoryId) => {
         try {
-            await axios.delete(`${API_URL}/admin/transport-types/${categoryId}`);
+            await deleteTransportType(categoryId);
             fetchCategories();
         } catch (error) {
             console.error('Error deleting category:', error);

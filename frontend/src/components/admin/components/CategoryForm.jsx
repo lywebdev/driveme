@@ -1,44 +1,66 @@
-import {useEffect, useState} from 'react';
-import axios from 'axios';
-import {API_URL} from "@config/http.js";
-const CategoryForm = ({fetchCategories, editingCategory, setEditingCategory}) => {
-
-    const[name, setName] = useState('');
+import { useEffect, useState } from 'react';
+import { useTransportTypeStore } from '@store/useTransportTypeStore';
+const CategoryForm = ({ editingCategory, setEditingCategory }) => {
+    const [name, setName] = useState('');
     const [type, setType] = useState('');
     const [photo, setPhoto] = useState('');
-    
+
+    const {
+        createTransportType,
+        updateTransportType,
+        fetchTransportTypes,
+        setIsLoading,
+        isLoading,
+        backendErrors,
+        setErrors,
+    } = useTransportTypeStore();
 
     useEffect(() => {
         if (editingCategory) {
             setName(editingCategory.name);
-        }
-        else {
+            setType(editingCategory.type);
+            setPhoto(editingCategory.photo);
+        } else {
             setName('');
+            setType('');
+            setPhoto('');
         }
     }, [editingCategory]);
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        if (editingCategory) {
-            const response = await axios.put(`${API_URL}/admin/transport-types/${editingCategory._id}`, {name, type, photo});
-            if (response.status === 200) {
-                fetchCategories();
+        setIsLoading(true);
+        setErrors([]);
+
+        try {
+            if (editingCategory) {
+                await updateTransportType(editingCategory._id, { name, type, photo });
                 setEditingCategory(null);
+            } else {
+                await createTransportType({ name, type, photo });
             }
+            fetchTransportTypes();
+        } catch (error) {
+            setErrors(error.response.data.errors);
+        } finally {
+            setIsLoading(false);
         }
-        else {
-            const response = await axios.post(`${API_URL}/transport-types`, {name, type, photo});
-            if (response.status === 201) {
-                fetchCategories();
-            }
-        }
+
         setName('');
         setType('');
         setPhoto('');
     };
+
     return (
         <div>
             <h2>{editingCategory ? 'Edit Category' : 'Add Category'}</h2>
+            {backendErrors && backendErrors.length > 0 && (
+                <div>
+                    {backendErrors.map((error, index) => (
+                        <p key={index} style={{ color: 'red' }}>{error}</p>
+                    ))}
+                </div>
+            )}
             <form onSubmit={handleSubmit}>
                 <label>
                     Name:
@@ -46,14 +68,17 @@ const CategoryForm = ({fetchCategories, editingCategory, setEditingCategory}) =>
                         type="text"
                         value={name}
                         onChange={(event) => setName(event.target.value)}
+                        disabled={isLoading}
                     />
                 </label>
                 <label>
                     TypeId:
-                    <input 
+                    <input
                         type="text"
                         value={type}
-                        onChange={(event) => setType(event.target.value)} />
+                        onChange={(event) => setType(event.target.value)}
+                        disabled={isLoading}
+                    />
                 </label>
                 <label>
                     Photo:
@@ -61,10 +86,13 @@ const CategoryForm = ({fetchCategories, editingCategory, setEditingCategory}) =>
                         type="text"
                         value={photo}
                         onChange={(event) => setPhoto(event.target.value)}
+                        disabled={isLoading}
                     />
                 </label>
-                <button type="submit">Submit</button>
-            </form> 
+                <button type="submit" disabled={isLoading}>
+                    Submit
+                </button>
+            </form>
         </div>
     );
 };

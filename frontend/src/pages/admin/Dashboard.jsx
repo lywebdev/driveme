@@ -3,6 +3,7 @@ import {routes} from "@config/routes.js";
 import Button from "@components/UI/Button/Button.jsx";
 import $api from "@config/http.js";
 import {useState} from "react";
+import CategoryList from "@components/admin/components/CategoryList";
 
 const Dashboard = () => {
     const onGetUsersClick = async () => {
@@ -17,6 +18,7 @@ const Dashboard = () => {
     return <div className='dashboard'>
         <h1>Dashboard HomePage</h1>
 
+        <CategoryList />
         <hr/>
         <Button url={routes.exampleAdmin}>Example admin page</Button>
         <hr/>

@@ -3,6 +3,7 @@ import {routes} from "@config/routes.js";
 import LoginPage from "@pages/Auth/LoginPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
+import Dashboard from "@pages/admin/Dashboard.jsx";
 
 export const publicRoutes = [
     {
@@ -27,7 +28,8 @@ export const privateRoutes = [
     {
         path: '/logout',
         component: '',
-    }
+    },
+    {
         path: routes.dashboard,
         element: <Dashboard />,
     },
