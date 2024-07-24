@@ -6,9 +6,10 @@ import {getSession} from "./auth.utlis.js";
 export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
-    const [refreshTokens, logout] = useUserStore(state => [
+    const [refreshTokens, logout, isAuthenticated] = useUserStore(state => [
         state.refreshTokens,
         state.logout,
+        state.isAuthenticated
     ]);
 
     const initializeAuthContext = useCallback(async () => {
@@ -21,6 +22,7 @@ const AuthContextProvider = ({ children }) => {
                 logout();
             }
         } catch (error) {
+            console.log('Обработка ошибка при рефреш токенах или логауте', error);
             logout();
         }
     }, [refreshTokens, logout]);
@@ -32,13 +34,6 @@ const AuthContextProvider = ({ children }) => {
             .catch((error) => console.log(error));
     }, [initializeAuthContext]);
 
-
-
-
-
-    const [isAuthenticated] = useUserStore(state => [
-        state.isAuthenticated,
-    ]);
 
     const valueObjects = {
         isAuthenticated: isAuthenticated,

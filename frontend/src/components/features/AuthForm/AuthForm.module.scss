@@ -1,0 +1,29 @@
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
+  margin-right: auto;
+  width: 400px;
+
+  button {
+    margin-top: 35px;
+    font-size: 20px;
+  }
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 100%;
+}
+
+.error {
+  color: $color-red;
+  margin-bottom: 15px;
+}
+
+.links {
+  margin-top: 15px;
+  text-align: center;
+}

@@ -3,9 +3,10 @@ import './Header.scss';
 import Button from "@components/UI/Button/Button.jsx";
 import Logo from "@components/shared/Logo/Logo.jsx";
 import {routes} from "@config/routes.js";
+import useAuth from "../../hooks/useAuth.js";
 
 const Header = () => {
-    const isAuth = true;
+    const {isAuthenticated} = useAuth();
 
     return (
         <header id="header">
@@ -30,9 +31,9 @@ const Header = () => {
                     </ul>
                 </nav>
                 {
-                    isAuth
+                    isAuthenticated
                         ? <Button>Logout</Button>
-                        : <Button>Login</Button>
+                        : <Button url={routes.login}>Login</Button>
                 }
             </div>
         </header>

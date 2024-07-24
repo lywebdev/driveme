@@ -5,9 +5,11 @@ import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 const types = {
     grayLighter: 'gray--lighter',
     rounded: 'rounded',
+    action: 'action',
+    fullWidth: 'fw'
 };
 
-const Button = ({url, children, className, variants, ...props}) => {
+const Button = ({url, children, className, variants, isSubmit, ...props}) => {
     const combinedClasses = combineClassNames([classes.btn, ...expandVariants(classes, variants)], className);
 
     if (url) {
@@ -25,6 +27,7 @@ const Button = ({url, children, className, variants, ...props}) => {
         <button
             className={combinedClasses}
             aria-label={children}
+            type={isSubmit ? 'submit' : 'button'}
             {...props}
         >{children}</button>
     );
