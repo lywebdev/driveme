@@ -1,4 +1,4 @@
-import {createContext, useCallback, useEffect} from "react";
+import {createContext, useCallback, useEffect, useState} from "react";
 import {useUserStore} from "@store/useUserStore.js";
 import {getSession} from "./auth.utlis.js";
 
@@ -6,6 +6,7 @@ import {getSession} from "./auth.utlis.js";
 export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
+    const [isLoading, setIsLoading] = useState(true);
     const [refreshTokens, logout, isAuthenticated] = useUserStore(state => [
         state.refreshTokens,
         state.logout,
@@ -24,6 +25,8 @@ const AuthContextProvider = ({ children }) => {
         } catch (error) {
             logout();
         }
+
+        setIsLoading(false);
     }, [refreshTokens, logout]);
 
 
@@ -37,6 +40,11 @@ const AuthContextProvider = ({ children }) => {
     const valueObjects = {
         isAuthenticated: isAuthenticated,
     };
+
+    if (isLoading) {
+        return <h1>Loading</h1>;
+    }
+
 
     return <AuthContext.Provider value={valueObjects}>{children}</AuthContext.Provider>;
 };
