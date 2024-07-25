@@ -6,4 +6,5 @@ export const routes = {
     exampleAdmin: '/admin/example',
     login: '/login',
     register: '/register',
+    vehicle: '/vehicle',
 };
