@@ -2,21 +2,25 @@
   {
     "id": "64b8f2f8b3c5a7298d6e214a",
     "name": "Bike",
+    "slug": "bikes",
     "photo": "bike.jpg"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e214b",
     "name": "Car",
+    "slug": "cars",
     "photo": "car.jpg"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e214c",
     "name": "Bicycle",
+    "slug": "bicycles",
     "photo": "bicycle.jpg"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e214d",
     "name": "Scooter",
+    "slug": "scooters",
     "photo": "scooter.jpg"
   }
 ]
