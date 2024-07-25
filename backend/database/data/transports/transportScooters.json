@@ -9,7 +9,7 @@
     "description": "An iconic and stylish scooter",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1581899406831-9395145a6b4b"
+      "vespa-primavera50.jpeg"
     ]
   },
   {
@@ -22,7 +22,7 @@
     "description": "A comfortable and efficient scooter",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1606817422903-8724cc2c76a7"
+      "piaggio-liberty125.jpeg"
     ]
   },
   {
@@ -35,7 +35,7 @@
     "description": "A powerful and reliable scooter",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1565016860407-2a284fe7a96b"
+      "honda-pcx150.jpeg"
     ]
   },
   {
@@ -48,7 +48,7 @@
     "description": "A nimble and affordable scooter",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1606722261108-4790d5b22a5f"
+      "kymco-agility50.jpeg"
     ]
   },
   {
@@ -61,7 +61,7 @@
     "description": "A classic and compact scooter",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1607043977861-9a0ea711cb70"
+      "sym-mio50.jpeg"
     ]
   }
 ]
