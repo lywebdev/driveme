@@ -6,13 +6,66 @@ import {
   idIsCorrect,
   responseTemplates,
 } from "../utils/constants/responseConstants.js";
+import mongoose from "mongoose";
 
 class TransportService extends BaseApiService {
-  findAll = async () => {
+  findAll = async (requestQuery) => {
+
+    const page = requestQuery.page || 1;
+    const perPage = requestQuery['records'] || 12;
+    const offset = (page - 1) * perPage;
+
+    const priceFrom = requestQuery['price_from'] ? parseInt(requestQuery['price_from']) : null;
+    const priceTo = requestQuery['price_to'] ? parseInt(requestQuery['price_to']) : null;
+    const postalCodes = requestQuery['zip'] ? requestQuery['zip'].split(',') : [];
+
+    const priceFilter = {};
+    if (priceFrom !== null) {
+      priceFilter.$gte = priceFrom;
+    }
+    if (priceTo !== null) {
+      priceFilter.$lte = priceTo;
+    }
+
+    // const queryString = {};
+    //
+    // if (priceFrom !== null) queryString.cost = { ...queryString.cost, $gte: priceFrom };
+    // if (priceTo !== null) queryString.cost = { ...queryString.cost, $lte: priceTo };
+    // if (postalCodes.length > 0) queryString.postalCode = { $in: postalCodes };
+
+
     let transports = null;
 
     try {
-      transports = await Transport.find();
+      transports = await Transport.aggregate([
+        {
+          $lookup: {
+            from: "transportsLocationData",
+            localField: "locationDataId",
+            foreignField: "_id",
+            as: "locationData",
+          }
+        },
+        {
+          $unwind: "$locationData",
+        },
+        {
+          $match: {
+            "locationData.postalCode": {$in: postalCodes},
+            cost: priceFilter,
+          }
+        },
+
+        {
+          $sort: { createdAt: -1 },
+        },
+        {
+          $skip: offset,
+        },
+        {
+          $limit: perPage,
+        },
+      ]);
     } catch (err) {
       return this.apiResponse({ ...responseTemplates.entity.gettingError });
     }
