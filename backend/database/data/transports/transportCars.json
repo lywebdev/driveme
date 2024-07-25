@@ -9,7 +9,7 @@
     "description": "A luxury sedan with advanced features",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1546554477-1bea5c15d3f6"
+      "audi-a4.jpg"
     ]
   },
   {
@@ -22,7 +22,7 @@
     "description": "A sporty and elegant sedan",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1542056386-0b39e2205f50"
+      "bmw-m3.jpg"
     ]
   },
   {
@@ -35,7 +35,7 @@
     "description": "A blend of luxury and performance",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1568369761823-449c2a19c1ac"
+      "mercedes-benz.jpeg"
     ]
   },
   {
@@ -48,7 +48,7 @@
     "description": "A comfortable and safe SUV",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1563448393673-d3b2550b1c42"
+      "volvo-xc60.jpg"
     ]
   },
   {
@@ -61,7 +61,7 @@
     "description": "A popular compact hatchback",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1550076788-bb7ddadb1901"
+      "vw-golf.jpeg"
     ]
   },
   {
@@ -74,7 +74,7 @@
     "description": "A reliable and efficient sedan",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1595946185208-8e31bf0d2695"
+      "toyota-corolla.jpeg"
     ]
   },
   {
@@ -87,7 +87,7 @@
     "description": "An iconic American muscle car",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1516471779272-0087303e777e"
+      "ford-mustang.jpeg"
     ]
   },
   {
@@ -100,7 +100,7 @@
     "description": "A practical and efficient compact car",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1549571898-f61b24fbd05b"
+      "honda-civic.jpeg"
     ]
   },
   {
@@ -113,7 +113,7 @@
     "description": "A versatile and stylish SUV",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1554411838-9ed3e0b3c9d8"
+      "mazda-cx5.jpg"
     ]
   },
   {
@@ -126,7 +126,7 @@
     "description": "A compact SUV with modern features",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1561457913-9b3c04d9e23e"
+      "hyundai-kona.jpg"
     ]
   },
   {
@@ -139,7 +139,7 @@
     "description": "A hybrid crossover with excellent fuel economy",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1565906207372-1b6271446e25"
+      "kia-niro.jpg"
     ]
   },
   {
@@ -152,7 +152,7 @@
     "description": "A popular compact SUV with modern features",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1564180307889-df38b17dcaf0"
+      "nissan-qashqai.jpg"
     ]
   },
   {
@@ -165,7 +165,7 @@
     "description": "An electric sedan with impressive range",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1532530573391-2819f2f3c5a5"
+      "tesla-model3.jpeg"
     ]
   },
   {
@@ -178,7 +178,7 @@
     "description": "A compact hatchback with European charm",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1546539783-4c0c6f8c229d"
+      "reanult-clio.jpeg"
     ]
   },
   {
@@ -191,7 +191,7 @@
     "description": "A rugged and capable crossover",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1587373562891-51ed3e86f8b4"
+      "subaru-outback.jpeg"
     ]
   },
   {
@@ -204,7 +204,7 @@
     "description": "A practical and efficient compact car",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1534494717569-e48f656b71b3"
+      "ford-focus.jpeg"
     ]
   },
   {
@@ -217,7 +217,7 @@
     "description": "A stylish and practical SUV",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1578003401225-b6864e87f10f"
+      "peugeot-3008.jpeg"
     ]
   },
   {
@@ -230,7 +230,7 @@
     "description": "A compact car with a fun driving experience",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1527529482837-9e2b5a422b1b"
+      "mini-cooper.jpeg"
     ]
   },
   {
@@ -243,7 +243,7 @@
     "description": "A practical and spacious sedan",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1546539827-0436c40bb1ac"
+      "skoda-octavia.jpeg"
     ]
   },
   {
@@ -256,7 +256,7 @@
     "description": "A compact hatchback with German engineering",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1558769134-22b65f5a1c44"
+      "opel-corsa.jpeg"
     ]
   },
   {
@@ -269,7 +269,7 @@
     "description": "A stylish and comfortable compact car",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1535487891202-85890e07f114"
+      "renault-megane.jpeg"
     ]
   },
   {
@@ -282,7 +282,7 @@
     "description": "A compact car with French flair",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1534070825553-e8e34934f7f9"
+      "citroen-c3.jpg"
     ]
   },
   {
@@ -295,7 +295,7 @@
     "description": "A stylish and efficient small hatchback",
     "hasDelivery": true,
     "photos": [
-      "https://images.unsplash.com/photo-1600180121157-1c6760b7f2d5"
+      "peugeot-208.jpeg"
     ]
   },
   {
@@ -308,7 +308,7 @@
     "description": "A sporty and practical hatchback",
     "hasDelivery": false,
     "photos": [
-      "https://images.unsplash.com/photo-1565018203666-c96a1a6f7e03"
+      "seat-leon.jpeg"
     ]
   }
 ]
