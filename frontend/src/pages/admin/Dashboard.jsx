@@ -6,7 +6,7 @@ import {useState} from "react";
 
 const Dashboard = () => {
     const onGetUsersClick = async () => {
-        const res = await $api.get('/users');
+        const res = await $api.get('/admin/users');
         setUsers(res.data.data ?? []);
     };
 
@@ -30,7 +30,7 @@ const Dashboard = () => {
         <hr/>
 
 
-        <Link url={routes.home}>Home</Link>
+        <Link to={routes.home}>Home</Link>
     </div>;
 };
 

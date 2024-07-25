@@ -1,5 +1,6 @@
 import $api, {API_URL} from "@config/http.js";
 import axios from "axios";
+import {getSession} from "../auth/auth.utlis.js";
 
 export default class AuthService {
     static async login(email, password) {
@@ -11,7 +12,12 @@ export default class AuthService {
     }
 
     static async logout() {
-        return $api.get('/users/logout');
+        return await axios.get(`${API_URL}/users/logout`, {
+            withCredentials: true,
+            headers: {
+                Authorization: `Bearer ${getSession()}`,
+            }
+        });
     }
 
     static async refresh() {

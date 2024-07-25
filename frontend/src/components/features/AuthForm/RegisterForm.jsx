@@ -23,6 +23,16 @@ const RegisterForm = ({className}) => {
     const combinedClasses = `${classes['auth-form']} ${className}`;
     const [isTriedSubmitted, setIsTriedSubmitted] = useState(false);
 
+    const validateAll = () => {
+        return validate({
+            name: name,
+            email: email,
+            password: password,
+            passwordConfirmation: passwordConfirmation,
+        });
+    };
+
+
     useEffect(() => {
         setBackendErrors([]);
     }, []);
@@ -32,16 +42,6 @@ const RegisterForm = ({className}) => {
             validateAll();
         }
     }, [name, email, password, passwordConfirmation]);
-
-
-    const validateAll = () => {
-        return validate({
-            name: name,
-            email: email,
-            password: password,
-            passwordConfirmation: passwordConfirmation,
-        });
-    };
 
 
 
