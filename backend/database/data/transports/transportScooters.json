@@ -5,7 +5,7 @@
     "cost": 110,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
-    "locationDataId": "64b8f2f8b3c5a7298d6e2342",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2351",
     "description": "An iconic and stylish scooter",
     "hasDelivery": true,
     "photos": [
@@ -18,7 +18,7 @@
     "cost": 150,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
-    "locationDataId": "64b8f2f8b3c5a7298d6e2344",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2352",
     "description": "A comfortable and efficient scooter",
     "hasDelivery": false,
     "photos": [
@@ -31,7 +31,7 @@
     "cost": 135,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
-    "locationDataId": "64b8f2f8b3c5a7298d6e2346",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2353",
     "description": "A powerful and reliable scooter",
     "hasDelivery": true,
     "photos": [
@@ -44,7 +44,7 @@
     "cost": 80,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
-    "locationDataId": "64b8f2f8b3c5a7298d6e2348",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2354",
     "description": "A nimble and affordable scooter",
     "hasDelivery": false,
     "photos": [
@@ -57,7 +57,7 @@
     "cost": 60,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
-    "locationDataId": "64b8f2f8b3c5a7298d6e2350",
+    "locationDataId": "64b8f2f8b3c5a7298d6e2355",
     "description": "A classic and compact scooter",
     "hasDelivery": true,
     "photos": [
