@@ -4,7 +4,7 @@ import BaseApiService from "./BaseApiService.js";
 import TokenService from "./tokenService.js";
 import UserDTO from "../DTOs/userDTO.js";
 import {isJsonWebTokenError} from "../utils/throwables.js";
-import {responseTemplates} from "../utils/constants/responseConstants.js";
+import {codeStatuses, responseTemplates} from "../utils/constants/responseConstants.js";
 import UserConstants from "../models/constants/UserConstants.js";
 
 class UserService extends BaseApiService {
@@ -36,11 +36,10 @@ class UserService extends BaseApiService {
                 return this.apiResponse({ ...responseTemplates.entity.alreadyExists });
             }
 
-            const hashedPassword = await bcrypt.hash(password, 10);
             const user = await User.create({
                 name: name,
                 email: email,
-                password: hashedPassword,
+                password: password,
             });
             const userDTO = new UserDTO(user);
             const tokens = TokenService.generateTokens({...userDTO});
@@ -67,8 +66,6 @@ class UserService extends BaseApiService {
             if (!user) {
                 return this.apiResponse({...responseTemplates.entity.notExists,});
             }
-
-            console.log(user);
 
             const isPassEquals = await bcrypt.compare(password, user.password);
             if (!isPassEquals) {
@@ -101,12 +98,19 @@ class UserService extends BaseApiService {
     }
 
     logout = async (refreshToken) => {
-        return await TokenService.removeToken(refreshToken);
+        try {
+            await TokenService.removeToken(refreshToken);
+        } catch (err) {
+            return this.apiResponse({...responseTemplates.exception});
+        }
+
+        return this.apiResponse({
+            status: codeStatuses.success,
+        });
     }
 
     refresh = async (refreshToken) => {
         if (!refreshToken) {
-            console.log('Токен не был передан');
             return this.apiResponse({...responseTemplates.user.unauthorized});
         }
 
@@ -114,10 +118,8 @@ class UserService extends BaseApiService {
         const tokenFromDb = await TokenService.findToken(refreshToken);
 
         if (!userData || !tokenFromDb) {
-            console.log('Не удалось провалидировать токен или токена нет в базе данных');
             return this.apiResponse({...responseTemplates.user.unauthorized});
         }
-        console.log('here');
 
         const user = await User.findById(userData.id);
         const userDTO = new UserDTO(user);

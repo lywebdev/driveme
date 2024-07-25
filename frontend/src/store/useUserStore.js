@@ -38,11 +38,11 @@ export const useUserStore = createStore(
             try {
                 const response = await AuthService.registration(name, email, password, passwordConfirmation);
 
-                setSession(response.data.accessToken);
+                setSession(response.data.data.accessToken);
 
                 set({
                     isAuthenticated: true,
-                    user: response.data.user,
+                    user: response.data.data.user,
                     backendErrors: [],
                 });
             } catch (e) {
@@ -125,7 +125,7 @@ export const useUserStore = createStore(
                     user: response.data.user,
                 });
             } catch (e) {
-                console.log(e);
+                //
             }
         }
     })), 'UserStore'

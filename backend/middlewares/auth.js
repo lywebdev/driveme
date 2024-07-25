@@ -4,7 +4,6 @@ import {codeStatuses} from "../utils/constants/responseConstants.js";
 
 
 const isUserLoggedIn = async (req, res, next) => {
-  console.log('проверка авторизованности пользователя');
   const userOrApiResponse = await UserService.isAuthenticated(req.headers.authorization);
 
   if (userOrApiResponse instanceof apiResponseDTO) {
@@ -16,7 +15,6 @@ const isUserLoggedIn = async (req, res, next) => {
 };
 
 const isNotAuthorized = async (req, res, next) => {
-  console.log('проверка неавторизованности пользователя');
   const trueOrApiResponse = await UserService.isGuest(req.headers.authorization);
 
   if (trueOrApiResponse === true) {
@@ -31,7 +29,6 @@ const isNotAuthorized = async (req, res, next) => {
 };
 
 const isAdmin = async (req, res, next) => {
-  console.log('проверка на админа');
   const userOrApiResponse = await UserService.isAdmin(req.headers.authorization);
 
   if (userOrApiResponse instanceof apiResponseDTO) {

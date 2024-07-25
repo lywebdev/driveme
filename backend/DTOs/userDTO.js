@@ -6,7 +6,7 @@ class UserDTO {
     role;
 
     constructor(model) {
-        this.id = model._id ?? model.id;
+        this.id = model._id || model.id;
         this.name = model.name;
         this.email = model.email;
         this.password = model.password;

@@ -20,7 +20,6 @@ const usePagination = (items, itemsPerPage) => {
 
     const handlePageClick = (pageIndex) => {
         if (pageIndex < 0 || pageIndex >= totalPages) return;
-        console.log("Changing to page:", pageIndex + 1);
         setCurrentPage(pageIndex + 1);
     };
 

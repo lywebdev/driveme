@@ -29,13 +29,20 @@ class TokenService {
     }
 
     async saveToken(userId, refreshToken) {
-        const tokenData = await Token.findOne({user: userId})
-        if (tokenData) {
-            tokenData.refreshToken = refreshToken;
-            return tokenData.save();
-        }
+        try {
+            const tokenInDb = await Token.findOne({user: userId});
+            if (tokenInDb) {
+                tokenInDb.refreshToken = refreshToken;
 
-        return await Token.create({user: userId, refreshToken});
+                return tokenInDb.save();
+            }
+
+            return Token.create({
+                user: userId,
+                refreshToken: refreshToken,
+            })
+        } catch (err) {
+        }
     }
 
     async removeToken(refreshToken) {
