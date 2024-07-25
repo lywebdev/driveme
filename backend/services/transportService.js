@@ -6,73 +6,23 @@ import {
   idIsCorrect,
   responseTemplates,
 } from "../utils/constants/responseConstants.js";
-import mongoose from "mongoose";
+import {splitZip} from "../utils/transportsHelper.js";
+import TransportMapper from "../mappers/TransportMapper.js";
+import PaginationDTO from "../DTOs/PaginationDTO.js";
+import {isEmptyObject} from "../utils/objectHelper.js";
 
 class TransportService extends BaseApiService {
   findAll = async (requestQuery) => {
-
-    const page = requestQuery.page || 1;
-    const perPage = requestQuery['records'] || 12;
-    const offset = (page - 1) * perPage;
-
-    const priceFrom = requestQuery['price_from'] ? parseInt(requestQuery['price_from']) : null;
-    const priceTo = requestQuery['price_to'] ? parseInt(requestQuery['price_to']) : null;
-    const postalCodes = requestQuery['zip'] ? requestQuery['zip'].split(',') : [];
-
-    const priceFilter = {};
-    if (priceFrom !== null) {
-      priceFilter.$gte = priceFrom;
-    }
-    if (priceTo !== null) {
-      priceFilter.$lte = priceTo;
-    }
-
-    // const queryString = {};
-    //
-    // if (priceFrom !== null) queryString.cost = { ...queryString.cost, $gte: priceFrom };
-    // if (priceTo !== null) queryString.cost = { ...queryString.cost, $lte: priceTo };
-    // if (postalCodes.length > 0) queryString.postalCode = { $in: postalCodes };
-
-
-    let transports = null;
-
+    let filteredAndPaginatedTransports = null;
     try {
-      transports = await Transport.aggregate([
-        {
-          $lookup: {
-            from: "transportsLocationData",
-            localField: "locationDataId",
-            foreignField: "_id",
-            as: "locationData",
-          }
-        },
-        {
-          $unwind: "$locationData",
-        },
-        {
-          $match: {
-            "locationData.postalCode": {$in: postalCodes},
-            cost: priceFilter,
-          }
-        },
-
-        {
-          $sort: { createdAt: -1 },
-        },
-        {
-          $skip: offset,
-        },
-        {
-          $limit: perPage,
-        },
-      ]);
+      filteredAndPaginatedTransports = await this.#getFilteredPaginatedTransports({requestQuery});
     } catch (err) {
       return this.apiResponse({ ...responseTemplates.entity.gettingError });
     }
 
     return this.apiResponse({
       message: "Transports have been successfully obtained",
-      data: transports,
+      data: filteredAndPaginatedTransports,
     });
   };
 
@@ -200,6 +150,115 @@ class TransportService extends BaseApiService {
       message: "Transport has been successfully deleted",
     });
   };
+
+
+  #getFilteredPaginatedTransports = async ({categorySlug, requestQuery}) => {
+    const page = requestQuery.page || 1;
+    const perPage = requestQuery['records'] || 12;
+    const offset = (page - 1) * perPage;
+
+    const priceFrom = requestQuery['price_from'] ? parseInt(requestQuery['price_from']) : null;
+    const priceTo = requestQuery['price_to'] ? parseInt(requestQuery['price_to']) : null;
+    const postalCodes = requestQuery['zip'] ? requestQuery['zip'].split(',').map(postalCode => splitZip(postalCode)) : null;
+    const city = requestQuery.city ? requestQuery.city : null;
+    const sortOrder = requestQuery.order === 'asc' ? 1 : -1;
+    const priceOrder = requestQuery['price_order'] ?? null;
+
+    const matchConditions = {};
+    const sortConditions = {};
+
+
+    // Filtering
+    const priceFilter = {};
+    if (priceFrom !== null) {
+      priceFilter.$gte = priceFrom;
+    }
+    if (priceTo !== null) {
+      priceFilter.$lte = priceTo;
+    }
+
+
+    if (postalCodes) {
+      matchConditions['locationData.postalCode'] = {$in: postalCodes};
+    }
+
+    if (!isEmptyObject(priceFilter)) {
+      matchConditions['cost'] = priceFilter;
+    }
+
+    if (categorySlug) {
+      matchConditions["transportType._id"] = categorySlug;
+    }
+
+    if (city) {
+      matchConditions['locationData.city'] = city;
+    }
+
+    // Sorting
+    if (priceOrder) {
+      if (priceOrder === 'min') {
+        sortConditions['cost'] = 1;
+      } else if (priceOrder === 'max') {
+        sortConditions['cost'] = -1;
+      }
+    }
+
+    sortConditions['createdAt'] = sortOrder;
+
+
+    const transports = await Transport.aggregate([
+      {
+        $lookup: {
+          from: "transportsLocationData",
+          localField: "locationDataId",
+          foreignField: "_id",
+          as: "locationData",
+        }
+      },
+      {
+        $unwind: "$locationData",
+      },
+
+      {
+        $lookup: {
+          from: "transportTypes",
+          localField: "transportTypeId",
+          foreignField: "_id",
+          as: "transportType",
+        },
+      },
+      {
+        $unwind: "$transportType",
+      },
+
+      {
+        $match: matchConditions,
+      },
+
+      {
+        $sort: sortConditions,
+      },
+      {
+        $skip: offset,
+      },
+      {
+        $limit: perPage,
+      },
+    ]);
+
+    const totalItems = transports.length;
+
+
+    return {
+      items: transports.map(transport => TransportMapper.entityToDTO(transport)),
+      pagination: new PaginationDTO({
+        page,
+        perPage,
+        totalItems: totalItems,
+        totalPages: Math.ceil(totalItems / perPage),
+      }),
+    }
+  }
 }
 
 export default new TransportService();

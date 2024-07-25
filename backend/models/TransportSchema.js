@@ -41,6 +41,10 @@ const TransportSchema = new Schema(
                 type: String,
             },
         ],
+        createdAt: {
+            type: Date,
+            default: Date.now,
+        }
     },
 );
 

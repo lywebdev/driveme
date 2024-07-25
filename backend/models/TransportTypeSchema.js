@@ -7,6 +7,10 @@ const TransportTypeSchema = new Schema({
         type: String,
         required: true,
     },
+    slug: {
+        type: String,
+        required: true,
+    },
     photo: {
         type: String,
         default: null,
