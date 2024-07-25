@@ -83,14 +83,16 @@ export const useUserStore = createStore(
         refreshTokens: async () => {
             try {
                 const response = await AuthService.refresh();
-                const {accessToken, user} = response.data.content.data;
+                if (response.data.content.isSuccess) {
+                    const {accessToken, user} = response.data.content.data;
 
-                setSession(accessToken);
+                    setSession(accessToken);
 
-                set({
-                    isAuthenticated: true,
-                    user: user,
-                });
+                    set({
+                        isAuthenticated: true,
+                        user: user,
+                    });
+                }
             } catch (e) {
                 set({
                     isAuthenticated: false,
@@ -99,6 +101,12 @@ export const useUserStore = createStore(
             }
         },
         logout: async () => {
+            try {
+                await AuthService.logout();
+            } catch (err) {
+                //
+            }
+
             setSession(null);
 
             set({

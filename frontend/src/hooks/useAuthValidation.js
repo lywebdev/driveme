@@ -55,8 +55,7 @@ const useAuthValidation = () => {
 
         const emailAndPasswordCondition = newErrors.email === true && newErrors.password === true;
 
-
-        if (values['name'] && values['passwordConfirmation']) {
+        if (values['name'] !== undefined && values['passwordConfirmation'] !== undefined) {
             return emailAndPasswordCondition && newErrors.name === true && newErrors.passwordConfirmation === true;
         }
 

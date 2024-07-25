@@ -18,13 +18,14 @@ const AuthContextProvider = ({ children }) => {
             const token = getSession();
             if (token) {
                 // validate accessToken by calling backend
-                refreshTokens();
-            } else {
-                logout();
-            }
+                await refreshTokens();
+            }/* else {
+                await logout();
+            }*/
         } catch (error) {
-            logout();
+            await logout();
         }
+
 
         setIsLoading(false);
     }, [refreshTokens, logout]);
@@ -39,11 +40,8 @@ const AuthContextProvider = ({ children }) => {
 
     const valueObjects = {
         isAuthenticated: isAuthenticated,
+        appIsLoading: isLoading,
     };
-
-    if (isLoading) {
-        return <h1>Loading</h1>;
-    }
 
 
     return <AuthContext.Provider value={valueObjects}>{children}</AuthContext.Provider>;
