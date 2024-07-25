@@ -4,6 +4,7 @@ import {routes} from "@config/routes.js";
 import LoginPage from "@pages/Auth/LoginPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
+import VehiclePage from "@pages/VehiclePage";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 
 export const publicRoutes = [
@@ -15,6 +16,10 @@ export const publicRoutes = [
         path: routes.transports,
         element: <TransportsPage />,
     },
+    {
+        path: routes.vehicle,
+        element: <VehiclePage />,
+    }
 ];
 
 export const guestRoutes = [

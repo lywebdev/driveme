@@ -1,0 +1,24 @@
+.vehicle_details{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: $color-white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    h1{
+        font-size: 32px;
+        font-weight: bold;
+    }
+
+    .delimiter {
+        background: $color-gray;
+        height: 1px;
+        width: 100%;
+        margin: 15px 0;
+      }
+}
