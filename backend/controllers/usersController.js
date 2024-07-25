@@ -13,7 +13,6 @@ const store = async (req, res) => {
 };
 
 const login = async (req, res) => {
-  console.log('начало логина');
   const {email, password} = req.body;
   const response = await UserService.login(email, password);
 
@@ -24,6 +23,8 @@ const login = async (req, res) => {
       secure: process.env.NODE_ENV === "production",
     });
   }
+
+  console.log(response);
 
   res.status(response.status).json(response.content);
 };
@@ -37,6 +38,7 @@ const logout = async (req, res) => {
 };
 
 const refreshTokens = async (req, res) => {
+  console.log('refreshToken url');
   const {refreshToken} = req.cookies;
   const response = await UserService.refresh(refreshToken);
 

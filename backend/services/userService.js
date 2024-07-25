@@ -68,6 +68,8 @@ class UserService extends BaseApiService {
                 return this.apiResponse({...responseTemplates.entity.notExists,});
             }
 
+            console.log(user);
+
             const isPassEquals = await bcrypt.compare(password, user.password);
             if (!isPassEquals) {
                 return this.apiResponse({
@@ -104,6 +106,7 @@ class UserService extends BaseApiService {
 
     refresh = async (refreshToken) => {
         if (!refreshToken) {
+            console.log('Токен не был передан');
             return this.apiResponse({...responseTemplates.user.unauthorized});
         }
 
@@ -111,8 +114,10 @@ class UserService extends BaseApiService {
         const tokenFromDb = await TokenService.findToken(refreshToken);
 
         if (!userData || !tokenFromDb) {
+            console.log('Не удалось провалидировать токен или токена нет в базе данных');
             return this.apiResponse({...responseTemplates.user.unauthorized});
         }
+        console.log('here');
 
         const user = await User.findById(userData.id);
         const userDTO = new UserDTO(user);
