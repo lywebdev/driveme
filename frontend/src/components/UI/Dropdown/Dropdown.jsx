@@ -1,6 +1,7 @@
 import ReactDropdown from "react-dropdown";
 import classes from './Dropdown.module.scss';
 import Arrow from "@components/UI/Arrows/Arrow.jsx";
+import {combineClassNames} from "@helpers/stringHelper.js";
 
 
 const variants = {
@@ -28,7 +29,7 @@ const Dropdown = ({
     options,
     variant = variants.basic.name,
     placeholderText,
-    className = classes.dropdown,
+    className,
     controlClass = classes.dropdown__control,
     placeholderClass = classes.dropdown__placeholder,
     menuClass = classes.dropdown__menu,
@@ -50,11 +51,13 @@ const Dropdown = ({
         placeholderClass += ` ${variants.ordering.placeholderClass}`;
     }
 
+    const combinedClasses = combineClassNames(classes.dropdown, className);
+
 
     return <ReactDropdown
         options={options}
         placeholder={placeholderText ?? placeholder}
-        className={className}
+        className={combinedClasses}
         controlClassName={controlClass}
         menuClassName={menuClass}
         placeholderClassName={placeholderClass}

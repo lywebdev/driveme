@@ -1,0 +1,97 @@
+.infoContainer {
+  padding-top: 25px;
+  padding-bottom: 25px;
+  background: $color-white;
+  border-radius: 10px;
+}
+
+.infoTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.photos {}
+
+.imageContainer {
+  background: $color-gray--lighter_hover;
+  border-radius: 10px;
+  min-height: 400px;
+}
+
+.image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.delimiter {
+  height: 2px;
+  width: 100%;
+  background: $color-gray--light;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.main {
+  margin-top: 30px;
+}
+
+.sidePaddings {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.dotDelimiter {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: $color-gray;
+  margin: 0 10px;
+}
+
+
+.authorInfo {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.authorName {}
+
+.authorType {
+  color: $color-gray;
+}
+
+
+.description {
+  margin-top: 30px;
+}
+
+
+.attributes {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  margin-top: 20px;
+}
+
+.attribute {
+  display: flex;
+  align-items: center;
+}
+
+.attributeName {
+  color: $color-gray;
+}
+
+.attributeDelimiter {
+  height: 0;
+  flex-grow: 1;
+  border-top: 1px dotted $color-gray;
+  margin: 0 10px;
+}
+
+.attributeValue {
+  color: $color-black;
+}

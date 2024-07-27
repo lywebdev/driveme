@@ -5,8 +5,7 @@ import LoginPage from "@pages/Auth/LoginPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
-import VehiclePage from "@pages/VehiclePage";
-import RegisterPage from "@pages/Auth/RegisterPage.jsx";
+import TransportPage from "@pages/TransportPage.jsx";
 
 export const publicRoutes = [
     {
@@ -18,8 +17,8 @@ export const publicRoutes = [
         element: <TransportsPage />,
     },
     {
-        path: routes.vehicle,
-        element: <VehiclePage />,
+        path: routes.transport,
+        element: <TransportPage />,
     }
 ];
 
