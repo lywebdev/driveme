@@ -6,7 +6,7 @@ import "./styles/TransportsPage.scss";
 import usePagination from "../hooks/usePagination";
 import Pagination from "../components/shared/Pagination/Pagination";
 import Button from "../components/UI/Button/Button.jsx";
-import TransportsContainer from "@components/features/Transport/TransportsContainer.jsx";
+import TransportsContainer from "@components/features/Transports/TransportsContainer.jsx";
 import useSortTransports from "../hooks/useSortTransports";
 import Dropdown from "@components/UI/Dropdown/Dropdown.jsx";
 import CategoryPageFilters from "@components/features/CategoryPage/CategoryPageFilters.jsx";

@@ -1,17 +1,19 @@
-.rental_form {
+.form {
   background-color: $color-white;
-  padding: 20px;
-  border-radius: 8px;
-  
+  padding: 15px 20px;
+  border-radius: 10px;
+}
 
-  h1 {
-    font-size: 32px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
+.title {
+  font-size: 24px;
+  margin-bottom: 15px;
+}
 
-  .rental_form__dropdown {
-    margin-bottom: 20px;
-  }
+.dropdown {
+  margin-bottom: 20px;
+}
 
-  }
+.button {
+  margin-top: 20px;
+  margin-bottom: 5px;
+}

@@ -1,0 +1,43 @@
+.transport-page {
+    width: 100%;
+    height: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transport-page__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.transport-page__left {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transport-page__right {
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 329px;
+
+    .rentalForm {
+        position: sticky;
+        top: 15px;
+    }
+}
+
+.tp-main__container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+
+    .container {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+    }
+}

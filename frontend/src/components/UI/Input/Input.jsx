@@ -1,10 +1,17 @@
 import classes from './Input.module.scss';
-import {combineClassNames} from "@helpers/stringHelper.js";
+import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 
 const types = {
     default: 'text',
     password: 'password',
 };
+
+const variants = {
+    notHigh: 'not-high',
+    unsetMinWidth: 'unset-min-width',
+};
+
+// добавить вариант инпута типо как у селекта
 
 const Input = ({
     onChange,
@@ -12,9 +19,19 @@ const Input = ({
     placeholder,
     name,
     type,
-    isInvalid
+    isInvalid,
+    variants,
 }) => {
-    const combinedClasses = combineClassNames(classes.input, isInvalid ? classes.invalid : null);
+    const combinedClasses = combineClassNames(
+        classes.input,
+        [
+            isInvalid ? classes.invalid : null,
+            ...expandVariants(classes, variants),
+        ]
+    );
+
+    // const combinedClasses = combineClassNames([classes.container, ...expandVariants(classes, variants)], className);
+
 
     return <input
         className={combinedClasses}
@@ -28,5 +45,6 @@ const Input = ({
 };
 
 Input.types = types;
+Input.variants = variants;
 
 export default Input;

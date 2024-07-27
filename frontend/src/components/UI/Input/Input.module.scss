@@ -15,6 +15,14 @@
   &::placeholder {
     color: $color-gray--middle;
   }
+
+  &.not-high {
+    height: 40px;
+  }
+
+  &.unset-min-width {
+    min-width: unset;
+  }
 }
 
 .invalid {
