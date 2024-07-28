@@ -1,41 +1,34 @@
 import { useState, useEffect } from 'react';
 
-const useShowHide = (delay, duration, onClose) => {
+const useShowHide = (delay, visibilityDuration, hideAnimationDuration, onClose) => {
     const [show, setShow] = useState(false);
     const [animateOut, setAnimateOut] = useState(false);
 
     useEffect(() => {
-        let showTimer;
-        let hideTimer;
-        let closeTimer;
-
-        showTimer = setTimeout(() => {
+        const showTimeout = setTimeout(() => {
             setShow(true);
         }, delay);
 
-        if (duration) {
-            hideTimer = setTimeout(() => {
+        let hideTimeout;
+        if (visibilityDuration) {
+            hideTimeout = setTimeout(() => {
                 setAnimateOut(true);
-                setTimeout(() => {
-                    setShow(false);
-                }, 1000); 
-            }, delay + duration);
+                setTimeout(onClose, hideAnimationDuration);
+            }, delay + visibilityDuration);
         }
 
-        closeTimer = setTimeout(() => {
-            if (!show) {
-                onClose();
-            }
-        }, (delay + duration || 0) + 2000); 
-
         return () => {
-            if (showTimer) clearTimeout(showTimer);
-            if (hideTimer) clearTimeout(hideTimer);
-            if (closeTimer) clearTimeout(closeTimer);
+            clearTimeout(showTimeout);
+            clearTimeout(hideTimeout);
         };
-    }, [delay, duration, onClose, show]);
+    }, [delay, visibilityDuration, hideAnimationDuration, onClose]);
 
-    return [show, animateOut, setAnimateOut];
+    const triggerHideAnimation = () => {
+        setAnimateOut(true);
+        setTimeout(onClose, hideAnimationDuration);
+    };
+
+    return [show, animateOut, triggerHideAnimation];
 };
 
 export default useShowHide;
