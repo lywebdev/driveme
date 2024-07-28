@@ -1,17 +1,19 @@
 import {createContext, useCallback, useEffect, useState} from "react";
 import {useUserStore} from "@store/useUserStore.js";
-import {getSession} from "./auth.utlis.js";
 import useConsent from "../hooks/useConsent.js";
+import {getSession, setSession} from "./auth.utlis.js";
 
 
 export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [refreshTokens, logout, isAuthenticated] = useUserStore(state => [
+    const [refreshTokens, logout, isAuthenticated, setIsAuthenticated, setUser] = useUserStore(state => [
         state.refreshTokens,
         state.logout,
-        state.isAuthenticated
+        state.isAuthenticated,
+        state.setIsAuthenticated,
+        state.setUser,
     ]);
     const [cookieConsentFlag, setCookieConsentFlag] = useConsent();
 
@@ -22,9 +24,12 @@ const AuthContextProvider = ({ children }) => {
             if (token) {
                 // validate accessToken by calling backend
                 await refreshTokens();
-            }/* else {
-                await logout();
-            }*/
+            } else {
+                setSession(null);
+
+                setIsAuthenticated(false);
+                setUser(undefined);
+            }
         } catch (error) {
             await logout();
         }

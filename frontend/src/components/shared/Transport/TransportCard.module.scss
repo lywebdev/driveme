@@ -11,10 +11,11 @@
   border-radius: 10px;
   padding-top: 5px;
   padding-bottom: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 
   .image {
-    @include transport-card__container(5px);
-    width: 100%;
+    margin: 0 5px;
+    width: calc(100% - 10px);
     height: 200px;
 
     img {
@@ -22,6 +23,8 @@
       height: 100%;
       object-fit: cover;
       border-radius: 10px;
+      max-width: 100%;
+      overflow-clip-margin: unset;
     }
   }
 

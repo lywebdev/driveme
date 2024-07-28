@@ -1,22 +1,34 @@
-import classes from './Pagination.module.scss';
+import classes from "@components/shared/Pagination/Pagination.module.scss";
 import {combineClassNames} from "@helpers/stringHelper.js";
+import {NavLink} from "react-router-dom";
+import React from "react";
 
-const Pagination = ({ totalPages, onPageClick, currentPage, className }) => {
+const Pagination = React.memo(({totalPages, currentPage, pathGenerationHandler, className}) => {
+    const pageNumbers = Array.from({ length: totalPages }, (v, i) => i + 1);
     const combinedClasses = combineClassNames(classes['pagination-buttons'], className);
 
     return (
         <div className={combinedClasses}>
-            {[...Array(totalPages)].map((_, index) => (
-                <button
-                    key={index}
-                    onClick={() => onPageClick(index)}
-                    className={index + 1 === currentPage ? classes['active'] : ''}
-                >
-                    {index + 1}
-                </button>
-            ))}
+            {
+                pageNumbers.map(page => {
+                    const url = pathGenerationHandler(page);
+
+                    return (
+                        <NavLink
+                            key={page}
+                            to={url}
+                            className={
+                                `${page === Number(currentPage) ? classes.active : false} ${classes.button}`
+                            }
+                        >{page}</NavLink>
+                    );
+                })
+            }
         </div>
     );
-};
+});
+
+Pagination.displayName = "Pagination";
+
 
 export default Pagination;
