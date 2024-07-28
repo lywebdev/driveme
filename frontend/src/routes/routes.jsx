@@ -2,10 +2,10 @@ import Dashboard from "@pages/admin/Dashboard.jsx";
 import HomePage from "@pages/HomePage.jsx";
 import {routes} from "@config/routes.js";
 import LoginPage from "@pages/Auth/LoginPage.jsx";
-import TransportsPage from "@pages/TransportsPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 import TransportPage from "@pages/TransportPage.jsx";
+import NewTransportsPage from "@pages/NewTransportsPage.jsx";
 
 export const publicRoutes = [
     {
@@ -14,7 +14,7 @@ export const publicRoutes = [
     },
     {
         path: routes.transports,
-        element: <TransportsPage />,
+        element: <NewTransportsPage />,
     },
     {
         path: routes.transport,

@@ -1,0 +1,46 @@
+.container {
+  //background: linear-gradient(101.42deg, #DFEFFF -0.04%, rgba(223, 239, 255, 0.27) 94.2%);
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: inherit;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  background: #eee;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+}
+
+
+.containerLoaded::before {
+  animation: none;
+  opacity: 0;
+}
+
+.image {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity .3s ease-in-out;
+}
+
+.imageLoaded {
+  opacity: 1;
+}

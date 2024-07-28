@@ -4,10 +4,12 @@ import morgan from "morgan";
 import cookieParser from "cookie-parser";
 import cors from 'cors';
 import routes from "./config/routes/index.js";
+import path, { dirname } from 'path';
 
 dotenv.config();
 
 import "./config/db/mongoose.js";
+import {fileURLToPath} from "url";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +23,10 @@ app.use(cors({
     origin: process.env.CLIENT_URL
 }));
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use("/api", routes);
 
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));

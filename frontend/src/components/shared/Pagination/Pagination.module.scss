@@ -2,28 +2,51 @@
   display: flex;
   justify-content: center;
   column-gap: 20px;
+}
 
-  button {
-    font-family: $ff-os;
-    font-size: 16px;
-    cursor: pointer;
+@keyframes setBackground {
+  from {
     background-color: transparent;
     color: $color-gray;
-    border: 1px solid;
-    border-radius: 50%;
-    outline: none;
-    width: 40px;
-    height: 40px;
-    transition: all 0.3s;
-
-    &:hover {
-      color: $color-black--light;
-    }
-
-    &.active {
-      background-color: $color-black--light;
-      color: $color-white;
-      border-color: $color-black--light;
-    }
+    border: 1px solid $color-gray;
   }
+
+  to {
+    background-color: $color-black--light;
+    color: $color-white;
+    border-color: $color-black--light;
+  }
+}
+
+
+.button {
+  font-family: $ff-os;
+  font-size: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  color: $color-gray;
+  border: 1px solid $color-gray;
+  border-radius: 50%;
+  outline: none;
+  width: 40px;
+  height: 40px;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.4s;
+
+
+  &:hover {
+    color: $color-black--light;
+    background: $color-gray--lighter_hover;
+  }
+}
+
+.active {
+  animation-name: setBackground;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
 }

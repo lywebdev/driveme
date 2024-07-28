@@ -206,7 +206,7 @@ class TransportService extends BaseApiService {
     sortConditions['createdAt'] = sortOrder;
 
 
-    const transports = await Transport.aggregate([
+    const results = await Transport.aggregate([
       {
         $lookup: {
           from: "transportsLocationData",
@@ -236,17 +236,32 @@ class TransportService extends BaseApiService {
       },
 
       {
-        $sort: sortConditions,
+        $facet: {
+          metadata: [
+            {
+              $count: "totalItems",
+            }
+          ],
+          data: [
+            { $sort: sortConditions },
+            { $skip: offset },
+            { $limit: perPage }
+          ]
+        }
       },
-      {
-        $skip: offset,
-      },
-      {
-        $limit: perPage,
-      },
+      // {
+      //   $sort: sortConditions,
+      // },
+      // {
+      //   $skip: offset,
+      // },
+      // {
+      //   $limit: perPage,
+      // },
     ]);
 
-    const totalItems = transports.length;
+    const totalItems = results[0].metadata.length > 0 ? results[0].metadata[0].totalItems : 0;
+    const transports = results[0].data;
 
 
     return {
