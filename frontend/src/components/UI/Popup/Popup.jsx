@@ -1,17 +1,23 @@
 import styles from './Popup.module.scss';
 import useShowHide from '../../../hooks/useShowHide';
+import Button from '@components/UI/Button/Button.jsx';
 
 const Popup = ({
-    children,
+    text,
+    buttonText,
     onClose,
     hideTo = 'bottom',
     showFrom = 'bottom',
     type = 'info',
-    duration,
-    delay = 0 
+    delay = 0,
+    visibilityDuration,
+    hideAnimationDuration = 1000
 }) => {
-    const [show, animateOut] = useShowHide(delay, duration, onClose, false);
+    const [show, animateOut, triggerHideAnimation] = useShowHide(delay, visibilityDuration, hideAnimationDuration, onClose);
 
+    const handleClose = () => {
+        triggerHideAnimation();
+    };
 
     return (
         <div
@@ -20,8 +26,8 @@ const Popup = ({
             } ${animateOut ? styles[`hide-to-${hideTo}`] : ''} ${styles[type]}`}
         >
             <div className={styles.popup_content}>
-                {children}
-              
+                <p>{text}</p>
+                <Button onClick={handleClose}>{buttonText}</Button>
             </div>
         </div>
     );

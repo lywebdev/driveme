@@ -1,18 +1,17 @@
-import { useState } from 'react';
 import Header from "@layouts/Header.jsx";
 import Footer from "@layouts/Footer.jsx";
 import { Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.js";
 import AppLoadingOverlay from "@components/shared/Overlay/AppLoadingOverlay.jsx";
 import Popup from "@components/UI/Popup/Popup.jsx";
-import CookieComponent from "@components/CookieComponent/CookieComponent.jsx";
+import useConsent from '../../hooks/useConsent.js';
 
 const Layout = () => {
     const { appIsLoading } = useAuth();
-    const [showPopup, setShowPopup] = useState(true);
+    const [consentGiven, giveConsent] = useConsent();
 
-    const handleClose = () => {
-        setShowPopup(false);
+    const handleConsent = () => {
+        giveConsent();
     };
 
     return (
@@ -23,14 +22,15 @@ const Layout = () => {
                     <Header />
                     <div id="body">
                         <Outlet />
-                        {showPopup && (
+                        {!consentGiven && (
                             <Popup
-                                onClose={handleClose}
+                                onClose={handleConsent}
                                 hideTo="bottom"
                                 showFrom="bottom"
                                 type="info"
+                                text="We use cookies to enhance your experience. Do you accept our cookie policy?"
+                                buttonText="I Accept"
                             >
-                                <CookieComponent onClose={handleClose} />
                             </Popup>
                         )}
                     </div>
