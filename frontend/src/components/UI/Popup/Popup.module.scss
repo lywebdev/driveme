@@ -1,10 +1,9 @@
 /* Base styles for the popup container */
-.popup_container {
+.popupContainer {
     position: fixed;
     left: 0;
     right: 0;
     bottom: 0;
-    display: flex;
     align-items: center;
     visibility: hidden; 
     opacity: 0;
@@ -17,52 +16,51 @@
     color: $color-white;
     display: flex;
     justify-content: center;
+
+    /* Transition for showing and hiding the popup */
+    &.showFromBottom {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    &.showFromTop {
+        visibility: visible;
+        opacity: 1;
+        transform: translateY(-100%);
+    }
+
+    &.hideToBottom {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(100%);
+    }
+
+    &.hideToTop {
+        visibility: hidden;
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    /* Different styles based on popup type */
+    &.info {
+        background-color: $color-green;
+    }
+
+    &.warning {
+        background-color: $color-yellow;
+    }
+
+    &.error {
+        background-color: $color-red;
+    }
 }
 
 .consent {
     display: none;
 }
 
-/* Transition for showing and hiding the popup */
-.popup_container.show-from-bottom {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(0); 
-}
-
-.popup_container.show-from-top {
-    visibility: visible;
-    opacity: 1;
-    transform: translateY(-100%); 
-}
-
-.popup_container.hide-to-bottom {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(100%); 
-}
-
-.popup_container.hide-to-top {
-    visibility: hidden;
-    opacity: 0;
-    transform: translateY(-100%); 
-}
-
-/* Different styles based on popup type */
-.popup_container.info {
-    background-color: $color-green; 
-}
-
-.popup_container.warning {
-    background-color: $color-yellow; 
-}
-
-.popup_container.error {
-    background-color: $color-red; 
-}
-
-/* Styles for popup content */
-.popup_content {
+.popupContent {
     max-width: $container-width;
     display: flex;
     justify-content: space-between;

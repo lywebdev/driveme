@@ -1,6 +1,7 @@
 import {createContext, useCallback, useEffect, useState} from "react";
 import {useUserStore} from "@store/useUserStore.js";
 import {getSession} from "./auth.utlis.js";
+import useConsent from "../hooks/useConsent.js";
 
 
 export const AuthContext = createContext(null);
@@ -12,6 +13,8 @@ const AuthContextProvider = ({ children }) => {
         state.logout,
         state.isAuthenticated
     ]);
+    const [cookieConsentFlag, setCookieConsentFlag] = useConsent();
+
 
     const initializeAuthContext = useCallback(async () => {
         try {
@@ -25,7 +28,6 @@ const AuthContextProvider = ({ children }) => {
         } catch (error) {
             await logout();
         }
-
 
         setIsLoading(false);
     }, [refreshTokens, logout]);
@@ -41,6 +43,8 @@ const AuthContextProvider = ({ children }) => {
     const valueObjects = {
         isAuthenticated: isAuthenticated,
         appIsLoading: isLoading,
+        cookieConsentFlag,
+        setCookieConsentFlag,
     };
 
 

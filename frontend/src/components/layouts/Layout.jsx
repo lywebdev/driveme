@@ -4,14 +4,12 @@ import { Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth.js";
 import AppLoadingOverlay from "@components/shared/Overlay/AppLoadingOverlay.jsx";
 import Popup from "@components/UI/Popup/Popup.jsx";
-import useConsent from '../../hooks/useConsent.js';
 
 const Layout = () => {
-    const { appIsLoading } = useAuth();
-    const [consentGiven, giveConsent] = useConsent();
+    const { appIsLoading, cookieConsentFlag, setCookieConsentFlag } = useAuth();
 
     const handleConsent = () => {
-        giveConsent();
+        setCookieConsentFlag();
     };
 
     return (
@@ -22,7 +20,7 @@ const Layout = () => {
                     <Header />
                     <div id="body">
                         <Outlet />
-                        {!consentGiven && (
+                        {!cookieConsentFlag && (
                             <Popup
                                 onClose={handleConsent}
                                 hideTo="bottom"
@@ -30,8 +28,7 @@ const Layout = () => {
                                 type="info"
                                 text="We use cookies to enhance your experience. Do you accept our cookie policy?"
                                 buttonText="I Accept"
-                            >
-                            </Popup>
+                            />
                         )}
                     </div>
                     <Footer />
