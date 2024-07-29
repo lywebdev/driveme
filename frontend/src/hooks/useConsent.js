@@ -1,21 +1,21 @@
 import { useState, useEffect } from 'react';
 
 const useConsent = () => {
-    const [consentGiven, setConsentGiven] = useState(false);
+    const [cookieConsentFlag, setCookieConsentFlag] = useState(false);
 
     useEffect(() => {
         const consent = localStorage.getItem('cookieConsent');
         if (consent) {
-            setConsentGiven(true);
+            setCookieConsentFlag(true);
         }
     }, []);
 
     const giveConsent = () => {
         localStorage.setItem('cookieConsent', 'true');
-        setConsentGiven(true);
+        setCookieConsentFlag(true);
     };
 
-    return [consentGiven, giveConsent];
+    return [cookieConsentFlag, giveConsent];
 };
 
 export default useConsent;
