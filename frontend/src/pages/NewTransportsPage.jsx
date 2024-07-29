@@ -11,21 +11,30 @@ import TransportsContainer from "@components/features/Transports/TransportsConta
 import {useLocation, useSearchParams} from "react-router-dom";
 import Pagination from "@components/shared/Pagination/Pagination.jsx";
 import './styles/TransportsPage.scss';
+import TransportLocationService from "../services/TransportLocationService.js";
+import {useTransportLocationStore} from "@store/useTransportLocationStore.js";
 
 const TransportsPage = () => {
+    console.log('render TransportPage');
     const [transports, setTransports, pagination, setIsLoading] = useTransportsStore(state => [
         state.transports,
         state.setTransports,
         state.pagination,
         state.setIsLoading,
     ]);
+    const [cities, setCities] = useTransportLocationStore(state => [
+        state.cities,
+        state.setCities,
+    ]);
     const [sorting, setSorting] = useState(null);
+    const [cityLocation, setCityLocation] = useState(null);
     const [searchParams, setSearchParams] = useSearchParams();
     const urlLocation = useLocation();
     const params = new URLSearchParams(urlLocation.search);
 
     const page = params.get('page');
-    const paramsSorting = params.get('sort_order');
+    const sortingParameter = params.get('sort_order');
+    const cityParameter = params.get('city');
 
     const sortingOptions = [
         {value: null, label: "None"},
@@ -33,12 +42,8 @@ const TransportsPage = () => {
         {value: 'asc', label: "Ascending"},
     ];
 
-    const locationOptions = [
-    ];
-
     const changeSortingHandler = (selectedOption) => {
         const value = selectedOption.value;
-        const params = new URLSearchParams(urlLocation.search);
 
         if (value === null) {
             params.delete('sort_order');
@@ -56,7 +61,19 @@ const TransportsPage = () => {
     };
 
     const changeLocationHandler = (selectedOption) => {
-        console.log(selectedOption);
+        const value = selectedOption.value;
+
+        if (value === null) {
+            params.delete('city');
+            setSearchParams(params);
+            params.set('page', 1);
+            setCityLocation(null);
+        } else {
+            params.set('city', value);
+            params.set('page', 1);
+            setSearchParams(params);
+            setCityLocation(value);
+        }
     };
 
     const getPaginationBtnPath = (pageNumber) => {
@@ -69,33 +86,76 @@ const TransportsPage = () => {
 
 
     useEffect(() => {
-        const fetchTransports = async () => {
-            setIsLoading(true);
-            const queryParams = {
-                page: searchParams.get('page') || null,
-                price_order: searchParams.get('price_order') || null,
-                order: searchParams.get('sort_order') || null,
-                price_from: searchParams.get('price_from') || null,
-                price_to: searchParams.get('price_to') || null,
-            };
+        setIsLoading(true);
 
-            const response = await TransportService.findAll({queryParams});
 
-            if (response.data.isSuccess) {
-                return response.data.data;
+        const fetchData = async () => {
+            let transportsData = null,
+                citiesData = null;
+
+
+            try {
+                const transportsQueryParams = {
+                    page: page || null,
+                    price_order: searchParams.get('price_order') || null,
+                    order: sortingParameter || null,
+                    price_from: searchParams.get('price_from') || null,
+                    price_to: searchParams.get('price_to') || null,
+                    city: cityParameter || null,
+                };
+
+                const requests = [
+                    await TransportService.findAll({
+                        queryParams: transportsQueryParams,
+                    }),
+                ];
+
+                if (!cities || cities.length === 0) {
+                    requests.push(await TransportLocationService.findAllCities());
+                }
+
+
+                const [
+                    transportsResponse,
+                    citiesResponse
+                ] = await Promise.all(requests);
+
+                transportsData = transportsResponse;
+                citiesData = citiesResponse;
+            } catch (err) {
+                //
+            } finally {
+                if (transportsData?.data?.isSuccess) {
+                    const {items, pagination} = transportsData.data.data;
+
+                    setTransports(items, pagination);
+                }
+
+                if (!cities || cities.length === 0) {
+                    if (citiesData?.data?.isSuccess) {
+                        let citiesArray = citiesData.data.data.map(city => ({
+                            label: city,
+                            value: city,
+                        }));
+
+                        citiesArray.unshift({
+                            label: 'All cities',
+                            value: null,
+                        });
+
+                        setCities(citiesArray);
+                    }
+                }
+
+
+                setIsLoading(false);
             }
         };
 
-        let responseData = {};
-        fetchTransports()
-            .then((content) => {
-                responseData = content;
-                return null;
-            }).finally(() => {
-                setTransports(responseData.items, responseData.pagination);
-                setIsLoading(false);
-            });
-    }, [page, sorting]);
+
+
+        fetchData();
+    }, [page, sorting, cityLocation]);
 
 
     return (
@@ -106,10 +166,11 @@ const TransportsPage = () => {
                 </PageTitle>
 
                 <div className="location">
-                    <Dropdown options={locationOptions}
+                    <Dropdown options={cities}
                         variant={Dropdown.variants.location.name}
                         onChange={changeLocationHandler}
-                        value={locationOptions.find(option => option.value === location)}
+                        placeholderText='All cities'
+                        value={cities.find(option => option.value === cityParameter)}
                     />
                 </div>
             </Container>
@@ -120,7 +181,7 @@ const TransportsPage = () => {
                         <Dropdown options={sortingOptions}
                             variant={Dropdown.variants.ordering.name}
                             onChange={changeSortingHandler}
-                            value={sortingOptions.find(option => option.value === paramsSorting)}
+                            value={sortingOptions.find(option => option.value === sortingParameter)}
                         />
                     }
                 />
@@ -128,16 +189,16 @@ const TransportsPage = () => {
                 {
                     <>
                         <TransportsContainer
-                            transports={transports}
+                            transports={transports || []}
                             marginTop
                             className='main-container'
-                            totalItems={pagination.totalItems}
-                            perPage={pagination.perPage}
+                            totalItems={pagination?.totalItems || 0}
+                            perPage={pagination?.perPage || 0}
                         />
                         <Pagination
                             className='pagination'
-                            totalPages={pagination.totalPages}
-                            currentPage={pagination.page}
+                            totalPages={pagination?.totalPages || 0}
+                            currentPage={pagination?.page || 1}
                             pathGenerationHandler={getPaginationBtnPath}
                         />
                     </>
