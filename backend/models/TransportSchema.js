@@ -44,6 +44,10 @@ const TransportSchema = new Schema(
         createdAt: {
             type: Date,
             default: Date.now,
+        },
+        slug: {
+            type: String,
+            unique: true,
         }
     },
 );

@@ -10,6 +10,7 @@ import {splitZip} from "../utils/transportsHelper.js";
 import TransportMapper from "../mappers/TransportMapper.js";
 import PaginationDTO from "../DTOs/PaginationDTO.js";
 import {isEmptyObject} from "../utils/objectHelper.js";
+import generateUniqueSlug from "./slugServices.js";
 
 class TransportService extends BaseApiService {
   findAll = async (requestQuery) => {
@@ -51,9 +52,12 @@ class TransportService extends BaseApiService {
       return this.apiResponse({ ...responseTemplates.entity.alreadyExists });
     }
 
+    const slug = await generateUniqueSlug(requestBody.name);
+
     const fields = {
       _id: requestBody?.id,
       name: requestBody.name,
+      slug: slug,
       photo: requestBody.photo,
       cost: requestBody.cost,
       transportTypeId: requestBody.transportTypeId,
