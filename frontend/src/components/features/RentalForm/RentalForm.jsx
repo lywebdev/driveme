@@ -12,8 +12,8 @@ const RentalForm = ({className}) => {
         <div className={combinedClasses}>
             <form action="">
                 <div className={classes.title}>Rent Period</div>
-                <Dropdown options={[]} placeholder="Select date" className={classes.dropdown} />
-                <Dropdown options={[]} placeholder="Select date" className={classes.dropdown} />
+                <Dropdown options={[]} placeholder="Select date" className={classes.dropdown} variants={[Dropdown.variants.colorGray]} />
+                <Dropdown options={[]} placeholder="Select date" className={classes.dropdown} variants={[Dropdown.variants.colorGray]} />
                 <Input variants={[Input.variants.notHigh, Input.variants.unsetMinWidth]} placeholder="Pickup location" />
 
                 <Button isSubmit variants={[Button.types.action, Button.types.fullWidth]} className={classes.button}>Continue</Button>

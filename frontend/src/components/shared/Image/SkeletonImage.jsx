@@ -1,11 +1,11 @@
-import React, {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import classes from './SkeletonImage.module.scss';
 import useVisibilityElement from "../../../hooks/useElementVisibility.js";
 import {combineClassNames} from "@helpers/stringHelper.js";
 
 const SkeletonImage = (props) => {
     const { src, alt = '', onLoad = () => {}, className } = props;
-    const [isLoaded, setIsLoaded] = React.useState(false);
+    const [isLoaded, setIsLoaded] = useState(false);
     const imageRef = useRef(null);
     const containerRef = useRef(null);
     const isVisible = useVisibilityElement(containerRef);
@@ -16,17 +16,32 @@ const SkeletonImage = (props) => {
     ]);
 
     useEffect(() => {
-        if (!isVisible || isLoaded) {
-            return;
-        }
+        const imgElement = imageRef.current;
 
-        if (imageRef.current) {
-            imageRef.current.onload = () => {
+        if (imgElement) {
+            const handleLoad = () => {
                 setIsLoaded(true);
                 onLoad();
             };
+
+            imgElement.addEventListener('load', handleLoad);
+            imgElement.addEventListener('error', () => {
+                console.log('Error loading image');
+            });
+
+            // Check if image is already loaded
+            if (imgElement.complete) {
+                handleLoad();
+            }
+
+            return () => {
+                imgElement.removeEventListener('load', handleLoad);
+                imgElement.removeEventListener('error', () => {
+                    console.log('Error loading image');
+                });
+            };
         }
-    }, [isVisible, onLoad, isLoaded]);
+    }, [isVisible, onLoad, isLoaded, imageRef]);
 
 
     return (

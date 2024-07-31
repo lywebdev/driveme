@@ -4,28 +4,44 @@ import {combineClassNames} from "@helpers/stringHelper.js";
 
 
 const Transport = ({transport}) => {
-    return <>
-        <div className={classes.photos}>
-            <Image />
-        </div>
+    const renderTransport = () => {
+        if (transport === null) {
+            return <p>Loading</p>;
+        }
 
-        <InfoContainer className={classes.main}>
-            <PageTitle className={classes.sidePaddings}>
-                <PageTitle.Top>{transport.name}</PageTitle.Top>
-            </PageTitle>
-            <Delimiter />
-            <div className={`${classes.authorInfo} ${classes.sidePaddings}`}>
-                <div className={classes.authorName}>{transport.owner}</div>
-                <div className={classes.dotDelimiter}></div>
-                <div className={classes.authorType}>Owner</div>
+        const photo = transport?.photos !== null && transport?.photos !== undefined ? transport.photos[0] : null;
+
+        return <>
+            <div className={classes.photos}>
+                <Image src={photo}/>
             </div>
-        </InfoContainer>
 
-        <InfoContainer className={classes.description}>
-            <div className={`${classes.infoTitle} ${classes.sidePaddings}`}>Description by owner</div>
-            <Attributes attributes={transport.attributes} className={classes.sidePaddings} />
-        </InfoContainer>
-    </>;
+            <InfoContainer className={classes.main}>
+                <PageTitle className={classes.sidePaddings}>
+                    <PageTitle.Top>{transport.name}</PageTitle.Top>
+                </PageTitle>
+                <Delimiter/>
+                {
+                    transport.owner && <div className={`${classes.authorInfo} ${classes.sidePaddings}`}>
+                        <div className={classes.authorName}>{transport.owner}</div>
+                        <div className={classes.dotDelimiter}></div>
+                        <div className={classes.authorType}>Owner</div>
+                    </div>
+                }
+            </InfoContainer>
+
+            <InfoContainer className={classes.description}>
+                <div className={`${classes.infoTitle} ${classes.sidePaddings}`}>Description by owner</div>
+                <div className={`${classes.descriptionText} ${classes.sidePaddings}`}>
+                    <p className={classes.text}>{transport.description}</p>
+                </div>
+                <Attributes attributes={transport.attributes} className={classes.sidePaddings}/>
+            </InfoContainer>
+        </>;
+    };
+
+
+    return renderTransport();
 };
 
 const Image = ({src, alt}) => {
@@ -46,7 +62,7 @@ const Attributes = ({attributes, className}) => {
     const combinedClasses = combineClassNames(classes.attributes, className);
 
     return <div className={combinedClasses}>
-        {attributes.map((attribute, index) => (
+        {attributes && attributes.map((attribute, index) => (
             <div className={classes.attribute} key={index}>
                 <div className={classes.attributeName}>{attribute.name}</div>
                 <div className={classes.attributeDelimiter}></div>

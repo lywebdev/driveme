@@ -1,10 +1,14 @@
 import ReactDropdown from "react-dropdown";
 import classes from './Dropdown.module.scss';
 import Arrow from "@components/UI/Arrows/Arrow.jsx";
-import {combineClassNames} from "@helpers/stringHelper.js";
+import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 
 
 const variants = {
+    colorGray: 'colorGray',
+};
+
+const types = {
     basic: {
         name: 'basic',
         placeholder: 'Select option',
@@ -27,7 +31,8 @@ const variants = {
 
 const Dropdown = ({
     options,
-    variant = variants.basic.name,
+    type = types.basic.name,
+    variants = [],
     placeholderText,
     className,
     controlClass = classes.dropdown__control,
@@ -38,20 +43,23 @@ const Dropdown = ({
     onChange,
     value
 }) => {
-    let placeholder = variants.basic.placeholder;
+    let placeholder = types.basic.placeholder;
 
-    if (variant === variants.location.name) {
-        placeholder = variants.location.placeholder;
-        className += ` ${variants.location.className}`;
-        controlClass += ` ${variants.location.controlClass}`;
-        placeholderClass += ` ${variants.location.placeholderClass}`;
-        menuClass += ` ${variants.location.menuClass}`;
-    } else if (variant === variants.ordering.name) {
-        placeholder = variants.ordering.placeholder;
-        placeholderClass += ` ${variants.ordering.placeholderClass}`;
+    if (type === types.location.name) {
+        placeholder = types.location.placeholder;
+        className += ` ${types.location.className}`;
+        controlClass += ` ${types.location.controlClass}`;
+        placeholderClass += ` ${types.location.placeholderClass}`;
+        menuClass += ` ${types.location.menuClass}`;
+    } else if (type === types.ordering.name) {
+        placeholder = types.ordering.placeholder;
+        placeholderClass += ` ${types.ordering.placeholderClass}`;
     }
 
-    const combinedClasses = combineClassNames(classes.dropdown, className);
+    const combinedClasses = combineClassNames(classes.dropdown, [
+        className,
+        ...expandVariants(classes, variants),
+    ]);
 
 
     return <ReactDropdown
@@ -69,5 +77,6 @@ const Dropdown = ({
 };
 
 Dropdown.variants = variants;
+Dropdown.types = types;
 
 export default Dropdown;

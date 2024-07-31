@@ -26,6 +26,22 @@ class TransportService extends BaseApiService {
     });
   };
 
+  findById = async (id) => {
+    let transport = null;
+    try {
+      transport = await Transport.findOne({
+        _id: id,
+      });
+    } catch (err) {
+      return this.apiResponse({...responseTemplates.entity.notExists});
+    }
+
+    return this.apiResponse({
+      message: 'OK',
+      data: TransportMapper.entityToDTO(transport),
+    });
+  }
+
   store = async (requestBody) => {
     if (
       await Transport.findOne({

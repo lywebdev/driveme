@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
 
 import Container from "@layouts/shared/Container.jsx";
@@ -29,16 +29,13 @@ const TransportsPage = () => {
         state.setCities,
     ]);
 
-    const [sorting, setSorting] = useState(null);
-    const [cityLocation, setCityLocation] = useState(null);
-
     const [searchParams, setSearchParams] = useSearchParams();
     const urlLocation = useLocation();
     const params = new URLSearchParams(urlLocation.search);
 
-    const page = params.get('page');
-    const sortingParameter = params.get('sort_order');
-    const cityParameter = params.get('city');
+    let page = params.get('page');
+    let sortingParameter = params.get('sort_order');
+    let cityParameter = params.get('city');
 
     const sortingOptions = [
         { value: null, label: "None" },
@@ -49,60 +46,63 @@ const TransportsPage = () => {
     useEffect(() => {
         setIsLoading(true);
 
+        const abortController = new AbortController();
+
+        const transportsQueryParams = {
+            page: page || null,
+            price_order: searchParams.get('price_order') || null,
+            order: sortingParameter || null,
+            price_from: searchParams.get('price_from') || null,
+            price_to: searchParams.get('price_to') || null,
+            city: cityParameter || null,
+        };
+
         const fetchData = async () => {
-            let transportsData = null;
-            let citiesData = null;
-
             try {
-                const transportsQueryParams = {
-                    page: page || null,
-                    price_order: searchParams.get('price_order') || null,
-                    order: sortingParameter || null,
-                    price_from: searchParams.get('price_from') || null,
-                    price_to: searchParams.get('price_to') || null,
-                    city: cityParameter || null,
-                };
-
-                const requests = [
-                    await TransportService.findAll({ queryParams: transportsQueryParams }),
-                ];
-
+                const requests = [await TransportService.findAll({queryParams: transportsQueryParams})];
                 if (!cities || cities.length === 0) {
-                    requests.push(await TransportLocationService.findAllCities());
+                    requests.push(TransportLocationService.findAllCities());
                 }
 
                 const [transportsResponse, citiesResponse] = await Promise.all(requests);
 
-                transportsData = transportsResponse;
-                citiesData = citiesResponse;
-            } catch (err) {
-                // console.error(err);
+                if (abortController.signal.aborted) return;
+
+                handleTransportsResponse(transportsResponse);
+                handleCitiesResponse(citiesResponse);
+
+            } catch (error) {
+                //
             } finally {
-                if (transportsData?.data?.isSuccess) {
-                    const { items, pagination } = transportsData.data.data;
-                    setTransports(items, pagination);
-                }
-
-                if (!cities || cities.length === 0 && citiesData?.data?.isSuccess) {
-                    const citiesArray = citiesData.data.data.map(city => ({
-                        label: city,
-                        value: city,
-                    }));
-
-                    citiesArray.unshift({
-                        label: 'All cities',
-                        value: null,
-                    });
-
-                    setCities(citiesArray);
-                }
-
                 setIsLoading(false);
             }
         };
 
+        const handleTransportsResponse = (response) => {
+            if (response?.data?.isSuccess) {
+                const { items, pagination } = response.data.data;
+                setTransports(items, pagination);
+            }
+        };
+
+        const handleCitiesResponse = (response) => {
+            if (!cities || cities.length === 0) {
+                if (response?.data?.isSuccess) {
+                    const citiesArray = response.data.data.map(city => ({
+                        label: city,
+                        value: city,
+                    }));
+                    citiesArray.unshift({ label: 'All cities', value: null });
+                    setCities(citiesArray);
+                }
+            }
+        };
+
+
         fetchData();
-    }, [page, sorting, cityLocation]);
+
+        return () => abortController.abort();
+    }, [page, sortingParameter, cityParameter]);
 
     const changeSortingHandler = (selectedOption) => {
         const value = selectedOption.value;
@@ -113,7 +113,6 @@ const TransportsPage = () => {
             params.set('sort_order', value);
         }
         setSearchParams(params);
-        setSorting(value);
     };
 
     const changeLocationHandler = (selectedOption) => {
@@ -128,7 +127,6 @@ const TransportsPage = () => {
         }
 
         setSearchParams(params);
-        setCityLocation(value);
     };
 
     const getPaginationBtnPath = (pageNumber) => {
@@ -147,7 +145,7 @@ const TransportsPage = () => {
                 <div className="location">
                     <Dropdown
                         options={cities}
-                        variant={Dropdown.variants.location.name}
+                        type={Dropdown.types.location.name}
                         onChange={changeLocationHandler}
                         placeholderText='All cities'
                         value={cities.find(option => option.value === cityParameter)}
@@ -160,7 +158,7 @@ const TransportsPage = () => {
                     orderingDropdown={
                         <Dropdown
                             options={sortingOptions}
-                            variant={Dropdown.variants.ordering.name}
+                            variant={Dropdown.types.ordering.name}
                             onChange={changeSortingHandler}
                             value={sortingOptions.find(option => option.value === sortingParameter)}
                         />

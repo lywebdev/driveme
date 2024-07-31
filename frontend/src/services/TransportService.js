@@ -6,4 +6,8 @@ export default class TransportService {
             params: queryParams,
         });
     }
+
+    static async findById(id) {
+        return $api.get(`/transports/${id}`);
+    }
 }

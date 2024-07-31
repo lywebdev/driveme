@@ -2,39 +2,54 @@ import Container from "@components/layouts/shared/Container";
 import RentalForm from "@components/features/RentalForm/RentalForm";
 import "./styles/TransportPage.scss";
 import Transport from "@components/features/Transport/Transport.jsx";
+import {useParams} from "react-router-dom";
+import {useEffect, useState} from "react";
+import TransportService from "../services/TransportService.js";
 
 const TransportPage = () => {
-    const transport = {
-        image: '@images/transports/bike.jpg',
-        alt: 'scooter',
-        name: 'BMW X3',
-        owner: 'Dmitry Vasilkov',
-        attributes: [
-            {
-                name: 'Engine',
-                value: 'Electric',
-            },
-            {
-                name: 'Has delivery',
-                value: 'Yes',
-            }
-        ],
+    const { id } = useParams();
+    const [transport, setTransport] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
-        description: ['Engine', 'hasdelivery'],
-        description_values: ['Electric', 'Yes']
-    };
+    useEffect(() => {
+        setIsLoading(true);
+
+        const fetchTransport = async () => {
+            let transportData = null;
+            try {
+                const fetchTransportResponse = await TransportService.findById(id);
+
+                if (fetchTransportResponse.data.isSuccess) {
+                    transportData = fetchTransportResponse.data.data;
+                }
+            } catch (err) {
+                //
+            } finally {
+                setTransport(transportData);
+                setIsLoading(false);
+            }
+        };
+
+        fetchTransport();
+    }, []);
 
 
     return (
         <div className="transport-page">
             <Container className='tp-main__container' variants={[Container.bgColors.gray]}>
                 <div className="transport-page__container">
-                    <div className="transport-page__left">
-                        <Transport transport={transport} />
-                    </div>
-                    <div className="transport-page__right">
-                        <RentalForm className='rentalForm' />
-                    </div>
+                    {
+                        isLoading
+                            ? <p>Loading...</p>
+                            : <>
+                                <div className="transport-page__left">
+                                    <Transport transport={transport}/>
+                                </div>
+                                <div className="transport-page__right">
+                                    <RentalForm className='rentalForm'/>
+                                </div>
+                            </>
+                    }
                 </div>
             </Container>
         </div>
