@@ -150,7 +150,7 @@ const ExampleTransportsPage = () => {
 
                 <div className="location">
                     <Dropdown options={locationOptions}
-                        variant={Dropdown.variants.location.name}
+                        variant={Dropdown.types.location.name}
                         onChange={changeLocationHandler}
                         value={locationOptions.find(option => option.value === location)}
                     />
@@ -167,7 +167,7 @@ const ExampleTransportsPage = () => {
                     }
                     orderingDropdown={
                         <Dropdown options={sortingOptions}
-                            variant={Dropdown.variants.ordering.name}
+                            variant={Dropdown.types.ordering.name}
                             onChange={changeSortingHandler}
                             value={sortingOptions.find(option => option.value === sorting)}
                         />

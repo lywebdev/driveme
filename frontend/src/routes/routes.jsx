@@ -17,7 +17,7 @@ export const publicRoutes = [
         element: <NewTransportsPage />,
     },
     {
-        path: routes.transport,
+        path: routes.transport(),
         element: <TransportPage />,
     }
 ];
