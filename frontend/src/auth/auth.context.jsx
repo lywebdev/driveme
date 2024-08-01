@@ -40,7 +40,9 @@ const AuthContextProvider = ({ children }) => {
 
     useEffect(() => {
         initializeAuthContext()
-            .then(() => console.log('initializeAuthContext was successful'))
+            .then(() => {
+                // console.log('initializeAuthContext was successful')
+            })
             .catch((error) => console.log(error));
     }, [initializeAuthContext]);
 

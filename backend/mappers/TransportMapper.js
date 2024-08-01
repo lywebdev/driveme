@@ -2,7 +2,7 @@ import TransportDTO from "../DTOs/transport/transportDTO.js";
 
 class TransportMapper {
     static entityToDTO(transportEntity) {
-        const host = `${process.env.HOST}:${process.env.PORT}`;
+        const host = `${process.env.HOST}`;
 
         return new TransportDTO({
             id: transportEntity._id,

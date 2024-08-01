@@ -1,11 +1,11 @@
-import {resolveAlias} from "@helpers/imageHelper.js";
 import classes from './TransportCard.module.scss';
 import SkeletonImage from "@components/shared/Image/SkeletonImage.jsx";
 import {NavLink} from "react-router-dom";
 import {routes} from "@config/routes.js";
+import bike from '@images/transports/bike.jpg';
 
 const TransportCard = ({transport}) => {
-    let imgSrc = resolveAlias('@images/transports/bike.jpg');
+    let imgSrc = bike;
     if (transport?.photos) {
         imgSrc = transport.photos[0];
     }

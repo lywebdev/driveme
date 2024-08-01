@@ -1,142 +1,136 @@
-import {useTransportsStore} from "@store/useTransportsStore.js";
+import { useEffect } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+
+import Container from "@layouts/shared/Container.jsx";
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
-import Container from "@components/layouts/shared/Container";
-import {useEffect, useState} from 'react';
-import "./styles/TransportsPage.scss";
-// import usePagination from "../hooks/usePagination";
-// import Pagination from "../components/shared/Pagination/Pagination";
-import Button from "../components/UI/Button/Button.jsx";
-import TransportsContainer from "@components/features/Transports/TransportsContainer.jsx";
-// import useSortTransports from "../hooks/useSortTransports";
 import Dropdown from "@components/UI/Dropdown/Dropdown.jsx";
 import CategoryPageFilters from "@components/features/CategoryPage/CategoryPageFilters.jsx";
-import {routes} from "@config/routes.js";
-import TransportService from "../services/TransportService.js";
-import {useLocation, useSearchParams} from "react-router-dom";
+import Button from "@components/UI/Button/Button.jsx";
+import TransportsContainer from "@components/features/Transports/TransportsContainer.jsx";
 import Pagination from "@components/shared/Pagination/Pagination.jsx";
 
-const ExampleTransportsPage = () => {
-    console.log('новый рендер компонента exampleTransportPage');
-    const [transports, setTransports] = useTransportsStore((state) => [
+import { routes } from "@config/routes.js";
+import { useTransportsStore } from "@store/useTransportsStore.js";
+import { useTransportLocationStore } from "@store/useTransportLocationStore.js";
+import TransportService from "../services/TransportService.js";
+import TransportLocationService from "../services/TransportLocationService.js";
+
+import './styles/TransportsPage.scss';
+
+const TransportsPage = () => {
+    const [transports, setTransports, pagination, setIsLoading] = useTransportsStore(state => [
         state.transports,
         state.setTransports,
+        state.pagination,
+        state.setIsLoading,
     ]);
+    const [cities, setCities] = useTransportLocationStore(state => [
+        state.cities,
+        state.setCities,
+    ]);
+
+    const [searchParams, setSearchParams] = useSearchParams();
     const urlLocation = useLocation();
-    const [isTransportsFetching, setIsTransportsFetching] = useState(true);
-    const [transportTypes, setTransportTypes] = useState(null);
-    const [sorting, setSorting] = useState(null);
-    const [location, setLocation] = useState(null);
-    const [searchParams] = useSearchParams();
-    // const {
-    //     currentPage,
-    //     pagination,
-    //     gotoPage,
-    //     setPaginationData,
-    // } = usePagination();
-    const [pagination, setPagination] = useState({});
+    const params = new URLSearchParams(urlLocation.search);
 
-    // const {transports: sortedTransports, sortTransports} = useSortTransports(transports);
+    let page = params.get('page');
+    let sortingParameter = params.get('sort_order');
+    let cityParameter = params.get('city');
 
-    // const filteredTransports = sortedTransports.filter(transport =>
-    //     transportTypes === null || transportTypes === 0 || transport.transportTypeId === transportTypes
-    // );
-
-    // const filteredLocation = filteredTransports.filter(transport =>
-    //     location === null || location === "All" || transport.city === location
-    // );
-
+    const sortingOptions = [
+        { value: null, label: "None" },
+        { value: 'desc', label: "Descending" },
+        { value: 'asc', label: "Ascending" },
+    ];
 
     useEffect(() => {
-        const fetchTransports = async () => {
-            setIsTransportsFetching(true);
+        setIsLoading(true);
 
-            const queryParams = {
-                page: searchParams.get('page') || null,
-                priceOrder: searchParams.get('price_order') || null,
-                sortOrder: searchParams.get('sort_order') || null,
-                priceFrom: searchParams.get('price_from') || null,
-                priceTo: searchParams.get('price_to') || null,
-            };
+        const abortController = new AbortController();
 
-            const response = await TransportService.findAll({queryParams});
+        const transportsQueryParams = {
+            page: page || null,
+            price_order: searchParams.get('price_order') || null,
+            order: sortingParameter || null,
+            price_from: searchParams.get('price_from') || null,
+            price_to: searchParams.get('price_to') || null,
+            city: cityParameter || null,
+        };
 
-            if (response.data.isSuccess) {
-                return response.data.data;
+        const fetchData = async () => {
+            try {
+                const requests = [await TransportService.findAll({queryParams: transportsQueryParams})];
+                if (!cities || cities.length === 0) {
+                    requests.push(TransportLocationService.findAllCities());
+                }
+
+                const [transportsResponse, citiesResponse] = await Promise.all(requests);
+
+                if (abortController.signal.aborted) return;
+
+                handleTransportsResponse(transportsResponse);
+                handleCitiesResponse(citiesResponse);
+
+            } catch (error) {
+                //
+            } finally {
+                setIsLoading(false);
             }
         };
 
-        fetchTransports()
-            .then((content) => {
-                console.log(content);
-                setTransports(content.items);
-                console.log('с сервера пришла пагинация: ', content.pagination);
-                setPagination(content.pagination);
-            }).finally(() => {
-                setIsTransportsFetching(false);
-            });
-    }, [searchParams]);
+        const handleTransportsResponse = (response) => {
+            if (response?.data?.isSuccess) {
+                const { items, pagination } = response.data.data;
+                setTransports(items, pagination);
+            }
+        };
+
+        const handleCitiesResponse = (response) => {
+            if (!cities || cities.length === 0) {
+                if (response?.data?.isSuccess) {
+                    const citiesArray = response.data.data.map(city => ({
+                        label: city,
+                        value: city,
+                    }));
+                    citiesArray.unshift({ label: 'All cities', value: null });
+                    setCities(citiesArray);
+                }
+            }
+        };
 
 
-    // const {
-    //     totalPages,
-    //     handlePageClick,
-    //     currentItems,
-    //     setCurrentPage,
-    //     currentPage,
-    //     totalItems
-    // } = usePagination(filteredLocation, 12);
+        fetchData();
 
-
-    const transportTypeOptions = [
-        {value: 0, label: "All"},
-        {value: 1, label: "Bike"},
-        {value: 2, label: "Car"},
-        {value: 3, label: "Roller"},
-        {value: 4, label: "Scooter"},
-    ];
-
-    const sortingOptions = [
-        {value: "None", label: "None"},
-        {value: "Descending", label: "Descending"},
-        {value: "Ascending", label: "Ascending"},
-    ];
-
-    const locationOptions = [
-        {value: "All", label: "All"},
-        {value: "Amsterdam", label: "Amsterdam"},
-        {value: "Rotterdam", label: "Rotterdam"},
-        {value: "The Hague", label: "The Hague"},
-        {value: "Utrecht", label: "Utrecht"},
-        {value: "Eindhoven", label: "Eindhoven"},
-        {value: "Tilburg", label: "Tilburg"},
-        {value: "Groningen", label: "Groningen"},
-        {value: "Almere", label: "Almere"},
-        {value: "Breda", label: "Breda"},
-        {value: "Nijmegen", label: "Nijmegen"},
-    ];
-    const changeTransportTypeHandler = (selectedOption) => {
-        setTransportTypes(selectedOption.value);
-        // setCurrentPage(1);
-        setSorting("None");
-    };
+        return () => abortController.abort();
+    }, [page, sortingParameter, cityParameter]);
 
     const changeSortingHandler = (selectedOption) => {
-        // sortTransports(selectedOption.value);
-        setSorting(selectedOption.value);
-        // setCurrentPage(1);
+        const value = selectedOption.value;
+
+        if (value === null) {
+            params.delete('sort_order');
+        } else {
+            params.set('sort_order', value);
+        }
+        setSearchParams(params);
     };
 
     const changeLocationHandler = (selectedOption) => {
-        setLocation(selectedOption.value);
-        // setCurrentPage(1);
+        const value = selectedOption.value;
+
+        if (value === null) {
+            params.delete('city');
+            params.delete('page');
+        } else {
+            params.set('city', value);
+            params.delete('page');
+        }
+
+        setSearchParams(params);
     };
 
-    const getPathByPageBtnClick = (pageNumber) => {
-        const params = new URLSearchParams(urlLocation.search);
-        const currentPageNumber = pageNumber || 1;
-
-        params.set('page', `${currentPageNumber}`);
-
+    const getPaginationBtnPath = (pageNumber) => {
+        params.set('page', pageNumber || 1);
         return `${urlLocation.pathname}?${params.toString()}`;
     };
 
@@ -149,64 +143,46 @@ const ExampleTransportsPage = () => {
                 </PageTitle>
 
                 <div className="location">
-                    <Dropdown options={locationOptions}
-                        variant={Dropdown.types.location.name}
+                    <Dropdown
+                        options={cities}
+                        type={Dropdown.types.location.name}
                         onChange={changeLocationHandler}
-                        value={locationOptions.find(option => option.value === location)}
+                        placeholderText='All cities'
+                        value={cities.find(option => option.value === cityParameter)}
                     />
                 </div>
             </Container>
 
             <Container variants={[Container.bgColors.gray]}>
                 <CategoryPageFilters
-                    attributesDropdown={
-                        <Dropdown options={transportTypeOptions}
-                            onChange={changeTransportTypeHandler}
-                            value={transportTypeOptions.find(option => option.value === transportTypes)}
-                        />
-                    }
                     orderingDropdown={
-                        <Dropdown options={sortingOptions}
+                        <Dropdown
+                            options={sortingOptions}
                             variant={Dropdown.types.ordering.name}
                             onChange={changeSortingHandler}
-                            value={sortingOptions.find(option => option.value === sorting)}
+                            value={sortingOptions.find(option => option.value === sortingParameter)}
                         />
                     }
                 />
 
-                {
-                    isTransportsFetching === false && (
-                        <>
-                            <TransportsContainer transports={transports}
-                                marginTop
-                                className='main-container'
-                                totalItems={10}
-                            />
+                <TransportsContainer
+                    transports={transports || []}
+                    marginTop
+                    className='main-container'
+                    totalItems={pagination?.totalItems || 0}
+                    perPage={pagination?.perPage || 0}
+                />
+                <Pagination
+                    className='pagination'
+                    totalPages={pagination?.totalPages || 0}
+                    currentPage={pagination?.page || 1}
+                    pathGenerationHandler={getPaginationBtnPath}
+                />
 
-                            <Pagination totalPages={pagination.totalPages}
-                                pathOnPageBtnClick={getPathByPageBtnClick}
-                                currentPage={pagination.page}
-                            />
-
-                            {/*<Pagination*/}
-                            {/*    totalPages={pagination.totalPages || 1}*/}
-                            {/*    onPageClick={changePage}*/}
-                            {/*    currentPage={currentPage}*/}
-                            {/*/>*/}
-                        </>
-                    )
-                }
-
-                {/*<Pagination*/}
-                {/*    totalPages={totalPages}*/}
-                {/*    onPageClick={handlePageClick}*/}
-                {/*    currentPage={currentPage}*/}
-                {/*    className='pagination'*/}
-                {/*/>*/}
                 <Button variants={[Button.types.grayLighter]} url={routes.home}>Home</Button>
             </Container>
         </div>
     );
 };
 
-export default ExampleTransportsPage;
+export default TransportsPage;

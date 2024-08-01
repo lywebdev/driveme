@@ -5,7 +5,7 @@ import LoginPage from "@pages/Auth/LoginPage.jsx";
 import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 import TransportPage from "@pages/TransportPage.jsx";
-import NewTransportsPage from "@pages/NewTransportsPage.jsx";
+import TransportsPage from "@pages/TransportsPage.jsx";
 
 export const publicRoutes = [
     {
@@ -14,7 +14,7 @@ export const publicRoutes = [
     },
     {
         path: routes.transports,
-        element: <NewTransportsPage />,
+        element: <TransportsPage />,
     },
     {
         path: routes.transport(),
