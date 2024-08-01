@@ -3,7 +3,7 @@ import {getSession, setSession} from "../auth/auth.utlis.js";
 import {routes} from "@config/routes.js";
 import AuthService from "../services/AuthService.js";
 
-export const API_URL = import.meta.env.API_URL || 'http://localhost:5000/api';
+export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000/api';
 
 const $api = axios.create({
     withCredentials: true,

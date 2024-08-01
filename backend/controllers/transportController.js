@@ -2,6 +2,7 @@ import TransportService from "../services/transportService.js";
 
 const all = async (req, res) => {
     const response = await TransportService.findAll(req.query);
+    console.log(response);
     res.status(response.status).json(response.content);
 }
 

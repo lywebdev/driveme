@@ -1,4 +1,4 @@
-name: Node.js CI
+name: CI
 
 on:
   push:
@@ -7,21 +7,93 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
+  cloning-repository:
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
 
+  node-setup:
+    needs: cloning-repository
+    runs-on: self-hosted
+    strategy:
+      matrix:
+        node-version: [ 20.16.0 ]
+    steps:
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+
+  build-backend:
+    needs: node-setup
+    runs-on: self-hosted
+    environment: production
+
+    steps:
+      - name: Check permissions
+        run: |
+          cd /home/driveme/actions-runner/_work/driveme/driveme/backend
+          touch test_file
+          ls -l test_file
+      - name: Install backend dependencies
+        run: |
+          cd /home/driveme/actions-runner/_work/driveme/driveme/backend
+          npm ci
+      - name: Prepare environment for backend
+        run: |
+          touch /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          
+          echo MONGODB_URI="${{ secrets.MONGODB_URI }}" >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo PORT=${{ secrets.BACKEND_PORT }}  >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo HOST="https://driveme.space" >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo JWT_ACCESS_SECRET=jwt-secret-key >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo JWT_REFRESH_SECRET=jwt-refresh-secret-key >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo IS_PROD=yes >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          
+          cat /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+  restart-pm2-daemon:
+    needs: build-backend
     runs-on: self-hosted
 
     strategy:
       matrix:
-        node-version: [20.16.0]
-    env:
-      MONGODB_URI: ${{secrets.MONGODB_URI}}
+        node-version: [ 20.16.0 ]
+
     steps:
-    - uses: actions/checkout@v4
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v4
-      with:
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
-    - run: npm ci
-    - run: npm run build --if-present
+      - run: pm2 restart 0
+
+  build-frontend:
+    needs: node-setup
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [ 20.16.0 ]
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Node.js for frontend
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+          cache-dependency-path: ./frontend/package-lock.json
+
+      - name: Install frontend dependencies
+        run: |
+          cd /home/driveme/actions-runner/_work/driveme/driveme/frontend
+          npm ci
+      - name: Prepare environment for backend
+        run: |
+          touch /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
+          
+          echo VITE_API_URL="https://driveme.space/api" >> /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
+          
+          cat /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
+      - name: Build frontend application
+        run: |
+          cd /home/driveme/actions-runner/_work/driveme/driveme/frontend
+          npm run build --if-present
+      - name: Verify build output
+        run: ls -l /home/driveme/actions-runner/_work/driveme/driveme/frontend/dist
