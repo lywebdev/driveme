@@ -10,7 +10,7 @@ import {splitZip} from "../utils/transportsHelper.js";
 import TransportMapper from "../mappers/TransportMapper.js";
 import PaginationDTO from "../DTOs/PaginationDTO.js";
 import {isEmptyObject} from "../utils/objectHelper.js";
-import generateUniqueSlug from "./slugServices.js";
+import generateUniqueSlug from "./slugService.js";
 
 class TransportService extends BaseApiService {
   findAll = async (requestQuery) => {
@@ -102,7 +102,8 @@ class TransportService extends BaseApiService {
         });
       }
 
-      if (!(await Transport.findOne({ _id: id }))) {
+      let bdTransport = null;
+      if (!(bdTransport = await Transport.findOne({ _id: id }))) {
         return this.apiResponse({
           ...responseTemplates.entity.notExists,
         });
@@ -120,27 +121,25 @@ class TransportService extends BaseApiService {
         photos: requestBody.photos,
       });
 
-      let updatedTransport = null;
+      if (bdTransport.name !== requestBody.name) {
+        updatableFields.slug = await generateUniqueSlug(requestBody.name);
+      }
+
 
       try {
-        updatedTransport = await Transport.findOneAndUpdate(
-          { _id: id },
-          updatableFields,
-          { new: true }
-        );
+        Object.assign(bdTransport, updatableFields);
+
+        bdTransport.save();
       } catch (err) {
         return this.apiResponse({
           ...responseTemplates.entity.savingFailed,
         });
       }
 
-      if (await Transport.findOne({ _id: requestBody?.id })) {
-        return this.apiResponse({ ...responseTemplates.entity.alreadyExists });
-      }
 
       return this.apiResponse({
         ...responseTemplates.entity.updated,
-        data: updatedTransport,
+        data: bdTransport,
       });
     } catch (err) {
       return this.apiResponse({
