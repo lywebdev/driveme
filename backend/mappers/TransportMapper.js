@@ -1,9 +1,8 @@
 import TransportDTO from "../DTOs/transport/transportDTO.js";
+import {getHost} from "../utils/envHelper.js";
 
 class TransportMapper {
     static entityToDTO(transportEntity) {
-        const host = `${process.env.HOST}`;
-
         return new TransportDTO({
             id: transportEntity._id,
             name: transportEntity.name,
@@ -11,7 +10,7 @@ class TransportMapper {
             description: transportEntity.description,
             hasDelivery: transportEntity.hasDelivery,
             ownerId: transportEntity.ownerId,
-            photos: transportEntity.photos.map(photo => `${host}/uploads/transports/${transportEntity._id}/${photo}`),
+            photos: transportEntity.photos.map(photo => `${getHost()}/uploads/transports/${transportEntity._id}/${photo}`),
 
             locationData: transportEntity.locationData,
             transportType: transportEntity.transportType,
