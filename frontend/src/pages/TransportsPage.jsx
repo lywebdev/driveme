@@ -130,8 +130,10 @@ const TransportsPage = () => {
     };
 
     const getPaginationBtnPath = (pageNumber) => {
-        params.set('page', pageNumber || 1);
-        return `${urlLocation.pathname}?${params.toString()}`;
+        const regex = /page=\d+/;
+        const stringParams = params.toString().replace(regex, `page=${pageNumber}`);
+
+        return `${urlLocation.pathname}?${stringParams}`;
     };
 
 
