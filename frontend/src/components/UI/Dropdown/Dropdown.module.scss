@@ -155,8 +155,20 @@
 }
 
 
-.colorGray {
+.color-gray {
   .dropdown__placeholder {
     color: $color-gray--middle;
+  }
+}
+
+.white-bg {
+  .dropdown__control {
+    background: $color-white;
+  }
+}
+
+.unset-shadow {
+  .dropdown__control {
+    box-shadow: unset;
   }
 }

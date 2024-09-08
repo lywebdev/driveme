@@ -37,6 +37,12 @@ const Transport = ({transport}) => {
                 </div>
                 <Attributes attributes={transport.attributes} className={classes.sidePaddings}/>
             </InfoContainer>
+
+            <InfoContainer>
+                <div className={classes.sidePaddings}>
+                    transport on map
+                </div>
+            </InfoContainer>
         </>;
     };
 

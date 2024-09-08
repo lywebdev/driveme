@@ -5,7 +5,9 @@ import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 
 
 const variants = {
-    colorGray: 'colorGray',
+    colorGray: 'color-gray',
+    whiteBg: 'white-bg',
+    unsetShadow: 'unset-shadow',
 };
 
 const types = {
@@ -61,10 +63,14 @@ const Dropdown = ({
         ...expandVariants(classes, variants),
     ]);
 
+    if (placeholderText !== undefined) {
+        placeholder = placeholderText;
+    }
+
 
     return <ReactDropdown
         options={options}
-        placeholder={placeholderText ?? placeholder}
+        placeholder={placeholder}
         className={combinedClasses}
         controlClassName={controlClass}
         menuClassName={menuClass}

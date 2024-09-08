@@ -2,6 +2,10 @@
   background-color: $color-white;
   padding: 15px 20px;
   border-radius: 10px;
+
+  :global(.react-datepicker-wrapper) {
+    margin-bottom: 15px;
+  }
 }
 
 .title {
@@ -16,4 +20,27 @@
 .button {
   margin-top: 20px;
   margin-bottom: 5px;
+}
+
+.prices {
+  margin: 20px 0 15px 0;
+}
+
+.rentCalculatedPrice {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.rentCalculatedTotalPrice {
+  margin-top: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+}
+
+.rentInfo {
+  margin-top: 20px;
+  color: $color-gray;
+  font-size: 14px;
+  line-height: 20px;
 }

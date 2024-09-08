@@ -10,6 +10,7 @@
   border-radius: 7px;
   width: 100%;
   display: inline-block;
+  background-color: unset;
   transition: all 0.4s;
 
   &::placeholder {
@@ -27,4 +28,18 @@
 
 .invalid {
   border-color: $color-red;
+}
+
+.white-bg {
+  background: $color-white !important;
+}
+
+.placeholder-gray {
+  &::placeholder {
+    color: $color-gray;
+  }
+}
+
+.unset-shadow {
+  box-shadow: unset;
 }

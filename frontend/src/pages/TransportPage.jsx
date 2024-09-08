@@ -46,7 +46,7 @@ const TransportPage = () => {
                                     <Transport transport={transport}/>
                                 </div>
                                 <div className="transport-page__right">
-                                    <RentalForm className='rentalForm'/>
+                                    <RentalForm className='rentalForm' />
                                 </div>
                             </>
                     }

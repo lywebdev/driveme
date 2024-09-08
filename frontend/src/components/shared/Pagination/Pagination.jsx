@@ -3,15 +3,20 @@ import {combineClassNames} from "@helpers/stringHelper.js";
 import {NavLink} from "react-router-dom";
 import React from "react";
 
-const Pagination = React.memo(({totalPages, currentPage, pathGenerationHandler, className}) => {
+const Pagination = React.memo((
+    { totalPages, currentPage, className, path, getParameters }
+) => {
     const pageNumbers = Array.from({ length: totalPages }, (v, i) => i + 1);
     const combinedClasses = combineClassNames(classes['pagination-buttons'], className);
+
+    delete getParameters.page;
+
 
     return (
         <div className={combinedClasses}>
             {
                 pageNumbers.map(page => {
-                    const url = pathGenerationHandler(page);
+                    const url = `${path}?${new URLSearchParams(getParameters).toString()}&page=${page}`;
 
                     return (
                         <NavLink

@@ -9,9 +9,10 @@ const types = {
 const variants = {
     notHigh: 'not-high',
     unsetMinWidth: 'unset-min-width',
+    unsetShadow: 'unset-shadow',
+    whiteBg: 'white-bg',
+    placeholderGray: 'placeholder-gray',
 };
-
-// добавить вариант инпута типо как у селекта
 
 const Input = ({
     onChange,
@@ -29,8 +30,6 @@ const Input = ({
             ...expandVariants(classes, variants),
         ]
     );
-
-    // const combinedClasses = combineClassNames([classes.container, ...expandVariants(classes, variants)], className);
 
 
     return <input

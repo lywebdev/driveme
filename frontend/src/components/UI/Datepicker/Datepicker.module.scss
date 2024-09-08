@@ -1,0 +1,162 @@
+:global(.react-datepicker-wrapper) {
+  width: 100%;
+}
+
+:global(.react-datepicker__input-container) {
+  input {
+  }
+}
+
+:global {
+  .react-datepicker {
+    font-family: $ff-os;
+  }
+
+  .react-datepicker__day-names {
+    text-transform: uppercase;
+  }
+
+  .react-datepicker__day-name {
+    border: 1px solid $color-white;
+  }
+
+  .react-datepicker__day-name,
+  .react-datepicker__day {
+    margin: 2px 0;
+    width: 35px;
+  }
+
+  .react-datepicker__week {
+    display: flex;
+  }
+
+  .react-datepicker__day {
+    border: 1px solid $color-white;
+    border-radius: 0;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      background: $color-white;
+      border: 1px solid $color-blue;
+      color: $color-black;
+    }
+  }
+
+  // Day in the selected period
+  .react-datepicker__day--in-range {
+    background: #EBF2FF;
+    border: 1px solid #EBF2FF;
+    color: $color-black;
+  }
+
+  // Start and end day in the selected period
+  .react-datepicker__day--range-start,
+  .react-datepicker__day--range-end {
+    background: $color-blue;
+    color: $color-white;
+  }
+
+  .react-datepicker__day--range-start {
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+  }
+
+  .react-datepicker__day--range-end {
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+  }
+
+  .react-datepicker__day--outside-month {
+    background: none;
+    border-color: $color-white;
+    cursor: default;
+
+    &:hover {
+      background: none;
+      border-color: $color-white;
+      cursor: default;
+    }
+  }
+
+  // While selecting dates
+  .react-datepicker__day--in-selecting-range {
+    background-color: $color-gray--lighter_hover !important;
+    color: $color-black--light;
+
+    &.react-datepicker__day--outside-month {
+      background: none !important;
+      border-color: $color-white !important;
+    }
+  }
+
+  // Days in a week block
+  .react-datepicker__day--weekend {
+    &:nth-child(1) { // First day in a block of the week
+      border-top-left-radius: 7px;
+      border-bottom-left-radius: 7px;
+    }
+
+    &:last-child { // Far right in the week block
+      border-top-right-radius: 7px;
+      border-bottom-right-radius: 7px;
+    }
+  }
+}
+
+.popper {
+  outline: none;
+  border: none;
+
+  :global(.react-datepicker) {
+    border: none;
+    outline: none;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 15px 7px rgba(0,0,0,0.1);
+  }
+
+  :global(.react-datepicker__header) {
+    background: $color-white;
+    outline: none;
+    border: none;
+  }
+
+  :global(.react-datepicker__day-name) {
+    color: $color-gray--middle;
+  }
+
+  :global(.react-datepicker__current-month) {
+    color: $color-black;
+  }
+}
+
+.datepickerInput {
+  border: 1px solid $color-gray--middle;
+  border-radius: 6px;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: $color-white;
+  box-shadow: 0 1px 1px rgba(11,33,65,.02),0 24px 64px -6px rgba(11,33,65,.12);
+  color: $color-gray--middle;
+  font-family: $ff-os;
+  font-size: 16px;
+  outline: none;
+  width: 100%;
+
+  &::placeholder {
+    color: $color-gray--middle;
+  }
+}
+
+.filled {
+  color: $color-black;
+}

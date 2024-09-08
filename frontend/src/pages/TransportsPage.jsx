@@ -36,11 +36,18 @@ const TransportsPage = () => {
     let page = params.get('page');
     let sortingParameter = params.get('sort_order');
     let cityParameter = params.get('city');
+    let priceOrderParameter = params.get('price_order');
 
     const sortingOptions = [
-        { value: null, label: "None" },
+        { value: undefined, label: "None" },
         { value: 'desc', label: "Descending" },
         { value: 'asc', label: "Ascending" },
+    ];
+
+    const priceOrderOptions = [
+        { value: undefined, label: 'None' },
+        { value: 'min', label: 'Low to high' },
+        { value: 'max', label: 'High to low' },
     ];
 
     useEffect(() => {
@@ -50,7 +57,7 @@ const TransportsPage = () => {
 
         const transportsQueryParams = {
             page: page || null,
-            price_order: searchParams.get('price_order') || null,
+            price_order: priceOrderParameter || null,
             order: sortingParameter || null,
             price_from: searchParams.get('price_from') || null,
             price_to: searchParams.get('price_to') || null,
@@ -102,15 +109,28 @@ const TransportsPage = () => {
         fetchData();
 
         return () => abortController.abort();
-    }, [page, sortingParameter, cityParameter]);
+    }, [page, sortingParameter, cityParameter, priceOrderParameter]);
 
     const changeSortingHandler = (selectedOption) => {
         const value = selectedOption.value;
 
-        if (value === null) {
+        if (value === "None") {
             params.delete('sort_order');
         } else {
+            params.delete('price_order');
             params.set('sort_order', value);
+        }
+        setSearchParams(params);
+    };
+
+    const changePriceOrderingHandler = (selectedOption) => {
+        const value = selectedOption.value;
+
+        if (value === "None") {
+            params.delete('price_order');
+        } else {
+            params.delete('sort_order');
+            params.set('price_order', value);
         }
         setSearchParams(params);
     };
@@ -127,13 +147,6 @@ const TransportsPage = () => {
         }
 
         setSearchParams(params);
-    };
-
-    const getPaginationBtnPath = (pageNumber) => {
-        const regex = /page=\d+/;
-        const stringParams = params.toString().replace(regex, `page=${pageNumber}`);
-
-        return `${urlLocation.pathname}?${stringParams}`;
     };
 
 
@@ -163,6 +176,16 @@ const TransportsPage = () => {
                             variant={Dropdown.types.ordering.name}
                             onChange={changeSortingHandler}
                             value={sortingOptions.find(option => option.value === sortingParameter)}
+                            placeholderText='Sorting order'
+                        />
+                    }
+                    priceOrderingDropdown={
+                        <Dropdown
+                            options={priceOrderOptions}
+                            variant={Dropdown.types.ordering.name}
+                            onChange={changePriceOrderingHandler}
+                            value={priceOrderOptions.find(option => option.value === priceOrderParameter)}
+                            placeholderText='Price order'
                         />
                     }
                 />
@@ -178,7 +201,8 @@ const TransportsPage = () => {
                     className='pagination'
                     totalPages={pagination?.totalPages || 0}
                     currentPage={pagination?.page || 1}
-                    pathGenerationHandler={getPaginationBtnPath}
+                    path={urlLocation.pathname}
+                    getParameters={Object.fromEntries(params.entries())}
                 />
 
                 <Button variants={[Button.types.grayLighter]} url={routes.home}>Home</Button>
