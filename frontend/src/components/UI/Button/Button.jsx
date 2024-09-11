@@ -2,11 +2,13 @@ import {NavLink} from "react-router-dom";
 import classes from './Button.module.scss';
 import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 
-const types = {
+const variants = {
     grayLighter: 'gray--lighter',
     rounded: 'rounded',
     action: 'action',
-    fullWidth: 'fw'
+    fullWidth: 'fw',
+    successful: 'successful',
+    bold: 'fb'
 };
 
 const Button = ({url, children, className, variants, isSubmit, ...props}) => {
@@ -33,6 +35,6 @@ const Button = ({url, children, className, variants, isSubmit, ...props}) => {
     );
 };
 
-Button.types = types;
+Button.variants = variants;
 
 export default Button;

@@ -10,7 +10,7 @@ import {splitZip} from "../utils/transportsHelper.js";
 import TransportMapper from "../mappers/TransportMapper.js";
 import PaginationDTO from "../DTOs/PaginationDTO.js";
 import {isEmptyObject} from "../utils/objectHelper.js";
-import generateUniqueSlug from "./slugService.js";
+import generateUniqueSlug from "./SlugService.js";
 
 class TransportService extends BaseApiService {
   findAll = async (requestQuery) => {
@@ -30,9 +30,9 @@ class TransportService extends BaseApiService {
   findById = async (id) => {
     let transport = null;
     try {
-      transport = await Transport.findOne({
-        _id: id,
-      });
+      transport = await Transport.findOne({ _id: id })
+          .populate('transportTypeId')
+          .populate('locationDataId');
     } catch (err) {
       return this.apiResponse({...responseTemplates.entity.notExists});
     }

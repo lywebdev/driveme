@@ -1,4 +1,4 @@
-import TransportTypeService from "../services/transportTypeService.js";
+import TransportTypeService from "../services/TransportTypeService.js";
 
 const all = async (req, res) => {
     const response = await TransportTypeService.findAll();

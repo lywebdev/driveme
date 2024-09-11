@@ -1,5 +1,5 @@
 import apiResponseDTO from "../DTOs/apiResponseDTO.js";
-import UserService from "../services/userService.js";
+import UserService from "../services/UserService.js";
 import {codeStatuses} from "../utils/constants/responseConstants.js";
 
 

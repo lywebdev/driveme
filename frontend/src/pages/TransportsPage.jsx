@@ -205,7 +205,7 @@ const TransportsPage = () => {
                     getParameters={Object.fromEntries(params.entries())}
                 />
 
-                <Button variants={[Button.types.grayLighter]} url={routes.home}>Home</Button>
+                <Button variants={[Button.variants.grayLighter]} url={routes.home}>Home</Button>
             </Container>
         </div>
     );

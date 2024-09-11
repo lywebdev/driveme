@@ -3,6 +3,7 @@ import adminTransportRouter from "./entities/transport/admin.js";
 import adminTransportTypeRouter from "./entities/transportType/admin.js";
 import adminUserRouter from "./entities/user/admin.js";
 import list from "./list.js";
+import adminSlotRouter from "./entities/slot/admin.js";
 
 const adminRouter = express.Router();
 

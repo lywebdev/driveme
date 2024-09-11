@@ -1,4 +1,4 @@
-import useAuth from "../hooks/useAuth.js";
+import useAuth from "../hooks/contexts/useAuth.js";
 import {Navigate} from "react-router-dom";
 import AdminLayout from "@components/admin/layouts/AdminLayout.jsx";
 import config from "@config/app.js";

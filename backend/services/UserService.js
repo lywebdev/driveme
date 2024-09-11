@@ -1,7 +1,7 @@
 import User from "../models/UserSchema.js";
 import bcrypt from "bcrypt";
 import BaseApiService from "./BaseApiService.js";
-import TokenService from "./tokenService.js";
+import TokenService from "./TokenService.js";
 import UserDTO from "../DTOs/userDTO.js";
 import {isJsonWebTokenError} from "../utils/throwables.js";
 import {codeStatuses, responseTemplates} from "../utils/constants/responseConstants.js";

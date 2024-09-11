@@ -1,4 +1,4 @@
-import TransportService from "../services/transportService.js";
+import TransportService from "../services/TransportService.js";
 
 const all = async (req, res) => {
     const response = await TransportService.findAll(req.query);

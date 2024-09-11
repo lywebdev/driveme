@@ -31,6 +31,10 @@
   text-align: left;
 }
 
+.error {
+  color: $color-red;
+}
+
 :root {
   --totl-primary-background: unset;
   --totl-primary-font-color: unset;

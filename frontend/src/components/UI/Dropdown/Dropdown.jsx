@@ -67,6 +67,7 @@ const Dropdown = ({
         placeholder = placeholderText;
     }
 
+    // ПРОБЛЕМА в OVERFLOW
 
     return <ReactDropdown
         options={options}

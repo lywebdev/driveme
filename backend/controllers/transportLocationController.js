@@ -1,4 +1,4 @@
-import TransportLocationSerivce from "../services/transportLocationSerivce.js";
+import TransportLocationSerivce from "../services/TransportLocationService.js";
 
 const allCities = async (req, res) => {
     const response = await TransportLocationSerivce.findAllCities(req.query);

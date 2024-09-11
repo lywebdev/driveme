@@ -1,7 +1,7 @@
 import Header from "@layouts/Header.jsx";
 import Footer from "@layouts/Footer.jsx";
 import { Outlet } from "react-router-dom";
-import useAuth from "../../hooks/useAuth.js";
+import useAuth from "../../hooks/contexts/useAuth.js";
 import AppLoadingOverlay from "@components/shared/Overlay/AppLoadingOverlay.jsx";
 import Popup from "@components/UI/Popup/Popup.jsx";
 

@@ -28,6 +28,10 @@ const TransportSchema = new Schema(
             ref: "TransportLocationData",
             required: true,
         },
+        slots: [{
+            type: Schema.Types.ObjectId,
+            ref: 'Slot',
+        }],
         description: {
             type: String,
             trim: true,

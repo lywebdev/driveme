@@ -5,6 +5,7 @@ import Transport from "@components/features/Transport/Transport.jsx";
 import {useParams} from "react-router-dom";
 import {useEffect, useState} from "react";
 import TransportService from "../services/TransportService.js";
+import {StepsProvider} from "react-step-builder";
 
 const TransportPage = () => {
     const { id } = useParams();
@@ -46,7 +47,9 @@ const TransportPage = () => {
                                     <Transport transport={transport}/>
                                 </div>
                                 <div className="transport-page__right">
-                                    <RentalForm className='rentalForm' />
+                                    <StepsProvider>
+                                        <RentalForm className='rentalForm' transport={transport} />
+                                    </StepsProvider>
                                 </div>
                             </>
                     }

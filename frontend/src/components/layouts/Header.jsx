@@ -3,7 +3,7 @@ import './Header.scss';
 import Button from "@components/UI/Button/Button.jsx";
 import Logo from "@components/shared/Logo/Logo.jsx";
 import {routes} from "@config/routes.js";
-import useAuth from "../../hooks/useAuth.js";
+import useAuth from "../../hooks/contexts/useAuth.js";
 import {useUserStore} from "@store/useUserStore.js";
 
 const Header = () => {

@@ -100,7 +100,7 @@ const LoginForm = ({className}) => {
                 {errorMessage('password')}
             </div>
 
-            <Button isSubmit variants={[Button.types.action, Button.types.fullWidth]}>Continue</Button>
+            <Button isSubmit variants={[Button.variants.action, Button.variants.fullWidth]}>Continue</Button>
 
             <p className={classes.links}>New User? <Link to={routes.register}>Register</Link></p>
         </form>

@@ -15,7 +15,7 @@ const OfferCard = ({data}) => {
                 <span className={classes.right}>per day</span>
             </span>
         </div>
-        <Button className={classes.btn} variants={[Button.types.grayLighter, Button.types.rounded]}>Offers</Button>
+        <Button className={classes.btn} variants={[Button.variants.grayLighter, Button.variants.rounded]}>Offers</Button>
     </div>;
 };
 

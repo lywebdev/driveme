@@ -1,4 +1,4 @@
-import UserService from "../services/userService.js";
+import UserService from "../services/UserService.js";
 
 const findAll = async (req, res) => {
   const response = await UserService.findAll();

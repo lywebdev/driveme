@@ -12,8 +12,8 @@ class TransportMapper {
             ownerId: transportEntity.ownerId,
             photos: transportEntity.photos.map(photo => `${getHost()}/uploads/transports/${transportEntity._id}/${photo}`),
 
-            locationData: transportEntity.locationData,
-            transportType: transportEntity.transportType,
+            locationData: transportEntity.locationDataId,
+            transportType: transportEntity.transportTypeId,
         });
     }
 }

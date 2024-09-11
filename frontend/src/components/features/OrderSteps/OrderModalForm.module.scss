@@ -1,0 +1,67 @@
+.orderModalForm {
+}
+
+.title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.formContainer {
+  margin-top: 25px;
+
+  input {
+    width: auto;
+    flex-grow: 1;
+    min-width: unset;
+  }
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+
+  .inputs {
+    display: flex;
+    column-gap: 15px;
+  }
+
+  .nextBtn {
+    align-self: center;
+    margin-top: 25px;
+  }
+}
+
+.row {
+  display: flex;
+  column-gap: 15px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.paymentCol, .addressCol {
+  input {
+    margin-bottom: 15px;
+  }
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  .backBtn {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top: 0;
+    height: 100%;
+  }
+
+  .payBtn {
+  }
+}

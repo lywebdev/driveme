@@ -132,7 +132,7 @@ const RegisterForm = ({className}) => {
                 {errorMessage('passwordConfirmation')}
             </div>
 
-            <Button isSubmit variants={[Button.types.action, Button.types.fullWidth]}>Continue</Button>
+            <Button isSubmit variants={[Button.variants.action, Button.variants.fullWidth]}>Continue</Button>
 
             <p className={classes.links}>Already have an account? <Link to={routes.login}>Login</Link></p>
         </form>
