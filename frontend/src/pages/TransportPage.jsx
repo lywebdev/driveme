@@ -48,7 +48,15 @@ const TransportPage = () => {
                                 </div>
                                 <div className="transport-page__right">
                                     <StepsProvider>
-                                        <RentalForm className='rentalForm' transport={transport} />
+                                        <RentalForm
+                                            className='rentalForm'
+                                            transport={transport}
+                                        />
+                                        {/*{*/}
+                                        {/*    clientSecret !== undefined && clientSecret !== '' && (*/}
+                                        {/*        <CheckoutForm dpmCheckerLink={dpmCheckerLink} clientSecret={clientSecret} />*/}
+                                        {/*    )*/}
+                                        {/*}*/}
                                     </StepsProvider>
                                 </div>
                             </>

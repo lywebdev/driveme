@@ -8,8 +8,8 @@ import Modal from "@components/features/Modals/Modal.jsx";
 import useModal from "../../../hooks/useModal.js";
 import {Steps} from "react-step-builder";
 import ContactForm from "@components/features/OrderSteps/ContactForm.jsx";
-import BillingForm from "@components/features/OrderSteps/BillingForm.jsx";
 import OrderContextProvider from "../../../contexts/OrderContext.jsx";
+import BillingForm from "@components/features/OrderSteps/BillingForm.jsx";
 
 const calculateTotalPrice = (startRangeDate, endRangeDate, cost) => {
     if (!startRangeDate || !endRangeDate) return null;
@@ -36,11 +36,10 @@ const RentalForm = ({ className, transport }) => {
 
     const totalPrice = calculateTotalPrice(startRangeDate, endRangeDate, transport.cost);
 
-
     return (
         <OrderContextProvider>
             <div className={className}>
-                <form className={classes.form}>
+                <div className={classes.form}>
                     <div className={classes.title}>Rent Period</div>
 
                     <DateRangePicker
@@ -104,12 +103,8 @@ const RentalForm = ({ className, transport }) => {
                         }
                     </div>
 
-                    <p className={classes.rentInfo}>
-                        You are not paying for anything yet. By submitting a request, you can personally discuss the
-                        details
-                        of the booking with the owner of the car.
-                    </p>
-                </form>
+                    <p className={classes.rentInfo}>You are not paying for anything yet. By submitting a request, you can personally discuss the details of the booking with the owner of the car.</p>
+                </div>
             </div>
         </OrderContextProvider>
     );

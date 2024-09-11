@@ -4,4 +4,5 @@ export default {
     transportTypes: '/transport-types',
     users: '/users',
     slots: '/slots',
+    transactions: '/transactions',
 };
