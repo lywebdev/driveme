@@ -19,7 +19,7 @@ const calculateTotalPrice = (startRangeDate, endRangeDate, cost) => {
     const endMs = new Date(endRangeDate).getTime();
     const daysBetween = Math.ceil((endMs - startMs) / oneDayInMs) + 1;
 
-    return cost * daysBetween;
+    return (cost * daysBetween);
 };
 
 const RentalForm = ({ className, transport }) => {
@@ -72,20 +72,17 @@ const RentalForm = ({ className, transport }) => {
                     </div>
 
                     <Button
-                        isSubmit
                         variants={[Button.variants.action, Button.variants.fullWidth]}
                         className={classes.button}
+                        onClick={openModal}
                     >
                         Continue
                     </Button>
 
-                    <button onClick={openModal}>Открыть модалку</button>
-
                     <Modal isOpen={isOpen} onClose={closeModal}>
-                        {/* @todo create a navigation */}
                         <Steps>
                             <ContactForm />
-                            <BillingForm />
+                            <BillingForm totalPrice={totalPrice} />
                         </Steps>
                     </Modal>
 

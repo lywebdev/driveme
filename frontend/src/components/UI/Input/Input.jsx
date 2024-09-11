@@ -4,6 +4,7 @@ import {combineClassNames, expandVariants} from "@helpers/stringHelper.js";
 const types = {
     default: 'text',
     password: 'password',
+    tel: 'tel',
 };
 
 const variants = {

@@ -12,7 +12,6 @@
 
   input {
     width: auto;
-    flex-grow: 1;
     min-width: unset;
   }
 }
@@ -64,4 +63,18 @@
 
   .payBtn {
   }
+}
+
+.inputItem {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+
+  span {
+    margin-top: 10px;
+  }
+}
+
+.error {
+  color: $color-red;
 }

@@ -52,11 +52,6 @@ const TransportPage = () => {
                                             className='rentalForm'
                                             transport={transport}
                                         />
-                                        {/*{*/}
-                                        {/*    clientSecret !== undefined && clientSecret !== '' && (*/}
-                                        {/*        <CheckoutForm dpmCheckerLink={dpmCheckerLink} clientSecret={clientSecret} />*/}
-                                        {/*    )*/}
-                                        {/*}*/}
                                     </StepsProvider>
                                 </div>
                             </>
