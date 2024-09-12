@@ -2,10 +2,35 @@
   .title {
     font-size: 36px;
     font-weight: bold;
+
+    @include bp-max('xl') {
+      font-size: 32px;
+    }
+
+    @include bp-max('md') {
+      font-size: 28px;
+    }
+
+    @include bp-max('sm') {
+      font-size: 24px;
+    }
   }
 
   .text {
     font-size: 20px;
+    line-height: 150%;
+
+    @include bp-max('xl') {
+      font-size: 18px;
+    }
+
+    @include bp-max('md') {
+      font-size: 16px;
+    }
+
+    @include bp-max('sm') {
+      font-size: 14px;
+    }
   }
 }
 

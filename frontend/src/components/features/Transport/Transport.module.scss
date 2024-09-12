@@ -8,14 +8,23 @@
 .infoTitle {
   font-size: 24px;
   font-weight: bold;
+
+  @include bp-max('sm') {
+    font-size: 18px;
+  }
 }
 
-.photos {}
+.photos {
+}
 
 .imageContainer {
   background: $color-gray--lighter_hover;
   border-radius: 10px;
   min-height: 400px;
+
+  @include bp-max('xl') {
+    min-height: unset;
+  }
 }
 
 .image {
@@ -35,6 +44,10 @@
 
 .main {
   margin-top: 30px;
+
+  @include bp-max('xl') {
+    margin-top: 15px;
+  }
 }
 
 .sidePaddings {
@@ -66,6 +79,10 @@
 
 .description {
   margin-top: 30px;
+
+  @include bp-max('xl') {
+    margin-top: 15px;
+  }
 }
 
 .descriptionText {
@@ -75,6 +92,15 @@
 .text {
   font-size: 18px;
   line-height: 150%;
+
+  @include bp-max('lg') {
+    font-size: 16px;
+  }
+
+  @include bp-max('sm') {
+    font-size: 14px;
+    line-height: 170%;
+  }
 }
 
 .attributes {
@@ -82,6 +108,10 @@
   flex-direction: column;
   row-gap: 15px;
   margin-top: 20px;
+
+  @include bp-max('sm') {
+    font-size: 14px;
+  }
 }
 
 .attribute {
@@ -108,10 +138,18 @@
 .map {
   margin-top: 20px;
 
+  @include bp-max('xl') {
+    margin-top: 15px;
+  }
+
   :global(.leaflet-container) {
     margin-top: 15px;
     overflow: hidden;
     border-radius: 10px;
     outline: none;
+
+    @include bp-max('xl') {
+      margin-top: unset;
+    }
   }
 }

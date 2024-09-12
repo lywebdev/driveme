@@ -7,6 +7,7 @@ import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 import TransportPage from "@pages/TransportPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import CompletedPage from "@pages/CompletedPage.jsx";
+import UserListPage from "@pages/admin/user/UserListPage.jsx";
 
 export const publicRoutes = [
     {
@@ -39,10 +40,6 @@ export const guestRoutes = [
 ];
 
 export const privateRoutes = [
-    // {
-    //     path: '/logout',
-    //     component: '',
-    // }
 ];
 
 export const adminRoutes = [
@@ -53,5 +50,9 @@ export const adminRoutes = [
     {
         path: routes.exampleAdmin,
         element: <ExampleAdminPage />,
+    },
+    {
+        path: '/admin/users',
+        element: <UserListPage />,
     }
 ];

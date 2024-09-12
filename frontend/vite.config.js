@@ -22,6 +22,7 @@ export default defineConfig({
                 additionalData: `
                     @import "src/app/styles/_fonts.scss";
                     @import "src/app/styles/_variables.scss";
+                    @import "src/app/styles/_mixins.scss";
                 `,
             },
         },

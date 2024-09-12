@@ -10,6 +10,10 @@
     padding: 40px;
     margin-top: auto;
     margin-bottom: auto;
+
+    @include bp-max('sm') {
+      padding: 15px;
+    }
   }
 
 
@@ -113,6 +117,11 @@
     min-width: 500px;
     line-height: 20px;
     margin-bottom: 20px;
+
+    @include bp-max('sm') {
+      font-size: 14px;
+      line-height: 160%;
+    }
   }
 
   #dpm-integration-checker {
@@ -244,6 +253,13 @@
     flex-direction: column;
     flex-grow: 1;
 
+    @include bp-max('sm') {
+      width: 100%;
+      box-sizing: border-box;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
     .title {
       margin-top: 15px;
       margin-bottom: 35px;
@@ -251,6 +267,19 @@
 
       h2 {
         margin-bottom: 15px;
+      }
+    }
+
+    #payment-status {
+      @include bp-max('sm') {
+        width: 100%;
+        min-width: unset;
+      }
+    }
+
+    #retry-button {
+      @include bp-max('sm') {
+        box-sizing: border-box;
       }
     }
   }

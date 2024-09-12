@@ -1,4 +1,16 @@
 .transport-type-cards {
   display: flex;
   justify-content: space-between;
+
+
+  @include bp-max('md') {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 45px;
+    column-gap: 25px;
+  }
+
+  @include bp-max('sm') {
+    grid-template-columns: 1fr;
+  }
 }

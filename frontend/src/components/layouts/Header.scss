@@ -13,12 +13,21 @@
     flex-grow: 1;
     margin-left: 100px;
 
+    @include bp-max('md') {
+      margin-left: 25px;
+    }
+
+
     ul {
       list-style: none;
       margin: 0;
       padding: 0;
       display: flex;
       column-gap: 25px;
+
+      @include bp-max('sm') {
+        column-gap: 10px;
+      }
     }
 
     a {
@@ -26,6 +35,10 @@
       font-weight: normal;
       text-decoration: none;
       position: relative;
+
+      @include bp-max('md') {
+        font-size: 14px;
+      }
 
       &:before {
         content: '';
@@ -47,6 +60,20 @@
           width: 100%;
         }
       }
+    }
+  }
+
+  button {
+    @include bp-max('sm') {
+      margin-left: 10px;
+    }
+  }
+
+  .username {
+    margin-right: 20px;
+
+    @include bp-max('md') {
+      display: none;
     }
   }
 }

@@ -5,6 +5,10 @@
   color: $color-black;
   transition: opacity 0.3s;
 
+  @include bp-max('md') {
+    font-size: 18px;
+  }
+
   &:hover {
     opacity: 0.8;
   }

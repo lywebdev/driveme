@@ -2,6 +2,11 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   column-gap: 15px;
+
+  @include bp-max('xl') {
+    grid-template-columns: 1fr;
+    row-gap: 25px;
+  }
 }
 
 .marginTop {

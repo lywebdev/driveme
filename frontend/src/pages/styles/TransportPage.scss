@@ -10,6 +10,11 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @include bp-max('xl') {
+        justify-content: unset;
+        flex-direction: column;
+    }
 }
 
 .transport-page__left {
@@ -28,6 +33,14 @@
     .rentalForm {
         position: sticky;
         top: 15px;
+    }
+
+
+    @include bp-max('xl') {
+        width: 100%;
+        min-width: unset;
+        margin-left: unset;
+        margin-top: 35px;
     }
 }
 

@@ -11,6 +11,11 @@
 
   .pagination {
     margin-top: 50px;
+
+    @include bp-max('sm') {
+      margin-top: 25px;
+      margin-bottom: 25px;
+    }
   }
 
   .dropdownVehicleType {

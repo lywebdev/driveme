@@ -2,6 +2,23 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   column-gap: 25px;
+
+  @include bp-max('xl') {
+    grid-template-columns: 1fr 1fr;
+    row-gap: 25px;
+  }
+
+  @include bp-max('md') {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+    row-gap: 15px;
+  }
+
+  @include bp-max('sm') {
+    grid-template-columns: 1fr;
+    column-gap: unset;
+    row-gap: 15px;
+  }
 }
 
 .marginTop {

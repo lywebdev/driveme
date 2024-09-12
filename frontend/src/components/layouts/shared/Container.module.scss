@@ -2,6 +2,11 @@
   padding-top: 30px;
   padding-bottom: 40px;
 
+  @include bp-max('sm') {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
   &.bg--gray {
     background: $color-gray--light;
   }

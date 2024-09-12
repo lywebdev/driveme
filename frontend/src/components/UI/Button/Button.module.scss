@@ -58,4 +58,10 @@
   &:hover {
     background-color: $color-gray--lighter_hover;
   }
+
+  @include bp-max('sm') {
+    padding: 10px;
+    line-height: 135%;
+    font-size: 14px;
+  }
 }

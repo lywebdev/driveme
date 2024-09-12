@@ -49,7 +49,7 @@ const Header = () => {
                 {
                     isAuthenticated
                         ? <>
-                            <span style={{marginRight: '20px'}}>{user.name}</span>
+                            <span className='username'>{user.name}</span>
                             <Button onClick={onLogout}>Logout</Button>
                         </>
                         : <Button url={routes.login}>Login</Button>

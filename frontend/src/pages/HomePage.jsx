@@ -9,6 +9,7 @@ import {useTransportTypeStore} from "@store/useTransportTypeStore.js";
 import {useEffect, useState} from "react";
 import TransportTypeService from "../services/TransportTypeService.js";
 import TransportService from "../services/TransportService.js";
+import {Helmet} from "react-helmet-async";
 
 const HomePage = () => {
     const [recentOffers, setRecentOffers] = useState(null);
@@ -44,36 +45,44 @@ const HomePage = () => {
     }, [setTransportTypes, setIsLoading, setRecentOffers]);
 
 
-    return <div className="home-page">
-        <Container>
-            <PageTitle className='page-title'>
-                <PageTitle.Top className='text-centered top'>Rent a vehicle near you!</PageTitle.Top>
-                <PageTitle.Text className='text-centered text'>All possible offers of transports on the scale of the
-                    Netherlands
-                    are combined here</PageTitle.Text>
-            </PageTitle>
-        </Container>
+    return (
+        <>
+            <Helmet>
+                <title>DriveMe - rent a suitable vehicle</title>
+            </Helmet>
+            <div className="home-page">
+                <Container>
+                    <PageTitle className='page-title'>
+                        <PageTitle.Top className='text-centered top'>Rent a vehicle near you!</PageTitle.Top>
+                        <PageTitle.Text className='text-centered text'>All possible offers of transports on the scale of
+                            the
+                            Netherlands
+                            are combined here</PageTitle.Text>
+                    </PageTitle>
+                </Container>
 
-        <Container>
-            <TransportTypesContainer transportTypes={transportTypes} className='transport-type-cards'/>
-        </Container>
+                <Container>
+                    <TransportTypesContainer transportTypes={transportTypes} className='transport-type-cards'/>
+                </Container>
 
-        <Container variants={[Container.bgColors.gray]}>
-            <RecentOffers
-                className='recent-offers'
-                marginTop
-                recentOffers={recentOffers}
-                title={<SectionTitle isLink tag='New'>Recent offers</SectionTitle>}/>
-        </Container>
+                <Container variants={[Container.bgColors.gray]}>
+                    <RecentOffers
+                        className='recent-offers'
+                        marginTop
+                        recentOffers={recentOffers}
+                        title={<SectionTitle isLink tag='New'>Recent offers</SectionTitle>}/>
+                </Container>
 
-        <Container>
-            <PopularRentTopics
-                className='popular-rent-topics'
-                marginTop
-                title={<SectionTitle withArrow={true} isLink>Popular rental topics</SectionTitle>}
-            />
-        </Container>
-    </div>;
+                <Container>
+                    <PopularRentTopics
+                        className='popular-rent-topics'
+                        marginTop
+                        title={<SectionTitle withArrow={true} isLink>Popular rental topics</SectionTitle>}
+                    />
+                </Container>
+            </div>
+        </>
+    );
 };
 
 export default HomePage;

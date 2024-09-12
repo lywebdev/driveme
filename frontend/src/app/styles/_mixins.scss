@@ -1,0 +1,25 @@
+@mixin media($width) {
+  @media(min-width: $width) {
+    @content;
+  }
+}
+
+@mixin bp($name) {
+  $width: map-get($breakpoints, $name);
+  @include media($width) {
+    @content;
+  }
+}
+
+@mixin bp-max($name) {
+  $width: map-get($breakpoints, $name);
+  @include media-max($width) {
+    @content;
+  }
+}
+
+@mixin media-max($width) {
+  @media(max-width: $width) {
+    @content;
+  }
+}
