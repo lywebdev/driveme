@@ -47,6 +47,7 @@ jobs:
           echo JWT_ACCESS_SECRET=jwt-secret-key >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
           echo JWT_REFRESH_SECRET=jwt-refresh-secret-key >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
           echo IS_PROD=yes >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
+          echo STRIPE_SECRET_KEY="${{ secrets.STRIPE_SECRET_KEY }}" >> /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
           
           cat /home/driveme/actions-runner/_work/driveme/driveme/backend/.env
   restart-pm2-daemon:
@@ -87,6 +88,7 @@ jobs:
           touch /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
           
           echo VITE_API_URL="https://driveme.space/api" >> /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
+          echo VITE_CLIENT_URL="https://driveme.space" >> /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
           
           cat /home/driveme/actions-runner/_work/driveme/driveme/frontend/.env.production
       - name: Build frontend application

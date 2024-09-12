@@ -12,13 +12,12 @@ const BillingForm = ({ totalPrice }) => {
 
     const stripePromise = loadStripe('pk_test_51PxotJRpksPoFQZyPtBKXcmkTLDKCilnlfhQSqC74UD1LrU9EUTmAF7XcwIq05E79GMn0BmbCbroovBWfy03eQpt00wDTymeIs');
 
-
     const [clientSecret, setClientSecret] = useState("");
     const [dpmCheckerLink, setDpmCheckerLink] = useState("");
 
     useEffect(() => {
         const fetchClientSecret = async () => {
-            const response = await StripeService.createPaymentIntent(totalPrice * 100); // * 100 because in cents
+            const response = await StripeService.createPaymentIntent(totalPrice);
 
             setDpmCheckerLink(response.data.dpmCheckerLink);
             setClientSecret(response.data.clientSecret);

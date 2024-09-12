@@ -20,6 +20,15 @@
 .button {
   margin-top: 20px;
   margin-bottom: 5px;
+
+  &[disabled] {
+    opacity: 0.3;
+    cursor: default;
+
+    &:hover {
+      background: $color-blue;
+    }
+  }
 }
 
 .prices {

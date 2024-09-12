@@ -10,6 +10,7 @@ const adminRouter = express.Router();
 adminRouter.use(list.transports, adminTransportRouter);
 adminRouter.use(list.transportTypes, adminTransportTypeRouter);
 adminRouter.use(list.users, adminUserRouter);
+adminRouter.use(list.slots, adminSlotRouter);
 
 
 

@@ -4,11 +4,16 @@ import {
     useStripe,
     useElements
 } from "@stripe/react-stripe-js";
-import './Checkout.scss';
+import '@pages/styles/Order.scss';
+import useOrderContext from "../../../hooks/contexts/useOrderContext.js";
+import OrderService from "../../../services/OrderService.js";
+import env from "@config/env.js";
 
 export default function CheckoutForm({ dpmCheckerLink, clientSecret }) {
     const stripe = useStripe();
     const elements = useElements();
+
+    const {contact, transport, calculated} = useOrderContext();
 
     const [message, setMessage] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -24,24 +29,48 @@ export default function CheckoutForm({ dpmCheckerLink, clientSecret }) {
 
         setIsLoading(true);
 
-        const { error } = await stripe.confirmPayment({
-            clientSecret: clientSecret,
-            elements,
-            confirmParams: {
-                // Make sure to change this to your payment completion page
-                return_url: "http://localhost:3000/complete",
-            },
-        });
+        try {
+            const response = await OrderService.createOrder({
+                ...contact,
 
-        // This point will only be reached if there is an immediate error when
-        // confirming the payment. Otherwise, your customer will be redirected to
-        // your `return_url`. For some payment methods like iDEAL, your customer will
-        // be redirected to an intermediate site first to authorize the payment, then
-        // redirected to the `return_url`.
-        if (error.type === "card_error" || error.type === "validation_error") {
-            setMessage(error.message);
-        } else {
-            setMessage("An unexpected error occurred.");
+                price: transport.cost,
+                totalPrice: calculated.totalPrice,
+                pickupLocation: calculated.location,
+
+                transportId: transport.id,
+                startDate: calculated.startDate,
+                endDate: calculated.endDate,
+
+                startTime: calculated.startTime,
+                endTime: calculated.endTime,
+
+                days: calculated.daysQuantity,
+            }, clientSecret);
+
+            if (response.data.isSuccess === true) {
+                const { error } = await stripe.confirmPayment({
+                    clientSecret: clientSecret,
+                    elements,
+                    confirmParams: {
+                        // Make sure to change this to your payment completion page
+                        return_url: `${env.frontendUrl}/completed`,
+                    },
+                });
+
+                // This point will only be reached if there is an immediate error when
+                // confirming the payment. Otherwise, your customer will be redirected to
+                // your `return_url`. For some payment methods like iDEAL, your customer will
+                // be redirected to an intermediate site first to authorize the payment, then
+                // redirected to the `return_url`.
+                if (error.type === "card_error" || error.type === "validation_error") {
+                    setMessage(error.message);
+                } else {
+                    setMessage("An unexpected error occurred.");
+                }
+            }
+
+        } catch (err) {
+            setMessage("Error when saving order data");
         }
 
         setIsLoading(false);

@@ -5,4 +5,6 @@ export default {
     users: '/users',
     slots: '/slots',
     transactions: '/transactions',
+    payments: '/payments',
+    orders: '/orders',
 };

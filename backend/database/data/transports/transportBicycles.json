@@ -6,7 +6,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2251",
-    "description": "A versatile hybrid bike",
+    "description": "A versatile hybrid bike designed for comfort and efficiency. Ideal for casual rides around the city or longer commutes, the Trek FX 1 combines a lightweight frame with a smooth ride, making it perfect for both fitness enthusiasts and everyday cyclists.",
     "hasDelivery": true,
     "photos": [
       "trek-fx1.jpeg"
@@ -19,7 +19,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2253",
-    "description": "A fast and agile fitness bike",
+    "description": "A fast and agile fitness bike that is perfect for urban commuting and recreational rides. With its lightweight aluminum frame and comfortable geometry, the Specialized Sirrus X 2.0 ensures a responsive ride while providing great stability and control on various terrains.",
     "hasDelivery": false,
     "photos": [
       "specialized-sirrusx2.jpeg"
@@ -32,7 +32,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2255",
-    "description": "An affordable and reliable commuter bike",
+    "description": "An affordable and reliable commuter bike that offers a blend of comfort and performance. The Giant Escape 3 features a durable frame, comfortable seating position, and smooth-rolling tires, making it an excellent choice for daily commuting or weekend excursions.",
     "hasDelivery": true,
     "photos": [
       "giant-escape3.jpeg"
@@ -45,7 +45,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2257",
-    "description": "A lightweight and comfortable fitness bike",
+    "description": "A lightweight and comfortable fitness bike designed for those who want to stay active. The Cannondale Quick 5 is perfect for fitness rides, commuting, or leisurely weekend trips, providing excellent performance and comfort with its ergonomic design.",
     "hasDelivery": false,
     "photos": [
       "cannondale-quick5.jpeg"
@@ -58,7 +58,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2259",
-    "description": "A versatile mountain bike",
+    "description": "A versatile mountain bike that excels on both trails and city streets. The Trek Marlin 5 features a lightweight frame, responsive suspension, and durable components, making it suitable for beginners and experienced riders alike who love outdoor adventures.",
     "hasDelivery": true,
     "photos": [
       "trek-marlin5.jpeg"
@@ -71,7 +71,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2261",
-    "description": "An entry-level mountain bike",
+    "description": "An entry-level mountain bike designed for new riders looking to explore trails. The Cannondale Trail 8 features a durable frame and stable geometry, making it easy to handle while providing an enjoyable ride on various terrains.",
     "hasDelivery": false,
     "photos": [
       "cannondale-trail8.jpeg"
@@ -84,7 +84,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2263",
-    "description": "A reliable entry-level mountain bike",
+    "description": "A reliable entry-level mountain bike that combines performance and comfort. The Giant Talon 3 is perfect for trail riding and features a lightweight aluminum frame, making it easy to maneuver on challenging terrain.",
     "hasDelivery": true,
     "photos": [
       "giant-talon3.jpeg"
@@ -97,7 +97,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2265",
-    "description": "A capable and versatile hardtail mountain bike",
+    "description": "A capable and versatile hardtail mountain bike that is perfect for riding on rugged trails. The Specialized Rockhopper Comp 29 features a lightweight design, wide tires, and a responsive suspension system for optimal performance on uneven terrain.",
     "hasDelivery": false,
     "photos": [
       "specialized-rockhoppercomp29.jpeg"
@@ -110,7 +110,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2267",
-    "description": "A fast and capable cross-country mountain bike",
+    "description": "A fast and capable cross-country mountain bike built for speed and agility. The Trek X-Caliber 7 is designed for serious riders who want a high-performance bike that can handle both competitive racing and challenging trails with ease.",
     "hasDelivery": true,
     "photos": [
       "trek-xcaliber7.jpeg"
@@ -123,7 +123,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2269",
-    "description": "A versatile and comfortable hybrid bike",
+    "description": "A versatile and comfortable hybrid bike designed for those who enjoy both city and trail riding. The Giant Roam 3 features a lightweight design, wide tires, and a comfortable geometry for an enjoyable ride on any surface.",
     "hasDelivery": false,
     "photos": [
       "giant-roam3.jpeg"
@@ -136,7 +136,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2271",
-    "description": "A sleek and urban commuter bike",
+    "description": "A sleek and urban commuter bike designed for style and performance. The Cannondale Bad Boy 1 features a lightweight frame, integrated lighting, and a comfortable seating position, making it perfect for navigating city streets.",
     "hasDelivery": true,
     "photos": [
       "cannondale-badboy1.jpeg"
@@ -149,7 +149,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2273",
-    "description": "A versatile and agile hybrid bike",
+    "description": "A versatile and agile hybrid bike that excels on various terrains. The Trek Dual Sport 2 is built for riders who want the flexibility to transition between city streets and rugged trails without compromising comfort and performance.",
     "hasDelivery": false,
     "photos": [
       "trek-dualsport2.jpeg"
@@ -162,7 +162,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2275",
-    "description": "A rugged and durable gravel bike",
+    "description": "A rugged and durable gravel bike designed for adventurous riders. The Giant ToughRoad SLR 2 offers excellent stability and comfort on rough terrain, making it ideal for long rides on mixed surfaces.",
     "hasDelivery": true,
     "photos": [
       "giant-toughroadslr2.jpeg"
@@ -175,7 +175,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2277",
-    "description": "A versatile and comfortable fitness bike",
+    "description": "A versatile and comfortable fitness bike that is perfect for riders looking for a reliable option for both commuting and recreational rides. The Specialized CrossTrail 3 features a lightweight design and ergonomic seating for a smooth and enjoyable experience.",
     "hasDelivery": false,
     "photos": [
       "specialized-crosstrail3.jpg"
@@ -188,7 +188,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2279",
-    "description": "A versatile gravel bike for all terrains",
+    "description": "A versatile gravel bike designed for all terrains, offering a comfortable ride and excellent handling. The Cannondale Topstone 1 is perfect for adventure seekers who want to explore off the beaten path without sacrificing performance.",
     "hasDelivery": true,
     "photos": [
       "cannondale-topstone1.jpeg"
@@ -201,7 +201,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2281",
-    "description": "A comfortable and easy-to-ride hybrid bike",
+    "description": "A comfortable and easy-to-ride hybrid bike that is perfect for leisure rides and commuting. The Trek Verve 2 features an upright riding position, wide tires, and a stable frame design, making it ideal for casual cyclists and those new to biking.",
     "hasDelivery": false,
     "photos": [
       "trek-verve2.jpeg"
@@ -214,7 +214,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2283",
-    "description": "A fast and agile fitness bike for city commuting",
+    "description": "A fast and agile fitness bike designed for city commuting and fitness enthusiasts. The Giant FastRoad SL 3 combines a lightweight build with responsive handling, making it perfect for those who enjoy speed and performance on the road.",
     "hasDelivery": true,
     "photos": [
       "giant-fastroadsl3.jpeg"
@@ -227,7 +227,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2285",
-    "description": "An entry-level mountain bike for trails",
+    "description": "An entry-level mountain bike that is perfect for riders looking to start their off-road adventures. The Specialized Pitch 27.5 offers a durable frame and reliable components, ensuring a fun and stable ride on trails and rugged paths.",
     "hasDelivery": false,
     "photos": [
       "specialized-pitch275.jpg"
@@ -240,7 +240,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2287",
-    "description": "A capable and fun trail mountain bike",
+    "description": "A capable and fun trail mountain bike designed for adventure seekers. The Trek Roscoe 7 features wide tires and a robust frame, providing excellent traction and stability on technical trails and challenging terrain.",
     "hasDelivery": true,
     "photos": [
       "trek-roscoe7.jpeg"
@@ -253,7 +253,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2289",
-    "description": "An affordable and capable mountain bike",
+    "description": "An affordable and capable mountain bike that is perfect for recreational riders. The Cannondale Trail 7 combines durability with user-friendly features, making it an ideal choice for those exploring trails for the first time.",
     "hasDelivery": false,
     "photos": [
       "cannondale-trail7.jpeg"
@@ -266,7 +266,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2291",
-    "description": "A versatile and comfortable road bike",
+    "description": "A versatile and comfortable road bike that excels in various conditions. The Giant Contend AR 3 is designed for endurance rides, providing a smooth and stable ride while ensuring comfort over long distances.",
     "hasDelivery": true,
     "photos": [
       "giant-contendar3.jpeg"
@@ -279,7 +279,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2293",
-    "description": "A comfortable and efficient road bike",
+    "description": "A comfortable and efficient road bike designed for riders who value performance without sacrificing comfort. The Trek Domane AL 2 features a stable geometry that makes it perfect for long rides on varied terrain.",
     "hasDelivery": false,
     "photos": [
       "trek-domaneal2.jpeg"
@@ -292,7 +292,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2295",
-    "description": "An entry-level road bike",
+    "description": "An entry-level road bike designed for new cyclists looking to experience the joy of road biking. The Specialized Allez features a lightweight frame and responsive handling, ensuring a comfortable and enjoyable ride on paved surfaces.",
     "hasDelivery": true,
     "photos": [
       "specialized-allez.jpeg"
@@ -305,7 +305,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2297",
-    "description": "A versatile gravel bike for adventure",
+    "description": "A versatile gravel bike designed for adventure and exploration. The Giant Revolt 3 features a stable geometry and wide tires, making it perfect for tackling rough roads and unpaved paths with confidence.",
     "hasDelivery": false,
     "photos": [
       "giant-revolt3.jpeg"
@@ -318,7 +318,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2299",
-    "description": "A lightweight and efficient road bike",
+    "description": "A lightweight and efficient road bike that delivers exceptional performance and speed. The Cannondale CAAD Optimo Tiagra is designed for serious riders looking for a reliable bike that can handle both training and racing.",
     "hasDelivery": true,
     "photos": [
       "cannondale-caadoptimotiagra.jpeg"
@@ -331,7 +331,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2301",
-    "description": "A versatile gravel bike for all adventures",
+    "description": "A versatile gravel bike designed for all adventures, providing stability and comfort on long rides. The Trek Checkpoint ALR 5 is perfect for riders who want to explore various terrains while enjoying a smooth and controlled ride.",
     "hasDelivery": false,
     "photos": [
       "trek-checkpointalr5.jpeg"
@@ -344,7 +344,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2303",
-    "description": "A reliable commuter bike for everyday use",
+    "description": "A reliable commuter bike designed for everyday use. The Giant Escape 2 features a lightweight frame and comfortable seating, making it an excellent choice for those looking to ride to work or school.",
     "hasDelivery": true,
     "photos": [
       "giant-escape2.jpeg"
@@ -357,7 +357,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2305",
-    "description": "A versatile hybrid bike for urban adventures",
+    "description": "A versatile hybrid bike built for urban adventures. The Specialized Crosstrail 2.0 combines comfort and performance, making it suitable for commuting, fitness rides, and light off-road trails.",
     "hasDelivery": false,
     "photos": [
       "specialized-crosstrail2.jpeg"
@@ -370,7 +370,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2307",
-    "description": "An affordable and efficient hybrid bike",
+    "description": "An affordable and efficient hybrid bike designed for smooth rides. The Cannondale Quick Disc 5 features a lightweight frame and comfortable geometry, making it perfect for commuters and recreational cyclists.",
     "hasDelivery": true,
     "photos": [
       "cannondale-quickdisc5.jpeg"
@@ -383,7 +383,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2309",
-    "description": "A lightweight and fast fitness bike",
+    "description": "A lightweight and fast fitness bike that is perfect for serious cyclists. The Giant FastRoad Advanced 1 offers excellent performance and speed, making it ideal for competitive training and long-distance rides.",
     "hasDelivery": false,
     "photos": [
       "giant-fastroadadvanced1.jpg"
@@ -396,7 +396,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2311",
-    "description": "A versatile hybrid bike with disc brakes",
+    "description": "A versatile hybrid bike with disc brakes, designed for enhanced stopping power and control. The Trek FX 2 Disc is perfect for urban commuting and fitness rides, providing a smooth and reliable experience on various surfaces.",
     "hasDelivery": true,
     "photos": [
       "trek-fx2disc.jpeg"
@@ -409,7 +409,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2313",
-    "description": "A comfortable and stylish electric bike",
+    "description": "A comfortable and stylish electric bike designed for easy urban commuting. The Specialized Turbo Como 3.0 650b features a powerful motor and a smooth ride, making it ideal for those who want to arrive at their destination effortlessly.",
     "hasDelivery": false,
     "photos": [
       "specialized-turbocomo3.jpeg"
@@ -422,7 +422,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e2199",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2315",
-    "description": "A lightweight electric gravel bike for adventures",
+    "description": "A lightweight electric gravel bike designed for adventures on and off the road. The Cannondale Topstone Neo Carbon 3 combines durable construction with powerful electric assistance, making it perfect for long rides on varied terrain.",
     "hasDelivery": true,
     "photos": [
       "cannondale-topstoneneocarbon3.jpeg"

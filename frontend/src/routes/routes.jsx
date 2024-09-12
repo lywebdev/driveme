@@ -6,6 +6,7 @@ import ExampleAdminPage from "@pages/admin/ExampleAdminPage.jsx";
 import RegisterPage from "@pages/Auth/RegisterPage.jsx";
 import TransportPage from "@pages/TransportPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
+import CompletedPage from "@pages/CompletedPage.jsx";
 
 export const publicRoutes = [
     {
@@ -19,6 +20,10 @@ export const publicRoutes = [
     {
         path: routes.transport(),
         element: <TransportPage />,
+    },
+    {
+        path: '/completed',
+        element: <CompletedPage />,
     }
 ];
 

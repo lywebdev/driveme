@@ -6,7 +6,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2152",
-    "description": "A sporty and agile bike",
+    "description": "The Honda CBR500R is a stylish and sporty motorcycle designed for both novice and experienced riders. Its lightweight frame and powerful engine provide a thrilling ride while maintaining excellent fuel efficiency. The bike features a comfortable seating position, advanced braking system, and sleek aerodynamic design, making it perfect for city commuting and weekend adventures alike. With its agile handling and responsive performance, the CBR500R offers an exhilarating experience on the road.",
     "hasDelivery": true,
     "photos": [
       "honda-cbr500r.jpeg"
@@ -19,7 +19,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2154",
-    "description": "A bike with great performance",
+    "description": "The Yamaha YZF-R3 is a powerful yet lightweight sportbike that combines performance with practicality. With its aggressive styling and advanced features, this bike is designed to impress on both the street and the racetrack. The YZF-R3 is equipped with a responsive engine, exceptional suspension, and high-performance brakes, providing riders with confidence and control during every ride. Whether tackling twisty roads or cruising down the highway, the YZF-R3 delivers an exhilarating experience that is hard to match.",
     "hasDelivery": false,
     "photos": [
       "yamaha-yzfr3.jpeg"
@@ -32,7 +32,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2156",
-    "description": "A powerful and stylish bike",
+    "description": "The Kawasaki Ninja 400 is a sleek and powerful motorcycle that stands out with its bold design and impressive performance. Featuring a lightweight frame and a high-revving engine, this bike is perfect for both beginners and experienced riders. The Ninja 400 offers excellent handling, making it great for twisty roads and track days alike. Its comfortable seating position and advanced technology, including ABS brakes and a digital display, ensure a smooth and enjoyable riding experience. Get ready to hit the road with style and confidence.",
     "hasDelivery": true,
     "photos": [
       "kawasaki-ninja400.jpeg"
@@ -45,7 +45,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2158",
-    "description": "A bike with a smooth ride",
+    "description": "The Suzuki GSX250R is an entry-level sportbike that offers a perfect blend of performance, comfort, and style. Its sleek and aerodynamic design not only looks fantastic but also enhances its performance on the road. The bike is powered by a smooth and efficient engine, providing excellent fuel economy for daily commuting and longer rides. With its comfortable seating position, responsive handling, and advanced safety features, the GSX250R is an ideal choice for those looking to explore the world of motorcycling without compromising on quality or performance.",
     "hasDelivery": false,
     "photos": [
       "suzuki-gsx250r.jpeg"
@@ -58,7 +58,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2160",
-    "description": "A high-performance bike",
+    "description": "The Ducati Monster 821 is a stunning naked bike that embodies the spirit of performance and style. With its powerful engine and lightweight frame, the Monster 821 delivers exhilarating power and agility, making it a joy to ride. Its minimalist design is complemented by modern technology, including traction control and ABS, ensuring a safe and confident riding experience. The comfortable seating position and upright riding stance make it perfect for both city commuting and spirited weekend rides, making it a versatile choice for enthusiasts.",
     "hasDelivery": true,
     "photos": [
       "ducati-monster821.jpg"
@@ -71,7 +71,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2162",
-    "description": "A premium compact bike",
+    "description": "The BMW G310R is a premium compact motorcycle that offers a perfect combination of style, performance, and agility. With its lightweight chassis and powerful engine, this bike is designed for urban riding and spirited weekend escapes. The G310R features BMW's renowned engineering, ensuring exceptional handling and stability on the road. Its modern design incorporates advanced technology, including LED lighting and a digital display, making it not only a practical choice but also a stylish one. Experience the joy of riding with the BMW G310R.",
     "hasDelivery": false,
     "photos": [
       "bmw-g310r.jpeg"
@@ -84,7 +84,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2164",
-    "description": "A bike with unmatched agility",
+    "description": "The KTM Duke 390 is an aggressive and powerful streetfighter that is built for performance and fun. Its lightweight construction and high-revving engine deliver exceptional acceleration and agility, making it perfect for city riding and twisty roads. The Duke 390 features innovative technology, such as ride-by-wire throttle and ABS, providing both power and safety. With its bold styling and comfortable ergonomics, this bike is designed for riders who crave excitement and adventure in every ride, whether it's daily commuting or weekend escapades.",
     "hasDelivery": true,
     "photos": [
       "ktm-duke390.jpeg"
@@ -97,7 +97,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2166",
-    "description": "A bike with outstanding handling",
+    "description": "The Triumph Street Triple is a dynamic and powerful naked bike that is designed to thrill riders. With its lightweight chassis and high-performance engine, the Street Triple offers exhilarating acceleration and nimble handling, making it perfect for both urban and spirited rides. Its aggressive styling and modern features, including advanced electronics and adjustable suspension, ensure a ride that is both enjoyable and customizable. The comfortable riding position and engaging performance make the Street Triple a favorite among motorcycle enthusiasts who appreciate quality and excitement in their rides.",
     "hasDelivery": false,
     "photos": [
       "triumph-streettriple.jpeg"
@@ -110,7 +110,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2168",
-    "description": "A classic cruiser bike",
+    "description": "The Harley-Davidson Iron 883 is a classic cruiser that embodies the spirit of freedom and the open road. With its iconic design and powerful V-twin engine, this bike offers a thrilling riding experience that is both comfortable and exhilarating. The Iron 883 combines a minimalist aesthetic with modern features, including a low seat height and responsive handling, making it perfect for both new and experienced riders. Whether cruising down the highway or navigating city streets, the Harley-Davidson Iron 883 delivers an unforgettable ride filled with style and character.",
     "hasDelivery": true,
     "photos": [
       "harleydavidson-iron883.jpeg"
@@ -123,7 +123,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2170",
-    "description": "An adventure touring bike",
+    "description": "The Royal Enfield Himalayan is a rugged adventure motorcycle designed for those who crave exploration and off-road capabilities. With its sturdy build and powerful engine, this bike is ready to tackle challenging terrains and long journeys with ease. The Himalayan features a comfortable seating position, advanced suspension, and ample storage options, making it ideal for both daily commuting and adventurous rides. Its classic styling and reliable performance have made it a favorite among riders who appreciate the thrill of the journey, whether on winding roads or rough paths.",
     "hasDelivery": false,
     "photos": [
       "royalenfield-himalayan.jpeg"
@@ -136,7 +136,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2172",
-    "description": "A classic American bike",
+    "description": "The Indian Scout Sixty is a classic cruiser that blends timeless style with modern performance. Its lightweight chassis and powerful engine deliver a smooth and responsive ride, making it perfect for both city cruising and longer journeys. The Scout Sixty features a low seat height, comfortable ergonomics, and stunning aesthetics that pay homage to Indian's rich heritage. With its refined handling and impressive torque, this bike is designed for riders who appreciate a blend of classic looks and contemporary performance, ensuring an enjoyable experience on every ride.",
     "hasDelivery": true,
     "photos": [
       "indianscout-sixty.jpeg"
@@ -149,7 +149,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2174",
-    "description": "A bike with cutting-edge technology",
+    "description": "The Aprilia RS 660 is a cutting-edge sportbike that combines advanced technology with stunning design. With its lightweight frame and high-performance engine, this bike is built for speed and agility on both the track and the street. The RS 660 features a full suite of electronic rider aids, including traction control and ride modes, ensuring a tailored riding experience for every situation. Its aggressive styling and aerodynamic bodywork not only enhance performance but also turn heads wherever you go, making it a top choice for motorcycle enthusiasts looking for excitement and innovation.",
     "hasDelivery": false,
     "photos": [
       "aprilia-rs660.jpeg"
@@ -162,7 +162,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2176",
-    "description": "A bike with a retro style",
+    "description": "The Moto Guzzi V7 III is a stunning retro-style motorcycle that perfectly balances classic charm with modern performance. With its iconic design and distinctive engine, the V7 III offers a unique riding experience that stands out from the crowd. The bike features a comfortable riding position, advanced technology, and a smooth power delivery, making it suitable for both leisurely rides and daily commuting. Its timeless aesthetics and engaging performance make the Moto Guzzi V7 III a favorite among riders who appreciate quality craftsmanship and a touch of nostalgia in their motorcycling adventures.",
     "hasDelivery": true,
     "photos": [
       "moto-guzziv7.jpeg"
@@ -175,7 +175,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2178",
-    "description": "A superbike with exceptional performance",
+    "description": "The Ducati Panigale V2 is a breathtaking superbike that combines unrivaled performance with cutting-edge technology. With its powerful V-twin engine and lightweight chassis, the Panigale V2 delivers exhilarating acceleration and precise handling on the track and the street. The bike features a sleek aerodynamic design, advanced electronics, and a sophisticated suspension system, ensuring an unforgettable riding experience. Whether you're a track enthusiast or simply seeking the ultimate thrill on the road, the Ducati Panigale V2 promises to deliver unparalleled excitement and performance.",
     "hasDelivery": false,
     "photos": [
       "ducati-panigalev2.jpeg"
@@ -188,7 +188,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2180",
-    "description": "An affordable street bike",
+    "description": "The Benelli TNT 300 is an affordable street bike that offers a perfect blend of style, performance, and practicality. Its striking design and agile handling make it a great choice for both new and experienced riders. The TNT 300 features a smooth engine, comfortable seating position, and modern technology, ensuring a fun and confident riding experience. Whether navigating city streets or enjoying weekend rides, this bike provides a thrilling ride that is both enjoyable and reliable, making it an excellent option for daily commuters.",
     "hasDelivery": true,
     "photos": [
       "benelli-tnt300.jpeg"
@@ -201,7 +201,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2182",
-    "description": "A bike with a futuristic design",
+    "description": "The CFMoto 300NK is a modern motorcycle that features a sporty design, advanced technology, and a powerful engine, making it an excellent option for urban riding and daily commuting. With its agile handling and lightweight frame, the 300NK delivers a responsive and enjoyable riding experience. The bike is equipped with modern features such as a digital display and LED lighting, enhancing both safety and aesthetics. Whether you're a new rider or an experienced motorcyclist, the CFMoto 300NK offers a perfect combination of style and performance for those who want to stand out on the road.",
     "hasDelivery": false,
     "photos": [
       "cfmoto-300nk.jpeg"
@@ -214,7 +214,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2184",
-    "description": "A high-performance electric bike",
+    "description": "The Zero SR/F is a high-performance electric motorcycle that redefines the riding experience with its cutting-edge technology and exhilarating power. With instant torque and a lightweight frame, the SR/F delivers an unmatched acceleration and nimble handling, making it perfect for both city commuting and spirited rides. The bike features advanced connectivity options, customizable ride modes, and a sleek design that showcases its modern engineering. As an eco-friendly option, the Zero SR/F provides an exciting and sustainable alternative to traditional motorcycles, allowing riders to embrace the future of motorcycling.",
     "hasDelivery": true,
     "photos": [
       "zero-srf.jpeg"
@@ -227,7 +227,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2186",
-    "description": "A superbike with electric power",
+    "description": "The Energica Ego is a powerful electric superbike that combines breathtaking performance with innovative technology. With its impressive electric motor, the Ego delivers rapid acceleration and thrilling top speeds, rivaling even the best traditional sportbikes. Its sleek design, advanced aerodynamics, and cutting-edge features, such as regenerative braking and customizable ride modes, make it a standout choice for performance enthusiasts. The Energica Ego represents the future of motorcycling, providing an electrifying riding experience without compromising on power or style.",
     "hasDelivery": false,
     "photos": [
       "energica-ego.jpeg"
@@ -240,7 +240,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2188",
-    "description": "A high-tech electric bike",
+    "description": "The LiveWire One is Harley-Davidson's first electric motorcycle, representing a new era of riding that combines the iconic brand's heritage with modern technology. With its immediate torque and agile handling, the LiveWire One provides a thrilling ride that is both exhilarating and smooth. The bike features advanced connectivity, customizable settings, and a distinctive design that reflects Harley's signature style. Built for urban environments and open roads alike, the LiveWire One offers an innovative and eco-friendly alternative for riders who seek performance without compromise.",
     "hasDelivery": true,
     "photos": [
       "livewire-one.jpg"
@@ -253,7 +253,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2190",
-    "description": "A beginner-friendly cruiser bike",
+    "description": "The Honda Rebel 300 is a stylish and beginner-friendly cruiser that offers a perfect entry point into the world of motorcycling. With its low seat height and lightweight construction, the Rebel 300 provides a comfortable and confident riding experience for new riders. The bike features classic cruiser styling combined with modern performance, making it a great choice for both city commuting and leisurely rides. Its responsive engine and easy maneuverability allow riders of all skill levels to enjoy the open road with a sense of freedom and adventure.",
     "hasDelivery": false,
     "photos": [
       "honda-rebel300.jpeg"
@@ -266,7 +266,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2192",
-    "description": "A versatile naked bike",
+    "description": "The Yamaha MT-07 is a versatile naked bike that combines raw power with an agile design, making it an ideal choice for both new and experienced riders. Its lightweight frame and responsive engine deliver exhilarating performance on city streets and winding roads alike. The MT-07 features a comfortable riding position, advanced suspension, and modern technology, ensuring a smooth and enjoyable ride. With its aggressive styling and engaging performance, the Yamaha MT-07 offers a thrilling experience that appeals to riders seeking excitement and versatility in their motorcycle adventures.",
     "hasDelivery": true,
     "photos": [
       "yamaha-mt07.jpeg"
@@ -279,7 +279,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2194",
-    "description": "A bike with strong mid-range power",
+    "description": "The Kawasaki Z650 is a modern naked bike that perfectly balances performance, style, and comfort. With its powerful parallel-twin engine and lightweight frame, the Z650 offers thrilling acceleration and nimble handling, making it ideal for both city commuting and weekend rides. The bike features aggressive styling, advanced technology, and a comfortable seating position, ensuring an enjoyable experience for riders of all levels. Whether you're navigating through traffic or hitting the open road, the Kawasaki Z650 delivers a thrilling ride that is both exhilarating and practical.",
     "hasDelivery": false,
     "photos": [
       "kawasaki-z650.jpg"
@@ -292,7 +292,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2196",
-    "description": "A bike with great versatility",
+    "description": "The Suzuki SV650 is a versatile and reliable motorcycle that has become a favorite among riders for its engaging performance and classic styling. With a powerful V-twin engine and lightweight chassis, the SV650 delivers excellent acceleration and fantastic handling on a variety of terrains. Its comfortable seating position and user-friendly design make it suitable for both new and experienced riders. The bike features modern technology, ensuring a smooth and enjoyable ride, whether you're commuting in the city or taking on longer journeys. Experience the thrill of riding with the Suzuki SV650.",
     "hasDelivery": true,
     "photos": [
       "suzuki-sv650.jpeg"
@@ -305,7 +305,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2198",
-    "description": "A bike with unique styling",
+    "description": "The Husqvarna Vitpilen 401 is a stylish and modern motorcycle that draws inspiration from classic café racers while offering cutting-edge performance. With its lightweight construction and responsive engine, the Vitpilen 401 delivers an exhilarating ride that is perfect for urban commuting and spirited weekend rides. The bike features innovative technology, including LED lighting and a digital display, ensuring both safety and style. Its minimalist design and comfortable ergonomics make it a great choice for riders who appreciate a unique blend of retro aesthetics and contemporary performance.",
     "hasDelivery": false,
     "photos": [
       "husqvarna-vitpilen401.jpeg"
@@ -318,7 +318,7 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2200",
-    "description": "A fun and easy-to-ride bike",
+    "description": "The Ducati Scrambler Sixty2 is a fun and accessible motorcycle that combines classic styling with modern performance. With its lightweight frame and peppy engine, this bike is perfect for both new riders and seasoned enthusiasts looking for an enjoyable ride. The Scrambler Sixty2 features a comfortable seating position, retro-inspired design, and advanced technology, making it ideal for city commuting and weekend adventures alike. Its engaging performance and distinctive look ensure that riders stand out on the road, capturing the spirit of freedom and adventure that defines the Ducati brand.",
     "hasDelivery": true,
     "photos": [
       "ducati-scramblersixty2.jpg"
