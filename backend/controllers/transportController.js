@@ -25,4 +25,9 @@ const update = async (req, res) => {
     res.status(response.status).json(response.content);
 }
 
-export default { all, create, remove, update, findById }
+const recentOffers = async (req, res) => {
+    const response = await TransportService.getRecentOffers();
+    res.status(response.status).json(response.content);
+}
+
+export default { all, create, remove, update, findById, recentOffers }

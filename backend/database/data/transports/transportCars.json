@@ -6,11 +6,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2202",
-    "description": "A luxury sedan with advanced features",
+    "description": "Audi A4 is a luxury sedan renowned for its sophisticated design and cutting-edge technology. Whether navigating city streets or embarking on long journeys, the A4 offers a smooth and powerful performance. Inside, it boasts a plush interior filled with premium materials, advanced infotainment systems, and spacious seating for both driver and passengers. The A4 is designed to provide an unmatched driving experience, making it a top choice for those who value luxury and comfort.",
     "hasDelivery": true,
     "photos": [
       "audi-a4.jpg"
-    ]
+    ],
+    "slug": "audi-a4"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2203",
@@ -19,11 +20,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2204",
-    "description": "A sporty and elegant sedan",
+    "description": "The BMW 3 Series is a sporty and elegant sedan that combines performance with luxury. With its powerful engines and precise handling, the 3 Series delivers an exhilarating driving experience. Inside, it features a high-quality interior with advanced technology and comfortable seating. Whether cruising through the city or tackling winding roads, the 3 Series is designed for those who demand both style and substance in their vehicle.",
     "hasDelivery": false,
     "photos": [
       "bmw-m3.jpg"
-    ]
+    ],
+    "slug": "bmw-3-series"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2205",
@@ -32,11 +34,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2206",
-    "description": "A blend of luxury and performance",
+    "description": "The Mercedes-Benz C-Class is a perfect blend of luxury and performance. With its sleek exterior and refined interior, the C-Class stands out in any setting. It comes equipped with the latest technology, ensuring a connected and enjoyable driving experience. The spacious cabin is adorned with high-quality materials and offers a comfortable ride for all passengers. The C-Class is designed for those who appreciate elegance and advanced engineering.",
     "hasDelivery": true,
     "photos": [
       "mercedes-benz.jpeg"
-    ]
+    ],
+    "slug": "mercedes-benz-c-class"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2207",
@@ -45,11 +48,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2208",
-    "description": "A comfortable and safe SUV",
+    "description": "The Volvo XC60 is a stylish and safe SUV designed for families and adventure-seekers alike. It offers a spacious interior with ample cargo space and advanced safety features that provide peace of mind. The XC60 combines Scandinavian design with cutting-edge technology, ensuring a comfortable and enjoyable ride. With its smooth handling and powerful engine options, this SUV is ready for any journey, whether in the city or off the beaten path.",
     "hasDelivery": false,
     "photos": [
       "volvo-xc60.jpg"
-    ]
+    ],
+    "slug": "volvo-xc60"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2209",
@@ -58,11 +62,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2210",
-    "description": "A popular compact hatchback",
+    "description": "The Volkswagen Golf is a popular compact hatchback known for its versatility and practicality. It offers a spacious interior with comfortable seating and a user-friendly infotainment system. With its efficient engine options, the Golf provides excellent fuel economy without sacrificing performance. Whether commuting or embarking on a weekend getaway, this hatchback is designed to meet the needs of modern drivers looking for style and functionality.",
     "hasDelivery": true,
     "photos": [
       "vw-golf.jpeg"
-    ]
+    ],
+    "slug": "volkswagen-golf"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2211",
@@ -71,11 +76,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2212",
-    "description": "A reliable and efficient sedan",
+    "description": "The Toyota Corolla is a reliable and efficient sedan that has earned a reputation for its durability and practicality. With its comfortable interior and advanced safety features, the Corolla is perfect for daily commutes and family trips. It offers excellent fuel efficiency, making it an economical choice for budget-conscious drivers. The Corolla's sleek design and modern technology make it a popular option among those looking for a dependable vehicle.",
     "hasDelivery": false,
     "photos": [
       "toyota-corolla.jpeg"
-    ]
+    ],
+    "slug": "toyota-corolla"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2213",
@@ -84,11 +90,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2214",
-    "description": "An iconic American muscle car",
+    "description": "The Ford Mustang is an iconic American muscle car that embodies performance and style. With its powerful engine options and aggressive design, the Mustang is built for those who crave excitement on the road. Inside, it features a driver-focused cockpit with modern technology and comfortable seating. Whether on the track or cruising through town, the Mustang delivers an exhilarating driving experience that turns heads wherever it goes.",
     "hasDelivery": true,
     "photos": [
       "ford-mustang.jpeg"
-    ]
+    ],
+    "slug": "ford-mustang"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2215",
@@ -97,11 +104,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2216",
-    "description": "A practical and efficient compact car",
+    "description": "The Honda Civic is a practical and efficient compact car that is perfect for urban living. Its stylish design and spacious interior make it a popular choice among drivers of all ages. Equipped with advanced safety features and a user-friendly infotainment system, the Civic ensures a comfortable and enjoyable ride. With its strong fuel economy and reliable performance, the Honda Civic is an ideal vehicle for those seeking a balance of style and functionality.",
     "hasDelivery": false,
     "photos": [
       "honda-civic.jpeg"
-    ]
+    ],
+    "slug": "honda-civic"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2217",
@@ -110,11 +118,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2218",
-    "description": "A versatile and stylish SUV",
+    "description": "The Mazda CX-5 is a versatile and stylish SUV that combines practicality with a fun driving experience. Offering ample cargo space and comfortable seating, it's perfect for families and adventurers alike. The CX-5's sleek design and upscale interior make it stand out in its class. With its responsive handling and efficient engine, this SUV is designed for those who appreciate both style and performance in their daily drive.",
     "hasDelivery": true,
     "photos": [
       "mazda-cx5.jpg"
-    ]
+    ],
+    "slug": "mazda-cx-5"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2219",
@@ -123,11 +132,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2220",
-    "description": "A compact SUV with modern features",
+    "description": "The Hyundai Kona is a compact SUV that features a modern design and a wealth of technology. Its spacious interior and versatile cargo options make it perfect for urban living and road trips alike. The Kona offers a comfortable ride with excellent fuel efficiency, making it an economical choice for drivers. With advanced safety features and an intuitive infotainment system, the Hyundai Kona is designed for those who value innovation and practicality in their vehicle.",
     "hasDelivery": false,
     "photos": [
       "hyundai-kona.jpg"
-    ]
+    ],
+    "slug": "hyundai-kona"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2221",
@@ -136,11 +146,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2222",
-    "description": "A hybrid crossover with excellent fuel economy",
+    "description": "The Kia Niro is a hybrid crossover that combines eco-friendliness with practicality. Designed for modern drivers, it offers an efficient powertrain that minimizes fuel consumption while providing a comfortable ride. The Niro's spacious interior features high-quality materials and ample cargo space, making it perfect for families and city dwellers. With advanced technology and safety features, the Kia Niro is a smart choice for those looking to reduce their carbon footprint without compromising on style.",
     "hasDelivery": true,
     "photos": [
       "kia-niro.jpg"
-    ]
+    ],
+    "slug": "kia-niro"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2223",
@@ -149,11 +160,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2224",
-    "description": "A popular compact SUV with modern features",
+    "description": "The Nissan Qashqai is a popular compact SUV that offers modern features and a comfortable driving experience. Its stylish exterior and well-designed interior make it a favorite among drivers looking for a versatile vehicle. With ample cargo space and advanced safety technologies, the Qashqai is perfect for both daily commutes and weekend getaways. Its efficient engine options provide excellent fuel economy, ensuring a cost-effective and enjoyable ride.",
     "hasDelivery": false,
     "photos": [
       "nissan-qashqai.jpg"
-    ]
+    ],
+    "slug": "nissan-qashqai"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2225",
@@ -162,11 +174,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2226",
-    "description": "An electric sedan with impressive range",
+    "description": "The Tesla Model 3 is an all-electric sedan that offers impressive range and cutting-edge technology. With its sleek design and minimalist interior, the Model 3 is a favorite among eco-conscious drivers. It provides quick acceleration and a smooth driving experience, making it perfect for both city and highway travel. The advanced infotainment system keeps drivers connected while its extensive safety features ensure peace of mind on the road. The Model 3 is a revolutionary vehicle that redefines what an electric car can be.",
     "hasDelivery": true,
     "photos": [
       "tesla-model3.jpeg"
-    ]
+    ],
+    "slug": "tesla-model-3"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2227",
@@ -175,11 +188,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2228",
-    "description": "A compact hatchback with European charm",
+    "description": "The Renault Clio is a compact hatchback that embodies European charm and practicality. Its stylish design and comfortable interior make it a popular choice for city dwellers. The Clio offers a range of efficient engines, ensuring a smooth and economical ride. With advanced safety features and a spacious cargo area, the Clio is perfect for both everyday use and weekend adventures. This hatchback is designed for those who appreciate a blend of style and functionality.",
     "hasDelivery": false,
     "photos": [
       "reanult-clio.jpeg"
-    ]
+    ],
+    "slug": "renault-clio"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2229",
@@ -188,11 +202,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2230",
-    "description": "A rugged and capable crossover",
+    "description": "The Subaru Outback is a rugged and capable crossover that is designed for adventure. With its all-wheel drive system and high ground clearance, the Outback is perfect for tackling rough terrain and inclement weather. Inside, it offers a spacious and comfortable cabin equipped with modern technology and safety features. Whether you're heading to the mountains or running errands in the city, the Subaru Outback is built to handle any journey with style and confidence.",
     "hasDelivery": true,
     "photos": [
       "subaru-outback.jpeg"
-    ]
+    ],
+    "slug": "subaru-outback"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2231",
@@ -201,11 +216,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2232",
-    "description": "A practical and efficient compact car",
+    "description": "The Ford Focus is a practical and efficient compact car designed for modern living. With its stylish exterior and comfortable interior, the Focus offers a pleasant driving experience. Equipped with advanced technology and safety features, it ensures peace of mind on the road. The Focus delivers excellent fuel economy, making it an economical choice for daily commutes. Whether navigating city streets or embarking on a road trip, the Ford Focus is a reliable companion for every journey.",
     "hasDelivery": false,
     "photos": [
       "ford-focus.jpeg"
-    ]
+    ],
+    "slug": "ford-focus"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2233",
@@ -214,11 +230,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2234",
-    "description": "A stylish and practical SUV",
+    "description": "The Peugeot 3008 is a stylish and practical SUV that stands out with its modern design and comfortable interior. It offers a spacious cabin with high-quality materials and advanced technology, making it perfect for families and adventurers alike. The 3008 provides a smooth and efficient ride, with a range of engine options to suit various driving preferences. With its blend of style, comfort, and practicality, the Peugeot 3008 is an ideal choice for those seeking a versatile vehicle.",
     "hasDelivery": true,
     "photos": [
       "peugeot-3008.jpeg"
-    ]
+    ],
+    "slug": "peugeot-3008"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2235",
@@ -227,11 +244,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2236",
-    "description": "A compact car with a fun driving experience",
+    "description": "The Mini Cooper is a compact car that offers a fun and engaging driving experience. Known for its iconic design and agile handling, the Mini is perfect for city driving and weekend adventures. Inside, it features a stylish and quirky interior equipped with modern technology and comfortable seating. The Mini Cooper is designed for those who appreciate individuality and want a car that reflects their personality while delivering a spirited performance on the road.",
     "hasDelivery": false,
     "photos": [
       "mini-cooper.jpeg"
-    ]
+    ],
+    "slug": "mini-cooper"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2237",
@@ -240,11 +258,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2238",
-    "description": "A practical and spacious sedan",
+    "description": "The Skoda Octavia is a practical and spacious sedan that offers exceptional value for money. With its roomy interior and large trunk, it is perfect for families and those who require extra space. The Octavia combines modern design with advanced technology, ensuring a comfortable and convenient driving experience. Its efficient engine options provide excellent fuel economy, making it a smart choice for daily commutes and long-distance journeys alike.",
     "hasDelivery": true,
     "photos": [
       "skoda-octavia.jpeg"
-    ]
+    ],
+    "slug": "skoda-octavia"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2239",
@@ -253,11 +272,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2240",
-    "description": "A compact hatchback with German engineering",
+    "description": "The Opel Corsa is a compact hatchback that offers a blend of practicality and performance. Its stylish design makes it a popular choice among young drivers and urban dwellers. The Corsa provides a comfortable interior with advanced technology and safety features, ensuring a pleasant driving experience. With its efficient engine options and compact size, the Opel Corsa is ideal for navigating city streets and perfect for those seeking an economical and stylish vehicle.",
     "hasDelivery": false,
     "photos": [
       "opel-corsa.jpeg"
-    ]
+    ],
+    "slug": "opel-corsa"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2241",
@@ -266,11 +286,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2242",
-    "description": "A stylish and comfortable compact car",
+    "description": "The Renault Megane is a stylish and comfortable compact car that provides an enjoyable driving experience. With its modern design and spacious interior, the Megane is perfect for both city driving and longer journeys. It features advanced safety technologies and a user-friendly infotainment system, ensuring a connected experience for all passengers. The Megane's efficient engine options make it an economical choice, appealing to those who seek comfort and style without compromising on performance.",
     "hasDelivery": true,
     "photos": [
       "renault-megane.jpeg"
-    ]
+    ],
+    "slug": "renault-megane"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2243",
@@ -279,11 +300,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2244",
-    "description": "A compact car with French flair",
+    "description": "The Citroen C3 is a compact car that stands out with its unique and stylish design. Perfect for urban living, it offers a comfortable interior with modern technology and safety features. The C3 is known for its efficient engine options, providing excellent fuel economy for daily commutes. With its playful character and practicality, the Citroen C3 is designed for drivers who appreciate individuality and want a vehicle that reflects their lifestyle.",
     "hasDelivery": false,
     "photos": [
       "citroen-c3.jpg"
-    ]
+    ],
+    "slug": "citroen-c3"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2245",
@@ -292,11 +314,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2246",
-    "description": "A stylish and efficient small hatchback",
+    "description": "The Peugeot 208 is a stylish and efficient small hatchback that is perfect for city driving. Its compact size makes it easy to navigate through tight spaces, while its modern design and comfortable interior ensure an enjoyable ride. The 208 comes equipped with advanced technology and safety features, providing a connected and secure driving experience. With its economical engine options, the Peugeot 208 is an ideal choice for those who value style and efficiency in a compact package.",
     "hasDelivery": true,
     "photos": [
       "peugeot-208.jpeg"
-    ]
+    ],
+    "slug": "peugeot-208"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2247",
@@ -305,10 +328,11 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214b",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2248",
-    "description": "A sporty and practical hatchback",
+    "description": "The Seat Leon is a sporty and practical hatchback that combines performance with everyday usability. Its dynamic design and engaging driving experience make it a favorite among those who enjoy spirited driving. Inside, the Leon offers a modern and comfortable environment, equipped with the latest technology and safety features. With its efficient engines and spacious interior, the Seat Leon is perfect for both city and highway driving, appealing to a wide range of drivers.",
     "hasDelivery": false,
     "photos": [
       "seat-leon.jpeg"
-    ]
+    ],
+    "slug": "seat-leon"
   }
 ]

@@ -2,6 +2,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2151",
     "name": "Honda CBR500R",
+    "slug": "honda-cbr500r",
     "cost": 120,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -15,6 +16,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2153",
     "name": "Yamaha YZF-R3",
+    "slug": "yamaha-yzf-r3",
     "cost": 100,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -28,6 +30,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2155",
     "name": "Kawasaki Ninja 400",
+    "slug": "kawasaki-ninja-400",
     "cost": 130,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -41,6 +44,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2157",
     "name": "Suzuki GSX250R",
+    "slug": "suzuki-gsx250r",
     "cost": 90,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -54,6 +58,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2159",
     "name": "Ducati Monster 821",
+    "slug": "ducati-monster-821",
     "cost": 150,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -67,6 +72,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2161",
     "name": "BMW G310R",
+    "slug": "bmw-g310r",
     "cost": 115,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -80,6 +86,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2163",
     "name": "KTM Duke 390",
+    "slug": "ktm-duke-390",
     "cost": 110,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -93,6 +100,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2165",
     "name": "Triumph Street Triple",
+    "slug": "triumph-street-triple",
     "cost": 140,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -106,6 +114,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2167",
     "name": "Harley-Davidson Iron 883",
+    "slug": "harley-davidson-iron-883",
     "cost": 145,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -119,6 +128,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2169",
     "name": "Royal Enfield Himalayan",
+    "slug": "royal-enfield-himalayan",
     "cost": 105,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -132,6 +142,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2171",
     "name": "Indian Scout Sixty",
+    "slug": "indian-scout-sixty",
     "cost": 135,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -145,6 +156,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2173",
     "name": "Aprilia RS 660",
+    "slug": "aprilia-rs-660",
     "cost": 125,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -158,6 +170,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2175",
     "name": "Moto Guzzi V7 III",
+    "slug": "moto-guzzi-v7-iii",
     "cost": 110,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -171,6 +184,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2177",
     "name": "Ducati Panigale V2",
+    "slug": "ducati-panigale-v2",
     "cost": 150,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -184,6 +198,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2179",
     "name": "Benelli TNT 300",
+    "slug": "benelli-tnt-300",
     "cost": 85,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -197,6 +212,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2181",
     "name": "CFMoto 300NK",
+    "slug": "cfmoto-300nk",
     "cost": 75,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -210,6 +226,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2183",
     "name": "Zero SR/F",
+    "slug": "zero-sr-f",
     "cost": 145,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -223,6 +240,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2185",
     "name": "Energica Ego",
+    "slug": "energica-ego",
     "cost": 150,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -236,6 +254,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2187",
     "name": "LiveWire One",
+    "slug": "livewire-one",
     "cost": 140,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -249,6 +268,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2189",
     "name": "Honda Rebel 300",
+    "slug": "honda-rebel-300",
     "cost": 80,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -262,6 +282,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2191",
     "name": "Yamaha MT-07",
+    "slug": "yamaha-mt-07",
     "cost": 125,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -275,6 +296,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2193",
     "name": "Kawasaki Z650",
+    "slug": "kawasaki-z650",
     "cost": 115,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -288,6 +310,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2195",
     "name": "Suzuki SV650",
+    "slug": "suzuki-sv650",
     "cost": 110,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -301,6 +324,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2197",
     "name": "Husqvarna Vitpilen 401",
+    "slug": "husqvarna-vitpilen-401",
     "cost": 95,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
@@ -314,6 +338,7 @@
   {
     "id": "64b8f2f8b3c5a7298d6e2199",
     "name": "Ducati Scrambler Sixty2",
+    "slug": "ducati-scrambler-sixty2",
     "cost": 130,
     "transportTypeId": "64b8f2f8b3c5a7298d6e214a",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",

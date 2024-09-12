@@ -18,9 +18,9 @@ const TransportSchema = new Schema(
             ref: "TransportType",
             required: true,
         },
-        // TODO: Update to Schema.Types.ObjectId and ref once Owner schema is defined
         ownerId: {
-            type: String,
+            type: Schema.Types.ObjectId,
+            ref: "User",
             required: false,
         },
         locationDataId: {

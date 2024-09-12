@@ -11,6 +11,8 @@ import TransportMapper from "../mappers/TransportMapper.js";
 import PaginationDTO from "../DTOs/PaginationDTO.js";
 import {isEmptyObject} from "../utils/objectHelper.js";
 import generateUniqueSlug from "./SlugService.js";
+import {capitalizeFirstLetter} from "../utils/stringHelper.js";
+import {shuffleArray} from "../utils/arrayHelper.js";
 
 class TransportService extends BaseApiService {
   findAll = async (requestQuery) => {
@@ -32,7 +34,8 @@ class TransportService extends BaseApiService {
     try {
       transport = await Transport.findOne({ _id: id })
           .populate('transportTypeId')
-          .populate('locationDataId');
+          .populate('locationDataId')
+          .populate('ownerId');
     } catch (err) {
       return this.apiResponse({...responseTemplates.entity.notExists});
     }
@@ -170,6 +173,25 @@ class TransportService extends BaseApiService {
     });
   };
 
+  getRecentOffers = async () => {
+    let recentTransports = null;
+    try {
+      recentTransports = await Transport.find({})
+          .sort({ createdAt: -1 })
+          .limit(20)
+          .populate('transportTypeId');
+
+      recentTransports = shuffleArray(recentTransports).slice(0, 8);
+    } catch (err) {
+      return this.apiResponse({ ...responseTemplates.entity.gettingError });
+    }
+
+    return this.apiResponse({
+      message: "OK",
+      data: recentTransports.map(transport => TransportMapper.entityToDTO(transport)),
+    });
+  }
+
 
   #getFilteredPaginatedTransports = async ({categorySlug, requestQuery}) => {
     const page = requestQuery.page || 1;
@@ -180,6 +202,7 @@ class TransportService extends BaseApiService {
     const priceTo = requestQuery['price_to'] ? parseInt(requestQuery['price_to']) : null;
     const postalCodes = requestQuery['zip'] ? requestQuery['zip'].split(',').map(postalCode => splitZip(postalCode)) : null;
     const city = requestQuery.city ? requestQuery.city : null;
+    const type = requestQuery.type ? requestQuery.type : null;
     const sortOrder = requestQuery.order === 'asc' ? 1 : -1;
     const priceOrder = requestQuery['price_order'] ?? null;
 
@@ -211,6 +234,10 @@ class TransportService extends BaseApiService {
 
     if (city) {
       matchConditions['locationData.city'] = city;
+    }
+
+    if (type) {
+      matchConditions['transportType.name'] = capitalizeFirstLetter(type);
     }
 
     // Sorting

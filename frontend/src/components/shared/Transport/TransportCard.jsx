@@ -4,7 +4,7 @@ import {NavLink} from "react-router-dom";
 import {routes} from "@config/routes.js";
 import bike from '@images/transports/bike.jpg';
 
-const TransportCard = ({transport}) => {
+const TransportCard = ({ transport }) => {
     let imgSrc = bike;
     if (transport?.photos) {
         imgSrc = transport.photos[0];

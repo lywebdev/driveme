@@ -3,11 +3,17 @@
   flex-direction: column;
   flex-grow: 1;
 
-  .location {
+  .location, .vehicle-type {
     margin-top: 35px;
+    display: flex;
+    align-items: center;
   }
 
   .pagination {
     margin-top: 50px;
+  }
+
+  .dropdownVehicleType {
+    margin-left: 15px;
   }
 }

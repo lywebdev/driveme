@@ -74,6 +74,7 @@
 
 .text {
   font-size: 18px;
+  line-height: 150%;
 }
 
 .attributes {
@@ -97,8 +98,20 @@
   flex-grow: 1;
   border-top: 1px dotted $color-gray;
   margin: 0 10px;
+  margin-top: 3px;
 }
 
 .attributeValue {
   color: $color-black;
+}
+
+.map {
+  margin-top: 20px;
+
+  :global(.leaflet-container) {
+    margin-top: 15px;
+    overflow: hidden;
+    border-radius: 10px;
+    outline: none;
+  }
 }

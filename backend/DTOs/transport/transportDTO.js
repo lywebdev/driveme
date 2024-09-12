@@ -4,9 +4,9 @@ class TransportDTO {
     description;
     hasDelivery;
     name;
-    ownerId;
     photos;
 
+    owner;
     locationData;
     transportType;
 
@@ -17,8 +17,8 @@ class TransportDTO {
         description,
         hasDelivery,
         name,
-        ownerId,
         photos,
+        owner,
         transportType,
         locationData,
     }) {
@@ -27,9 +27,9 @@ class TransportDTO {
         this.description = description;
         this.hasDelivery = hasDelivery;
         this.name = name;
-        this.ownerId = ownerId;
         this.photos = photos;
 
+        this.owner = owner;
         this.transportType = transportType;
         this.locationData = locationData;
     }

@@ -6,10 +6,12 @@ import Container from "@layouts/shared/Container.jsx";
 import SectionTitle from "@components/UI/SectionTitle/SectionTitle.jsx";
 import PopularRentTopics from "@components/features/PopularRent/PopularRentTopics.jsx";
 import {useTransportTypeStore} from "@store/useTransportTypeStore.js";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 import TransportTypeService from "../services/TransportTypeService.js";
+import TransportService from "../services/TransportService.js";
 
 const HomePage = () => {
+    const [recentOffers, setRecentOffers] = useState(null);
     const [transportTypes, setTransportTypes, setIsLoading] = useTransportTypeStore(state => [
         state.transportTypes,
         state.setTransportTypes,
@@ -20,21 +22,26 @@ const HomePage = () => {
         const fetchData = async () => {
             setIsLoading(true);
 
+            const recentOffersResponse = await TransportService.getRecentOffers();
+
             const response = await TransportTypeService.findAll();
-            if (response.data.isSuccess) {
-                return response.data.data;
+            if (response.data.isSuccess && recentOffersResponse.data.isSuccess) {
+                return {
+                    transportTypes: response.data.data,
+                    recentOffers: recentOffersResponse.data.data,
+                };
             }
 
             throw Error(response.data.errors);
         };
 
-        fetchData().then(transportTypes => {
-            setTransportTypes(transportTypes);
+        fetchData().then(values => {
+            setTransportTypes(values.transportTypes);
+            setRecentOffers(values.recentOffers);
         }).finally(() => {
             setIsLoading(false);
         });
-    }, [setTransportTypes, setIsLoading]);
-
+    }, [setTransportTypes, setIsLoading, setRecentOffers]);
 
 
     return <div className="home-page">
@@ -55,6 +62,7 @@ const HomePage = () => {
             <RecentOffers
                 className='recent-offers'
                 marginTop
+                recentOffers={recentOffers}
                 title={<SectionTitle isLink tag='New'>Recent offers</SectionTitle>}/>
         </Container>
 

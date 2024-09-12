@@ -1,9 +1,18 @@
 import classes from './Transport.module.scss';
 import PageTitle from "@components/shared/PageTitle/PageTitle.jsx";
 import {combineClassNames} from "@helpers/stringHelper.js";
+import TransportMap from "@components/features/Transport/TransportMap.jsx";
 
 
-const Transport = ({transport}) => {
+const Transport = ({ transport }) => {
+    const transportLocation = `${transport.locationData.city}, ${transport.locationData.address}`;
+
+    transport.attributes = [
+        {name: 'Transport type', value: transport.transportType.name},
+        {name: 'Address', value: `${transportLocation}, ${transport.locationData.postalCode}`},
+        {name: 'Has delivered', value: transport.hasDelivery ? 'Yes' : 'No'},
+    ];
+
     const renderTransport = () => {
         if (transport === null) {
             return <p>Loading</p>;
@@ -23,7 +32,7 @@ const Transport = ({transport}) => {
                 <Delimiter/>
                 {
                     transport.owner && <div className={`${classes.authorInfo} ${classes.sidePaddings}`}>
-                        <div className={classes.authorName}>{transport.owner}</div>
+                        <div className={classes.authorName}>{transport.owner.name}</div>
                         <div className={classes.dotDelimiter}></div>
                         <div className={classes.authorType}>Owner</div>
                     </div>
@@ -35,14 +44,12 @@ const Transport = ({transport}) => {
                 <div className={`${classes.descriptionText} ${classes.sidePaddings}`}>
                     <p className={classes.text}>{transport.description}</p>
                 </div>
-                <Attributes attributes={transport.attributes} className={classes.sidePaddings}/>
+                <Attributes attributes={transport.attributes} className={classes.sidePaddings} />
             </InfoContainer>
 
-            <InfoContainer>
-                <div className={classes.sidePaddings}>
-                    transport on map
-                </div>
-            </InfoContainer>
+            <div className={classes.map}>
+                <TransportMap transportLocation={transportLocation}/>
+            </div>
         </>;
     };
 
@@ -56,15 +63,15 @@ const Image = ({src, alt}) => {
     </div>;
 };
 
-const InfoContainer = ({children, className}) => {
+const InfoContainer = ({ children, className, style = {} }) => {
     const combinedClasses = combineClassNames(classes.infoContainer, className);
 
-    return <div className={combinedClasses}>{children}</div>;
+    return <div className={combinedClasses} style={style}>{children}</div>;
 };
 
 const Delimiter = () => <div className={classes.delimiter}></div>;
 
-const Attributes = ({attributes, className}) => {
+const Attributes = ({ attributes, className }) => {
     const combinedClasses = combineClassNames(classes.attributes, className);
 
     return <div className={combinedClasses}>

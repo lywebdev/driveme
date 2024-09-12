@@ -140,7 +140,7 @@ const RentalForm = ({ className, transport }) => {
                     </div>
 
                     <p className={classes.rentInfo}>
-                        You are not paying for anything yet. By submitting a request, you can personally discuss the details of the booking with the owner of the car.
+                        You are not paying for anything yet. By submitting a request, you can personally discuss the details of the booking with the owner of the car
                     </p>
                 </div>
             </div>

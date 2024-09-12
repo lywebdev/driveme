@@ -8,6 +8,8 @@ const variants = {
     colorGray: 'color-gray',
     whiteBg: 'white-bg',
     unsetShadow: 'unset-shadow',
+    withoutBg: 'no-bg',
+    autoWidth: 'auto-width',
 };
 
 const types = {
@@ -27,7 +29,11 @@ const types = {
         name: 'ordering',
         placeholder: 'Sorting',
         placeholderClass: classes['dropdown-ordering__placeholder'],
-    }
+    },
+    vehicleType: {
+        name: 'vehicleType',
+        placeholder: 'Select vehicle type',
+    },
 };
 
 
@@ -58,16 +64,17 @@ const Dropdown = ({
         placeholderClass += ` ${types.ordering.placeholderClass}`;
     }
 
-    const combinedClasses = combineClassNames(classes.dropdown, [
-        className,
-        ...expandVariants(classes, variants),
-    ]);
+    const propsClassnames = [...expandVariants(classes, variants)];
+    if (className) {
+        propsClassnames.push(className);
+    }
+
+    const combinedClasses = combineClassNames(classes.dropdown, propsClassnames);
 
     if (placeholderText !== undefined) {
         placeholder = placeholderText;
     }
 
-    // ПРОБЛЕМА в OVERFLOW
 
     return <ReactDropdown
         options={options}

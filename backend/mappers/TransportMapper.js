@@ -9,9 +9,9 @@ class TransportMapper {
             cost: transportEntity.cost,
             description: transportEntity.description,
             hasDelivery: transportEntity.hasDelivery,
-            ownerId: transportEntity.ownerId,
             photos: transportEntity.photos.map(photo => `${getHost()}/uploads/transports/${transportEntity._id}/${photo}`),
 
+            owner: transportEntity.ownerId,
             locationData: transportEntity.locationDataId,
             transportType: transportEntity.transportTypeId,
         });

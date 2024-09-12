@@ -29,6 +29,14 @@ const TransportsPage = () => {
         state.setCities,
     ]);
 
+    const vehicleTypes = [
+        {label: 'All vehicle types', value: null},
+        {label: 'Cars', value: 'car'},
+        {label: 'Bicycles', value: 'bicycle'},
+        {label: 'Scooters', value: 'scooter'},
+        {label: 'Bikes', value: 'bike'},
+    ];
+
     const [searchParams, setSearchParams] = useSearchParams();
     const urlLocation = useLocation();
     const params = new URLSearchParams(urlLocation.search);
@@ -36,6 +44,7 @@ const TransportsPage = () => {
     let page = params.get('page');
     let sortingParameter = params.get('sort_order');
     let cityParameter = params.get('city');
+    let vehicleTypeParameter = params.get('type');
     let priceOrderParameter = params.get('price_order');
 
     const sortingOptions = [
@@ -62,6 +71,7 @@ const TransportsPage = () => {
             price_from: searchParams.get('price_from') || null,
             price_to: searchParams.get('price_to') || null,
             city: cityParameter || null,
+            type: vehicleTypeParameter || null,
         };
 
         const fetchData = async () => {
@@ -77,7 +87,6 @@ const TransportsPage = () => {
 
                 handleTransportsResponse(transportsResponse);
                 handleCitiesResponse(citiesResponse);
-
             } catch (error) {
                 //
             } finally {
@@ -109,7 +118,7 @@ const TransportsPage = () => {
         fetchData();
 
         return () => abortController.abort();
-    }, [page, sortingParameter, cityParameter, priceOrderParameter]);
+    }, [page, sortingParameter, cityParameter, priceOrderParameter, vehicleTypeParameter]);
 
     const changeSortingHandler = (selectedOption) => {
         const value = selectedOption.value;
@@ -135,6 +144,19 @@ const TransportsPage = () => {
         setSearchParams(params);
     };
 
+    const changeVehicleTypeHandler = (selectedOption) => {
+        const value = selectedOption.value;
+
+        if (value === null) {
+            params.delete('page');
+        } else {
+            params.set('type', value);
+            params.delete('page');
+        }
+
+        setSearchParams(params);
+    };
+
     const changeLocationHandler = (selectedOption) => {
         const value = selectedOption.value;
 
@@ -157,13 +179,22 @@ const TransportsPage = () => {
                     <PageTitle.Top className="text-left top">Rent a vehicle near you!</PageTitle.Top>
                 </PageTitle>
 
-                <div className="location">
+                <div className="location vehicle-type">
                     <Dropdown
                         options={cities}
                         type={Dropdown.types.location.name}
                         onChange={changeLocationHandler}
                         placeholderText='All cities'
                         value={cities.find(option => option.value === cityParameter)}
+                    />
+                    <Dropdown
+                        className='dropdownVehicleType'
+                        options={vehicleTypes}
+                        type={Dropdown.types.vehicleType.name}
+                        onChange={changeVehicleTypeHandler}
+                        placeholderText='Select vehicle type'
+                        variants={[Dropdown.variants.withoutBg, Dropdown.variants.autoWidth]}
+                        value={vehicleTypes.find(option => option.value === vehicleTypeParameter)}
                     />
                 </div>
             </Container>

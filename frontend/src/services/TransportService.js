@@ -10,4 +10,8 @@ export default class TransportService {
     static async findById(id) {
         return $api.get(`/transports/${id}`);
     }
+
+    static async getRecentOffers() {
+        return $api.get('/transports/recent-offers');
+    }
 }

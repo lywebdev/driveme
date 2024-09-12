@@ -172,3 +172,15 @@
     box-shadow: unset;
   }
 }
+
+.no-bg {
+  :global(.Dropdown-control) {
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+}
+
+.auto-width {
+  width: auto;
+}

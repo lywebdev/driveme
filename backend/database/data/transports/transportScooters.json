@@ -6,11 +6,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2351",
-    "description": "An iconic and stylish scooter",
+    "description": "An iconic and stylish scooter that has captured the hearts of many. With its sleek design, the Vespa Primavera 50 combines classic charm with modern performance. It offers a smooth ride, excellent maneuverability, and is perfect for navigating through busy city streets. The scooter's comfortable seat and user-friendly controls make it an ideal choice for both new and experienced riders. Its lightweight frame and efficient engine ensure it can easily handle daily commutes while providing a sense of freedom and adventure. Ideal for those who value both style and practicality.",
     "hasDelivery": true,
     "photos": [
       "vespa-primavera50.jpeg"
-    ]
+    ],
+    "slug": "vespa-primavera-50"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2343",
@@ -19,11 +20,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2352",
-    "description": "A comfortable and efficient scooter",
+    "description": "A comfortable and efficient scooter that is designed for urban commuting. The Piaggio Liberty 125 boasts a spacious seat, ample storage, and a powerful engine that ensures a smooth ride. Its lightweight body allows for easy handling, making it perfect for navigating through traffic. With advanced safety features and a stylish design, this scooter not only provides a practical solution for daily travel but also adds a touch of elegance to your journey. Whether you're running errands or exploring the city, the Liberty 125 is a reliable companion.",
     "hasDelivery": false,
     "photos": [
       "piaggio-liberty125.jpeg"
-    ]
+    ],
+    "slug": "piaggio-liberty-125"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2345",
@@ -32,11 +34,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2353",
-    "description": "A powerful and reliable scooter",
+    "description": "A powerful and reliable scooter that exemplifies Honda's commitment to quality and innovation. The PCX 150 features a robust engine that delivers impressive performance while maintaining excellent fuel efficiency. Its aerodynamic design not only enhances its aesthetic appeal but also improves stability and handling at higher speeds. Equipped with modern technology, including LED lighting and a digital display, this scooter is perfect for tech-savvy riders. With a comfortable seat and generous storage space, the Honda PCX 150 is ideal for those who appreciate both comfort and style.",
     "hasDelivery": true,
     "photos": [
       "honda-pcx150.jpeg"
-    ]
+    ],
+    "slug": "honda-pcx-150"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2347",
@@ -45,11 +48,12 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2354",
-    "description": "A nimble and affordable scooter",
+    "description": "A nimble and affordable scooter that is perfect for beginners and experienced riders alike. The Kymco Agility 50 is designed with practicality in mind, offering a lightweight frame that makes it easy to handle. Its efficient engine provides just the right amount of power for city commuting, while the comfortable seating ensures a pleasant ride. With a sporty look and reliable performance, the Agility 50 is an excellent choice for anyone looking for an economical and stylish way to get around town. It's the perfect companion for short trips and daily errands.",
     "hasDelivery": false,
     "photos": [
       "kymco-agility50.jpeg"
-    ]
+    ],
+    "slug": "kymco-agility-50"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e2349",
@@ -58,10 +62,11 @@
     "transportTypeId": "64b8f2f8b3c5a7298d6e214d",
     "ownerId": "64b8f2f8b3c5a7298d6e214e",
     "locationDataId": "64b8f2f8b3c5a7298d6e2355",
-    "description": "A classic and compact scooter",
+    "description": "A classic and compact scooter that is perfect for urban environments. The SYM Mio 50 features a stylish design that stands out on the road while offering practicality and functionality. Its small size makes it easy to park and maneuver in tight spaces, making it a great choice for city dwellers. With a reliable engine and comfortable seating, the Mio 50 provides a smooth and enjoyable ride. Whether you're commuting to work or enjoying a leisurely ride around town, this scooter offers everything you need for a convenient and stylish travel experience.",
     "hasDelivery": true,
     "photos": [
       "sym-mio50.jpeg"
-    ]
+    ],
+    "slug": "sym-mio-50"
   }
 ]

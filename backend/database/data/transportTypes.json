@@ -1,9 +1,9 @@
 [
   {
-    "id": "64b8f2f8b3c5a7298d6e214a",
-    "name": "Bike",
-    "slug": "bikes",
-    "photo": "bike.jpg"
+    "id": "64b8f2f8b3c5a7298d6e214d",
+    "name": "Scooter",
+    "slug": "scooters",
+    "photo": "scooter.jpg"
   },
   {
     "id": "64b8f2f8b3c5a7298d6e214b",
@@ -18,9 +18,9 @@
     "photo": "bicycle.jpg"
   },
   {
-    "id": "64b8f2f8b3c5a7298d6e214d",
-    "name": "Scooter",
-    "slug": "scooters",
-    "photo": "scooter.jpg"
+    "id": "64b8f2f8b3c5a7298d6e214a",
+    "name": "Bike",
+    "slug": "bikes",
+    "photo": "bike.jpg"
   }
 ]
