@@ -2,8 +2,9 @@ import {createBrowserRouter} from "react-router-dom";
 import Layout from "@layouts/Layout.jsx";
 import ErrorPage from "@pages/Errors/ErrorPage.jsx";
 import AuthGuard from "../auth/AuthGuard.jsx";
-import {guestRoutes, privateRoutes, publicRoutes} from "./routes.jsx";
+import {adminRoutes, guestRoutes, privateRoutes, publicRoutes} from "./routes.jsx";
 import GuestGuard from "../auth/GuestGuard.jsx";
+import AdminGuard from "../auth/AdminGuard.jsx";
 
 export const globalRouter = createBrowserRouter([
     {
@@ -25,7 +26,14 @@ export const globalRouter = createBrowserRouter([
     {
         element: <AuthGuard />,
         children: [
-            ...privateRoutes
+            ...privateRoutes,
+        ],
+    },
+
+    {
+        element: <AdminGuard />,
+        children: [
+            ...adminRoutes,
         ],
     },
 ]);

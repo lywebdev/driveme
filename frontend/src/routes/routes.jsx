@@ -39,6 +39,13 @@ export const guestRoutes = [
 ];
 
 export const privateRoutes = [
+    // {
+    //     path: '/logout',
+    //     component: '',
+    // }
+];
+
+export const adminRoutes = [
     {
         path: routes.dashboard,
         element: <Dashboard />,
@@ -47,8 +54,4 @@ export const privateRoutes = [
         path: routes.exampleAdmin,
         element: <ExampleAdminPage />,
     }
-    // {
-    //     path: '/logout',
-    //     component: '',
-    // }
 ];

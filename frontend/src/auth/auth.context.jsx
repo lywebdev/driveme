@@ -8,12 +8,13 @@ export const AuthContext = createContext(null);
 
 const AuthContextProvider = ({ children }) => {
     const [isLoading, setIsLoading] = useState(true);
-    const [refreshTokens, logout, isAuthenticated, setIsAuthenticated, setUser] = useUserStore(state => [
+    const [refreshTokens, logout, isAuthenticated, setIsAuthenticated, setUser, user] = useUserStore(state => [
         state.refreshTokens,
         state.logout,
         state.isAuthenticated,
         state.setIsAuthenticated,
         state.setUser,
+        state.user,
     ]);
     const [cookieConsentFlag, setCookieConsentFlag] = useConsent();
 
@@ -52,6 +53,7 @@ const AuthContextProvider = ({ children }) => {
         appIsLoading: isLoading,
         cookieConsentFlag,
         setCookieConsentFlag,
+        user,
     };
 
 

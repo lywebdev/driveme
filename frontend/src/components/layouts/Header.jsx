@@ -5,9 +5,10 @@ import Logo from "@components/shared/Logo/Logo.jsx";
 import {routes} from "@config/routes.js";
 import useAuth from "../../hooks/contexts/useAuth.js";
 import {useUserStore} from "@store/useUserStore.js";
+import {USER_ROLES} from "../../../utils/constants.js";
 
 const Header = () => {
-    const {isAuthenticated} = useAuth();
+    const { isAuthenticated, user } = useAuth();
     const [logout] = useUserStore(state => [
         state.logout
     ]);
@@ -30,18 +31,27 @@ const Header = () => {
                                 Transports
                             </NavLink>
                         </li>
-                        <li>
-                            <NavLink
-                                to={routes.dashboard}
-                            >
-                                Admin
-                            </NavLink>
-                        </li>
+                        {
+                            isAuthenticated && user.role === USER_ROLES.admin
+                                ? (
+                                    <li>
+                                        <NavLink
+                                            to={routes.dashboard}
+                                        >
+                                            Admin
+                                        </NavLink>
+                                    </li>
+                                )
+                                : null
+                        }
                     </ul>
                 </nav>
                 {
                     isAuthenticated
-                        ? <Button onClick={onLogout}>Logout</Button>
+                        ? <>
+                            <span style={{marginRight: '20px'}}>{user.name}</span>
+                            <Button onClick={onLogout}>Logout</Button>
+                        </>
                         : <Button url={routes.login}>Login</Button>
                 }
             </div>

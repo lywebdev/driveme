@@ -1,7 +1,7 @@
 import useAuth from "../hooks/contexts/useAuth.js";
 import {Navigate} from "react-router-dom";
-import AdminLayout from "@components/admin/layouts/AdminLayout.jsx";
 import config from "@config/app.js";
+import Layout from "@layouts/Layout.jsx";
 
 const AuthGuard = () => {
     const {isAuthenticated} = useAuth();
@@ -10,7 +10,7 @@ const AuthGuard = () => {
         return <Navigate to={config.PATH_UNAUTHORIZED} />;
     }
 
-    return <AdminLayout />;
+    return <Layout />;
 };
 
 

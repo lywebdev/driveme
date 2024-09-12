@@ -80,6 +80,7 @@ class UserService extends BaseApiService {
                 id: userDTO.id,
                 name: userDTO.name,
                 email: userDTO.email,
+                role: userDTO.role,
             };
             const tokens = TokenService.generateTokens(publicFields);
 

@@ -28,11 +28,6 @@ jobs:
     environment: production
 
     steps:
-      - name: Check permissions
-        run: |
-          cd /home/driveme/actions-runner/_work/driveme/driveme/backend
-          touch test_file
-          ls -l test_file
       - name: Install backend dependencies
         run: |
           cd /home/driveme/actions-runner/_work/driveme/driveme/backend
