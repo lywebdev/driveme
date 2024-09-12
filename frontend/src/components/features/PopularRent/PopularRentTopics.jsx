@@ -1,25 +1,29 @@
 import OfferCard from "@components/shared/OfferCard/OfferCard.jsx";
 import classes from './PopularRentTopics.module.scss';
 import {combineClassNames} from "@helpers/stringHelper.js";
-import {resolveAlias} from "@helpers/imageHelper.js";
+
+import FirstPopularRentTopic from '@public/images/popular-rent-topics/1.jpg';
+import SecondPopularRentTopic from '@public/images/popular-rent-topics/2.jpg';
+import ThirdPopularRentTopic from '@public/images/popular-rent-topics/3.jpg';
+
 
 const popularRentTopicsData = [
     {
         id: 1,
         name: 'A trip around the city',
-        photo: resolveAlias('@images/popular-rent-topics/1.jpg'),
+        photo: FirstPopularRentTopic,
         price: 100,
     },
     {
         id: 2,
         name: 'A car with a roof rack',
-        photo: resolveAlias('@images/popular-rent-topics/2.jpg'),
+        photo: SecondPopularRentTopic,
         price: 150,
     },
     {
         id: 3,
         name: 'A car for off-road trips',
-        photo: resolveAlias('@images/popular-rent-topics/3.jpg'),
+        photo: ThirdPopularRentTopic,
         price: 200,
     },
 ];

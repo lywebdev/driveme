@@ -37,6 +37,7 @@ export default defineConfig({
             '@data': '/src/data',
             '@helpers': '/src/helpers',
             '@images': '/src/app/assets/images',
+            '@public': '/public',
         }
     }
 });
