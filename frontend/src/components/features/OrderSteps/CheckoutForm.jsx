@@ -30,6 +30,8 @@ export default function CheckoutForm({ dpmCheckerLink, clientSecret }) {
         setIsLoading(true);
 
         try {
+            await elements.submit();
+
             const response = await OrderService.createOrder({
                 ...contact,
 

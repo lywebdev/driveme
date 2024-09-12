@@ -5,13 +5,14 @@ import Order from "../models/OrderSchema.js";
 import OrderMapper from "../mappers/OrderMapper.js";
 
 class OrderService extends BaseApiService {
-    findByClientSecret = async requestBody => {
+    findByClientSecret = async clientSecret => {
         let order = null;
         try {
             order = await Order.findOne({
-                clientSecret: requestBody.clientSecret,
+                clientSecret: clientSecret,
             });
         } catch (err) {
+            console.log('err', err);
             return this.apiResponse({...responseTemplates.entity.notExists});
         }
 

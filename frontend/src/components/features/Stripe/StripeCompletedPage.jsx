@@ -98,7 +98,7 @@ const StripeCompletedPage = () => {
     }, [stripe]);
 
     if (!order) {
-        return <div>Loading</div>;
+        return <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', flexGrow: '1'}}>Loading</div>;
     }
 
     return (

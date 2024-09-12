@@ -1,7 +1,7 @@
 import OrderService from "../services/OrderService.js";
 
 const findByClientSecret = async (req, res) => {
-    const response = await OrderService.findByClientSecret(req.body);
+    const response = await OrderService.findByClientSecret(req.params.clientSecret);
     res.status(response.status).json(response.content);
 }
 

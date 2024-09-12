@@ -42,7 +42,7 @@ const BillingForm = ({ totalPrice }) => {
             {
                 clientSecret && (
                     <Elements options={options} stripe={stripePromise}>
-                        <CheckoutForm dpmCheckerLink={dpmCheckerLink} />
+                        <CheckoutForm dpmCheckerLink={dpmCheckerLink} clientSecret={clientSecret} />
                     </Elements>
                 )
             }

@@ -40,3 +40,11 @@
   --totl-primary-font-color: unset;
   --totl-primate-font-descolor: unset;
 }
+
+.leaflet-top, .leaflet-bottom {
+  z-index: 0 !important;
+}
+
+.leaflet-pane {
+  z-index: 0 !important;
+}

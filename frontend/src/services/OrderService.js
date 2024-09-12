@@ -23,8 +23,6 @@ export default class OrderService {
     }
 
     static async getOrderDataByClientSecret(clientSecret) {
-        return $api.get('/orders', {
-            clientSecret,
-        });
+        return $api.get(`/orders/${clientSecret}`);
     }
 }
