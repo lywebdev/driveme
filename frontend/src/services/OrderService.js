@@ -1,6 +1,10 @@
 import $api from "@config/http.js";
 
 export default class OrderService {
+    static async findAll() {
+        return $api.get('/admin/orders');
+    }
+
     static async createOrder(orderData, clientSecret) {
         return $api.post('/orders', {
             name: orderData.name,

@@ -8,6 +8,7 @@ import TransportPage from "@pages/TransportPage.jsx";
 import TransportsPage from "@pages/TransportsPage.jsx";
 import CompletedPage from "@pages/CompletedPage.jsx";
 import UserListPage from "@pages/admin/user/UserListPage.jsx";
+import OrderListPage from "@pages/admin/order/OrderListPage.jsx";
 
 export const publicRoutes = [
     {
@@ -54,5 +55,9 @@ export const adminRoutes = [
     {
         path: '/admin/users',
         element: <UserListPage />,
+    },
+    {
+        path: '/admin/orders',
+        element: <OrderListPage />,
     }
 ];

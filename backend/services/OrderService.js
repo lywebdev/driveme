@@ -5,6 +5,19 @@ import Order from "../models/OrderSchema.js";
 import OrderMapper from "../mappers/OrderMapper.js";
 
 class OrderService extends BaseApiService {
+    findAll = async () => {
+        try {
+            const orders = await Order.find();
+
+            return this.apiResponse({
+                message: 'Transport types have been successfully obtained',
+                data: orders,
+            });
+        } catch (err) {
+            return this.apiResponse({...responseTemplates.exception});
+        }
+    }
+
     findByClientSecret = async clientSecret => {
         let order = null;
         try {
