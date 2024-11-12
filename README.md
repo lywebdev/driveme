@@ -32,10 +32,7 @@
 ### DevOps and Infrastructure
 
 - **GitHub Actions** — for CI/CD
-- **Docker** — for containerizing the application
 - **Nginx** — as a reverse proxy server
-
-## Installation and Setup
 
 ### Prerequisites
 
